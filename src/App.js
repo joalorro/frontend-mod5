@@ -6,13 +6,16 @@ import Signup from './react/components/Signup'
 
 import './stylesheets/buttons.css'
 
+import AppAdapter from './adapters/AppAdapter'
+
 class App extends Component {
 	render() {
 		return (
 		<div className="App">
-			<Link to="/signup" exact component={Signup}>  
-				<button className="button signup" > Log-in/Sign-up </button>
+			<Link to="/login" exact component={Signup}>  
+				<button className="button signup" > Log-in </button>
 			</Link>
+			<button onClick={() => AppAdapter.sortExercises()} >test</button>
 		</div>
 		);
 	}
