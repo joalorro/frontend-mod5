@@ -1,22 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
-
-import  rootReducer from './redux/reducers/index'
-import Routes from './Routes'
-
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(
-	rootReducer, 
-	compose(
-		applyMiddleware(thunk),
-		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-	)
-)
+import Routes from './Routes'
+import { store } from './store'
+// import { PersistGate } from 'redux-persist/integration/react'
 
 const Root = (store) => (
 	<Provider store={store} >
