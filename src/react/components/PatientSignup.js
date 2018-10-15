@@ -8,6 +8,7 @@ class PatientSignup extends Component {
 		lastName: '',
 		email: '',
 		password: '',
+		identifier: '',
 		signedUp: false
 	}
 
@@ -24,24 +25,21 @@ class PatientSignup extends Component {
 				first_name: this.state.firstName,
 				last_name: this.state.lastName,
 				email: this.state.email,
-				password: this.state.password
+				password: this.state.password,
+				identifier: this.state.identifier
 			}
 		}
-		// fetch('http://localhost:3000/patients', {
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/json"
-		// 	},
-		// 	body: JSON.stringify(body)
-		// }).then(res => res.json()).then(response => console.log(response))
 		
 		AppAdapter.signUp({body, model: 'patients'}).then(response => console.log(response))
-
+		this.setState({
+			signedUp: true
+		})
 	}
 	
 	render() {
 		if (this.state.signedUp){
-			return <Redirect to="" />
+			let slug = `/${this.state.lastName}-${this.state.firstName}`
+			return <Redirect to={slug + '/exercises'} />
 		}
 
 		return (
