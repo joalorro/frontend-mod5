@@ -1,5 +1,4 @@
 import App from './App';
-import { connect } from 'react-redux'
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import React, { Fragment } from 'react'
@@ -34,10 +33,4 @@ const Routes = () => {
 	);
 }
 
-const mapStateToProps = state => {
-	return{
-
-	}
-}
-
-export default connect(mapStateToProps)(Routes);
+export default Routes;

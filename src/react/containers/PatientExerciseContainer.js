@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchExercisesByPatient } from '../../redux/actions/fetchExercises'
+import ExerciseCard from '../components/ExerciseCard'
 
 class PatientExerciseContainer extends Component {
 
@@ -11,11 +12,7 @@ class PatientExerciseContainer extends Component {
 	renderExercises = () => {
 		return this.props.exercises.map( e => {
 			return (
-				<div key={e.id}>
-					<h4>{e.name}</h4>
-					<p>{e.desc}</p>
-					<p>Flagged? {e.flagged ? "yes" : "no"}</p>
-				</div>
+				<ExerciseCard exercise={e} key={e.id} />
 			)
 		})
 	}

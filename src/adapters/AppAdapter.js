@@ -35,9 +35,17 @@ class AppAdapter {
 			fetch(API_ROOT + 'exercises', {
 				method: "POST",
 				headers: HEADERS,
-				body: JSON.stringify({
-					...exercise
-				})
+				body: JSON.stringify({exercise})
+			})
+		)
+	}
+
+	static addComment = comment => {
+		return (
+			fetch(API_ROOT + 'comments', {
+				method: "POST",
+				headers: HEADERS,
+				body: JSON.stringify({comment})
 			})
 		)
 	}

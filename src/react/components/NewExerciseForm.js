@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import AppAdapter from '../../adapters/AppAdapter'
+import '../../stylesheets/style.css'
 
-class ExerciseForm extends Component {
+class NewExerciseForm extends Component {
 	
 	state = {
 		name: '',
 		desc: '',
 		url: '',
-		patientId: this.props.patientId,
-		therapistId: this.props.therapistId
+		patient_id: this.props.patientId,
+		therapist_id: this.props.therapistId
 	}
 
 	handleChange = (e) => {
@@ -19,21 +20,43 @@ class ExerciseForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		AppAdapter.createNewExercise(this.state)
+		AppAdapter.createNewExercise(this.state).then(res=>res.json())
+		.then(exerciseResponse =>{
+			console.log(exerciseResponse)
+			if (!exerciseResponse.status){
+				this.props.toggleNewExerciseState()
+				this.props.addExercise({
+					id: exerciseResponse.id,
+					name: exerciseResponse.name,
+					desc: exerciseResponse.desc,
+					flagged: exerciseResponse.flagged
+				})
+			}
+		})
 	}
 	
 	render() {
 		return (
-			<div>
-				<form onSubmit={this.handleSubmit} >
-					<input type="text" name="name" onChange={this.handleChange} />
-					<input type="text" name="desc" onChange={this.handleChange} />
-					<input type="text" name="url" onChange={this.handleChange} />
-					<input type="submit" />
-				</form>
+			<div className="exercise-form-background">
+				<div className="exercise-form-div">
+					<div className="x-btn-container">
+						<button className="x-btn" onClick={this.props.toggleNewExerciseState}>X</button>
+					</div>
+					<form onSubmit={this.handleSubmit} >
+						<label>Name: </label> <br />
+						<input type="text" name="name" onChange={this.handleChange} /> <br />
+
+						<label>Description: </label> 
+						<input type="text" name="desc" onChange={this.handleChange} /><br />
+
+						<label>Video Url: </label> <br />
+						<input type="text" name="url" onChange={this.handleChange} /> <br />
+						<input type="submit" />
+					</form>
+				</div>
 			</div>
 		);
 	}
 }
 
-export default ExerciseForm;
+export default NewExerciseForm;

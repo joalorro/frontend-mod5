@@ -1,14 +1,14 @@
 .patient-container {
 	display:grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	width: 800px;
+	width: 1000px;
 	margin: 0 auto;
 }
 
 .patient-card {
 	display: inline-block;
-	width: 200px;
-	height: 300px;
+	width: 250px;
+	height: 400px;
 	margin: 0 auto;
 	border: 1px solid black;
 	overflow:scroll;
@@ -16,4 +16,42 @@
 
 .patient-name {
 	justify-content: center;
+}
+
+.btn-container {
+	display:flex;
+	justify-content: center;
+}
+
+.add-exercise-btn {
+	border-radius: 100%;
+	height: 30px;
+	width: 30px;
+	margin: 0 auto;
+}
+
+.x-btn-container {
+	display:flex;
+	justify-content: right;
+}
+
+.x-btn {
+	border-radius: 100%;
+	border: hidden;
+	color: gray;
+	margin: 0;
+	font-size: 16px;
+	background: none;
+}
+
+.exercise-form-background {
+	background: rgba(0,0,0,.3)
+}
+
+.exercise-form-div{
+	display: absolute;
+	margin: 0 auto;
+	height: 300px;
+	width: 400px;
+	border: solid black 2px;
 }
