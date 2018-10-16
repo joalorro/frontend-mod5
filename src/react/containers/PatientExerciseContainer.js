@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { fetchExercises } from '../../redux/actions/fetchExercises'
+import { fetchExercisesByPatient } from '../../redux/actions/fetchExercises'
 
-class ExerciseContainer extends Component {
+class PatientExerciseContainer extends Component {
 
 	componentDidMount(){
-		this.props.fetchExercises(this.props.patient.id)
+		this.props.fetchExercisesByPatient(this.props.patient.id)
 	}
 
 	renderExercises = () => {
-		debugger
 		return this.props.exercises.map( e => {
 			return (
 				<div key={e.id}>
@@ -43,10 +42,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchExercises: (patientId) => {
-			return dispatch(fetchExercises(patientId))
+		fetchExercisesByPatient: (patientId) => {
+			return dispatch(fetchExercisesByPatient(patientId))
 		}
 	}
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ExerciseContainer);
+export default connect(mapStateToProps,mapDispatchToProps)(PatientExerciseContainer);

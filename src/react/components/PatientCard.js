@@ -7,7 +7,6 @@ class PatientCard extends Component {
 
 	
 	renderPatientExercises = () => {
-		debugger
 		return this.props.exercises.map( e => {
 			return (
 				<div key={e.id}>

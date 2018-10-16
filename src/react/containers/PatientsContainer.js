@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchPatients } from '../../redux/actions/fetchPatients'
-import { fetchExercises } from '../../redux/actions/fetchExercises'
+import { fetchExercisesByPT } from '../../redux/actions/fetchExercises'
 import PatientCard from '../components/PatientCard'
 import '../../stylesheets/style.css'
 
@@ -10,7 +10,7 @@ class PatientsContainer extends Component {
 	componentDidMount() {
 		if (this.props.therapist){
 			this.props.fetchPatients(this.props.therapist.id)
-			this.props.fetchExercises(this.props.therapist.id)
+			this.props.fetchExercisesByPT(this.props.therapist.id)
 		}
 	}
 
@@ -46,8 +46,8 @@ const mapDispatchToProps = (dispatch) => {
 		fetchPatients: (therapistId) => {
 			return dispatch(fetchPatients(therapistId))
 		},
-		fetchExercises: (therapistId) => {
-			return dispatch(fetchExercises(therapistId))
+		fetchExercisesByPT: (therapistId) => {
+			return dispatch(fetchExercisesByPT(therapistId))
 		}
 	}
 }
