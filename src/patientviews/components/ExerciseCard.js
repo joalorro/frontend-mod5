@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NewCommentForm from './NewCommentForm'
-import CommentsContainer from '../containers/CommentsContainer'
+import CommentsContainer from '../../generalviews/CommentsContainer'
 
 class ExerciseCard extends Component {
 

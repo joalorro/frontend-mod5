@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import AppAdapter from '../../adapters/AppAdapter'
+import AppAdapter from '../adapters/AppAdapter'
 
-import {createPatientSession,createTherapistSession} from '../../redux/actions/actions'
+import {createPatientSession,createTherapistSession} from '../redux/actions/actions'
 
 class Login extends Component {
 	

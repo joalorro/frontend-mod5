@@ -2,15 +2,15 @@ import App from './App';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import React, { Fragment } from 'react'
-import Navbar from './react/nav/Navbar'
-import Login from './react/components/Login'
+import Navbar from './generalviews/Navbar'
+import Login from './generalviews/Login'
 // import NotFound from './react/components/NotFound'
-import Signup from './react/components/Signup'
-import PatientSignup from './react/components/PatientSignup'
-import TherapistSignup from './react/components/TherapistSignup'
+import Signup from './generalviews/Signup'
+import PatientSignup from './patientviews/components/PatientSignup'
+import TherapistSignup from './therapistviews/components/TherapistSignup'
 // import PatientPage from './react/components/PatientPage'
-import PatientExercisesContainer from './react/containers/PatientExercisesContainer'
-import PatientsContainer from './react/containers/PatientsContainer'
+import PatientExercisesContainer from './patientviews/containers/PatientExercisesContainer'
+import PatientsContainer from './therapistviews/containers/PatientsContainer'
 
 
 const Routes = () => {

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-
-import Signup from './react/components/Signup'
-
+import Signup from './generalviews/Signup'
 import './stylesheets/buttons.css'
 
 import AppAdapter from './adapters/AppAdapter'

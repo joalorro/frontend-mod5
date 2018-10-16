@@ -2,6 +2,7 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react';
 import '../../stylesheets/style.css'
+import ExerciseCard from '../../patientviews/components/ExerciseCard'
 import NewExerciseForm from './NewExerciseForm'
 
 class PatientCard extends Component {
@@ -13,14 +14,17 @@ class PatientCard extends Component {
 	
 	renderPatientExercises = () => {
 		return this.props.exercises.map( e => {
+			// return (
+			// 	<div key={e.id}>
+			// 		<h4>Name: {e.name}</h4>
+			// 		<p>Desc: {e.desc}</p>
+			// 		<p>Flagged? {e.flagged ? "yes" : "no"}</p>
+			// 		{this.state.showComments ? this.renderComments(e.id) : null}
+			// 		{/* <button onClick={() => this.setState(prevState => ({showComments: !prevState.showComments}))}>Show Comments</button> */}
+			// 	</div>
+			// )
 			return (
-				<div key={e.id}>
-					<h4>Name: {e.name}</h4>
-					<p>Desc: {e.desc}</p>
-					<p>Flagged? {e.flagged ? "yes" : "no"}</p>
-					{this.state.showComments ? this.renderComments(e.id) : null}
-					{/* <button onClick={() => this.setState(prevState => ({showComments: !prevState.showComments}))}>Show Comments</button> */}
-				</div>
+				<ExerciseCard exercise={e}/>
 			)
 		})
 	}
