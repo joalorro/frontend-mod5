@@ -19,7 +19,7 @@ class PatientCard extends Component {
 					<p>Desc: {e.desc}</p>
 					<p>Flagged? {e.flagged ? "yes" : "no"}</p>
 					{this.state.showComments ? this.renderComments(e.id) : null}
-					<button onClick={() => this.setState(prevState => ({showComments: !prevState.showComments}))}>Show Comments</button>
+					{/* <button onClick={() => this.setState(prevState => ({showComments: !prevState.showComments}))}>Show Comments</button> */}
 				</div>
 			)
 		})
@@ -63,10 +63,10 @@ class PatientCard extends Component {
 }
 
 const mapStateToProps = state => {
-	const exerciseIds = state.exercises.map(e => e.id)
+	// const exerciseIds = state.exercises.map(e => e.id)
 	return {
 		therapist: state.sessionReducer.therapist,
-		comments: state.commentsReducer.comments.filter(c => exerciseIds.includes(c.exercise_id))
+		comments: state.commentsReducer.comments
 	}
 }
 
