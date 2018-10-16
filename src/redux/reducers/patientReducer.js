@@ -1,4 +1,4 @@
-export const patientReducer = (state = {}, action) => {
+export const patientReducer = (state = {patients: []}, action) => {
 	switch (action.type){
 		case "SELECT_PATIENT":
 			return state

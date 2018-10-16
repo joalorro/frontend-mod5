@@ -5,7 +5,7 @@ class NewCommentForm extends Component {
 	
 	state = {
 		content: '',
-		exerciseId: this.props.exercise.id
+		exercise_id: this.props.exercise.id
 	}
 
 	handleChange = (e) => {
@@ -17,6 +17,8 @@ class NewCommentForm extends Component {
 	handleSubmit = e => {
 		e.preventDefault()
 		AppAdapter.addComment(this.state)
+		.then(res=> res.json())
+		.then(response=> console.log(response))
 	}
 
 	render() {

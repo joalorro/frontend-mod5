@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import NewCommentForm from './NewCommentForm'
+import CommentsContainer from '../containers/CommentsContainer'
 
 class ExerciseCard extends Component {
+
 	render() {
 		return (
 			<div>
@@ -9,7 +11,10 @@ class ExerciseCard extends Component {
 				<p>{this.props.exercise.desc}</p>
 				<p>{this.props.exercise.flagged}</p>
 				<p>{this.props.exercise.url}</p>
-				<NewCommentForm exercise={this.props.exercise} />
+				<div className='comments-section'>
+					<CommentsContainer exerciseId={this.props.exercise.id}/>
+					<NewCommentForm exercise={this.props.exercise} />
+				</div>
 			</div>
 		);
 	}

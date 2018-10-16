@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchExercisesByPatient } from '../../redux/actions/fetchExercises'
 import ExerciseCard from '../components/ExerciseCard'
+import '../../stylesheets/style.css'
 
-class PatientExerciseContainer extends Component {
+class PatientExercisesContainer extends Component {
 
 	componentDidMount(){
 		this.props.fetchExercisesByPatient(this.props.patient.id)
@@ -19,8 +20,7 @@ class PatientExerciseContainer extends Component {
 
 	render() {
 		return (
-			<div>
-				Exercise Container
+			<div className="patient-show">
 				<h1>{this.props.patient.last_name + ", " + this.props.patient.first_name}</h1>
 				<h3>Exercises: </h3>
 				{this.props.exercises ? this.renderExercises() : null}
@@ -45,4 +45,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(PatientExerciseContainer);
+export default connect(mapStateToProps,mapDispatchToProps)(PatientExercisesContainer);

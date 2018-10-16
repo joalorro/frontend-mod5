@@ -9,7 +9,7 @@ import Signup from './react/components/Signup'
 import PatientSignup from './react/components/PatientSignup'
 import TherapistSignup from './react/components/TherapistSignup'
 // import PatientPage from './react/components/PatientPage'
-import PatientExerciseContainer from './react/containers/PatientExerciseContainer'
+import PatientExercisesContainer from './react/containers/PatientExercisesContainer'
 import PatientsContainer from './react/containers/PatientsContainer'
 
 
@@ -19,7 +19,7 @@ const Routes = () => {
 			<Router>
 				<Fragment>
 					<Navbar />
-					<Route exact path="/:slug/exercises" component={PatientExerciseContainer} />
+					<Route exact path="/:slug/exercises" component={PatientExercisesContainer} />
 					<Route exact path="/:slug/patients" component={PatientsContainer} />
 					<Route exact path="/login" component={Login}/>
 					<Route exact path="/signup" component={Signup} />

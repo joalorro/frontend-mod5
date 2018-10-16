@@ -7,7 +7,8 @@ import NewExerciseForm from './NewExerciseForm'
 class PatientCard extends Component {
 	
 	state = { 
-		newExercise: false
+		newExercise: false,
+		showComments: false
 	}
 	
 	renderPatientExercises = () => {
@@ -17,6 +18,8 @@ class PatientCard extends Component {
 					<h4>Name: {e.name}</h4>
 					<p>Desc: {e.desc}</p>
 					<p>Flagged? {e.flagged ? "yes" : "no"}</p>
+					{this.state.showComments ? this.renderComments(e.id) : null}
+					<button onClick={() => this.setState(prevState => ({showComments: !prevState.showComments}))}>Show Comments</button>
 				</div>
 			)
 		})
@@ -28,6 +31,14 @@ class PatientCard extends Component {
 				newExercise: !prevState.newExercise
 			}
 		})
+	}
+
+	renderComments = (exerciseId) => {
+		return (
+			<div>
+
+			</div>
+		)
 	}
 
 	renderNewExerciseForm = () => {
@@ -51,15 +62,11 @@ class PatientCard extends Component {
 	}
 }
 
-// const mapDispatchToProps = dispatch => {
-// 	return {
-// 		fetchExercises: (patientId) => dispatch(fetchExercises(patientId))
-// 	}
-// }
-
 const mapStateToProps = state => {
+	const exerciseIds = state.exercises.map(e => e.id)
 	return {
-		therapist: state.sessionReducer.therapist
+		therapist: state.sessionReducer.therapist,
+		comments: state.commentsReducer.comments.filter(c => exerciseIds.includes(c.exercise_id))
 	}
 }
 

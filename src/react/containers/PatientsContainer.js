@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchPatients } from '../../redux/actions/fetchPatients'
 import { fetchExercisesByPT } from '../../redux/actions/fetchExercises'
+import { fetchComments } from '../../redux/actions/fetchComments'
 import PatientCard from '../components/PatientCard'
 import '../../stylesheets/style.css'
 
@@ -11,6 +12,9 @@ class PatientsContainer extends Component {
 		if (this.props.therapist){
 			this.props.fetchPatients(this.props.therapist.id)
 			this.props.fetchExercisesByPT(this.props.therapist.id)
+		}
+		if (this.props.exercises){
+			this.props.fetchComments(this.props.exercises.map(e => e.id))
 		}
 	}
 
@@ -37,7 +41,8 @@ const mapStateToProps = (state) => {
 	return {
 		therapist: state.sessionReducer.therapist,
 		patients: state.patientReducer.patients,
-		exercises: state.exerciseReducer.exercises
+		exercises: state.exerciseReducer.exercises,
+		comments: state.commentsReducer.comments
 	}
 }
 
@@ -48,6 +53,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		fetchExercisesByPT: (therapistId) => {
 			return dispatch(fetchExercisesByPT(therapistId))
+		},
+		fetchComments: (exerciseIds) => {
+			return dispatch(fetchComments(exerciseIds))
 		}
 	}
 }
