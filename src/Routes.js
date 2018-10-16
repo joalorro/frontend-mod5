@@ -15,9 +15,6 @@ import PatientsContainer from './react/containers/PatientsContainer'
 
 
 const Routes = () => {
-
-
-
 	return (
 		<Fragment>
 			<Router>

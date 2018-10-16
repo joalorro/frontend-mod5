@@ -9,6 +9,7 @@ class ExerciseContainer extends Component {
 	}
 
 	renderExercises = () => {
+		debugger
 		return this.props.exercises.map( e => {
 			return (
 				<div key={e.id}>
@@ -34,15 +35,9 @@ class ExerciseContainer extends Component {
 
 const mapStateToProps = (state) => {
 	
-	if (!state.exercises){
-		return state = {
-			patient: state.session.patient
-		}
-	} else {
-		return state = {
-			exercises: state.exercises.exercises,
-			patient: state.session.patient
-		}
+	return {
+		patient: state.sessionReducer.patient,
+		exercises: state.exerciseReducer.exercises
 	}
 }
 

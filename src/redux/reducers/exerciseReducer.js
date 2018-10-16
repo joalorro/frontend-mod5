@@ -1,4 +1,5 @@
 export const exerciseReducer = (state = {},action) => {
+	console.log('action from exercise reducer: ', action)
 	switch (action.type){
 		case "SELECT_EXERCISE":
 			return state

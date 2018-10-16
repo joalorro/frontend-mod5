@@ -23,27 +23,23 @@ class AppAdapter {
 		)
 	}
 
-	static fetchExercises = () => {
+	static fetchPatientExercises = () => {
 		return (
-			fetch(API_ROOT + '/exercises')
+			fetch(API_ROOT + 'exercises')
 			.then(res => res.json())
 		)
 	}
 
-	static fetchPatients = (therapist) => {
-
+	static createNewExercise = exercise => {
 		return (
-			fetch(API_ROOT + 'therapists/' + therapist.id + '/patients')
-				.then(res => res.json())
+			fetch(API_ROOT + 'exercises', {
+				method: "POST",
+				headers: HEADERS,
+				body: JSON.stringify({
+					...exercise
+				})
+			})
 		)
-	}
-
-	static sortExercises = () => {
-		AppAdapter.fetchExercises().then(exercises => console.log(exercises))
-	}
-
-	static sayHi = () => {
-		console.log('hi')
 	}
 }
 

@@ -93,7 +93,6 @@ class Login extends Component {
 		} else if (this.state.submitted) {
 			return this.renderNextPage()
 		} else {
-
 			return (
 				<div>
 					<div className="form-container">
@@ -117,7 +116,7 @@ class Login extends Component {
 
 const mapStateToProps = state => {
 	return {
-		session: state.session
+		session: state.sessionReducer
 	}
 }
 

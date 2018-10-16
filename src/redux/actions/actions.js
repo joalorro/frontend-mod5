@@ -11,10 +11,3 @@ export const createTherapistSession = (therapist) => {
 		therapist
 	}
 }
-
-export const setPatients = (patients) =>{
-	return {
-		type: "SET_PATIENTS",
-		patients
-	}
-}

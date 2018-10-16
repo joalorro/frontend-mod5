@@ -1,0 +1,19 @@
+.patient-container {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	width: 800px;
+	margin: 0 auto;
+}
+
+.patient-card {
+	display: inline-block;
+	width: 200px;
+	height: 300px;
+	margin: 0 auto;
+	border: 1px solid black;
+	overflow:scroll;
+}
+
+.patient-name {
+	justify-content: center;
+}

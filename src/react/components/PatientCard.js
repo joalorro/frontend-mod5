@@ -1,49 +1,47 @@
-import { fetchExercises } from '../../redux/actions/fetchExercises'
-import { connect } from 'react-redux'
-
+// import { fetchExercises } from '../../redux/actions/fetchExercises'
+// import { connect } from 'react-redux'
 import React, { Component } from 'react';
+import '../../stylesheets/style.css'
 
 class PatientCard extends Component {
-	
-	componentDidMount() {
-		this.props.fetchExercises(this.props.patient.id)
-	}
+
 	
 	renderPatientExercises = () => {
+		debugger
 		return this.props.exercises.map( e => {
 			return (
-				<li key={e.id}>
-					<h1>Name: {e.name}</h1>
-					<h3>Desc: {e.desc}</h3>
-					<h5>Flagged? {e.flagged ? "yes" : "no"}</h5>
-				</li>
+				<div key={e.id}>
+					<h4>Name: {e.name}</h4>
+					<p>Desc: {e.desc}</p>
+					<p>Flagged? {e.flagged ? "yes" : "no"}</p>
+				</div>
 			)
 		})
 	}
 	
 	render() {
+		console.log(this.props)
 		return (
-			<div>
-				<h1>{this.props.patient.last_name}, {this.props.patient.first_name}</h1>
-				<ul>
-					{this.props.exercises ? this.renderPatientExercises() : null}
-				</ul>
+			<div className="patient-card">
+				<h3 className="patient-name">{this.props.patient.last_name}, {this.props.patient.first_name}</h3>
+					{this.renderPatientExercises()}
 			</div>
 		);
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		fetchExercises: (patientId) => dispatch(fetchExercises(patientId))
-	}
-}
+// const mapDispatchToProps = dispatch => {
+// 	return {
+// 		fetchExercises: (patientId) => dispatch(fetchExercises(patientId))
+// 	}
+// }
 
-const mapStateToProps = state => {
-	return {
-		...state,
-		exercises: state.exercises.exercises
-	}
-}
+// const mapStateToProps = state => {
+// 	return {
+// 		...state,
+// 		exercises: state.exerciseReducer.exercises
+// 	}
+// }
 
-export default connect(mapStateToProps,mapDispatchToProps)(PatientCard);
+// export default connect(mapStateToProps,mapDispatchToProps)(PatientCard);
+export default PatientCard
