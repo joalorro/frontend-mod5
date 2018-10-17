@@ -24,7 +24,7 @@ class PatientCard extends Component {
 			// 	</div>
 			// )
 			return (
-				<ExerciseCard exercise={e}/>
+				<ExerciseCard exercise={e} comments={e.comments}/>
 			)
 		})
 	}

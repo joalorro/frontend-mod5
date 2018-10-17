@@ -31,8 +31,10 @@ export function fetchExercisesByPT(therapistId){
 					id: e.id,
 					name: e.name,
 					desc: e.desc,
+					url: e.url,
 					flagged: e.flagged,
-					patientId: e.patient.id
+					patientId: e.patient.id,
+					comments: e.comments
 				}
 			})
 		}))
@@ -50,7 +52,9 @@ export function fetchExercisesByPatient(patientId){
 					id: e.id,
 					name: e.name,
 					desc: e.desc,
-					flagged: e.flagged
+					url: e.url,
+					flagged: e.flagged,
+					comments: e.comments
 				}
 			})
 		}))

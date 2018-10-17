@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NewCommentForm from '../../generalviews/NewCommentForm'
-import CommentsContainer from '../../generalviews/CommentsContainer'
+import CommentSection from '../../generalviews/CommentSection'
 
 class ExerciseCard extends Component {
 
@@ -12,7 +12,7 @@ class ExerciseCard extends Component {
 				<p>{this.props.exercise.flagged}</p>
 				<p>{this.props.exercise.url}</p>
 				<div className='comments-section'>
-					<CommentsContainer exerciseId={this.props.exercise.id}/>
+
 					<NewCommentForm exercise={this.props.exercise} />
 				</div>
 			</div>

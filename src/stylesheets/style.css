@@ -7,8 +7,8 @@
 
 .patient-card {
 	display: inline-block;
-	width: 250px;
-	height: 400px;
+	width: 300px;
+	height: 500px;
 	margin: 0 auto;
 	border: 1px solid black;
 	overflow:scroll;
