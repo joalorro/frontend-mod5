@@ -8,13 +8,14 @@ import '../../stylesheets/style.css'
 
 class PatientsContainer extends Component {
 
+	state = {
+		commentsFetched: false
+	}
+
 	componentDidMount() {
 		if (this.props.therapist){
 			this.props.fetchPatients(this.props.therapist.id)
 			this.props.fetchExercisesByPT(this.props.therapist.id)
-		}
-		if (this.props.exercises){
-			this.props.fetchComments(this.props.exercises.map(e => e.id))
 		}
 	}
 
@@ -29,6 +30,10 @@ class PatientsContainer extends Component {
 	}
 
 	render() {
+		if (!this.state.commentsFetched && this.props.exercises) {
+			this.props.fetchComments(this.props.exercises.map(e => e.id))
+			this.setState({commentsFetched: false})
+		}
 		return (
 			<div className="patient-container">
 				{this.props.exercises ? this.renderPatients() : null}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppAdapter from '../../adapters/AppAdapter'
+import AppAdapter from '../adapters/AppAdapter'
 
 class NewCommentForm extends Component {
 	

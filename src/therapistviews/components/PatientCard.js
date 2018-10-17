@@ -2,7 +2,7 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react';
 import '../../stylesheets/style.css'
-import ExerciseCard from '../../patientviews/components/ExerciseCard'
+import ExerciseCard from './ExerciseCard'
 import NewExerciseForm from './NewExerciseForm'
 
 class PatientCard extends Component {
