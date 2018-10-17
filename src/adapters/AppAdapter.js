@@ -49,6 +49,15 @@ class AppAdapter {
 			})
 		)
 	}
+
+	static toggleFlag = (exerciseId) => {
+		return ( 
+			fetch(API_ROOT + 'exercises/' + exerciseId + '/flag', {
+				method: "POST",
+				headers: HEADERS
+			}).then( res => res.json() )
+		)
+	}
 }
 
 

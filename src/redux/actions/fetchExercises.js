@@ -1,23 +1,18 @@
 import { API_ROOT } from '../../constants'
 
-//search exercises by patientId
-
-// export function fetchExercises(patientId){
-// 	return (dispatch) => {
-// 		return fetch(API_ROOT + '/exercises')
-// 			.then(res => res.json())
-// 			.then(exercises => dispatch({
-// 				type: 'FETCH_EXERCISES',
-// 				exercises: exercises.filter(e => patientId === e.patient.id).map(e => ({
-// 					id: e.id,
-// 					name: e.name,
-// 					desc: e.desc,
-// 					flagged: e.flagged
-// 				}))
-// 			}))
-// 	}
-// }
-
+export function fetchExercises(id,model){
+	return (dispatch) => {
+		return fetch(`${API_ROOT}/${model}s/${id}/exercises`)
+			.then(res => res.json() )
+			.then(exercises => {
+				debugger
+				return dispatch({
+					type: "FETCH_EXERCISES",
+					exercises					
+				})
+			})
+	}
+}
 //search exercises by therapistId
 
 export function fetchExercisesByPT(therapistId){

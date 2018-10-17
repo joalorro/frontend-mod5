@@ -8,10 +8,6 @@ import '../../stylesheets/style.css'
 
 class PatientsContainer extends Component {
 
-	state = {
-		commentsFetched: false
-	}
-
 	componentDidMount() {
 		if (this.props.therapist){
 			this.props.fetchPatients(this.props.therapist.id)

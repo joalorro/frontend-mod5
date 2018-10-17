@@ -3,15 +3,17 @@ import React, { Component } from 'react';
 class CommentSection extends Component {
 	
 	renderComments = () => {
-		return this.props.comments.map( c => <p key={c.id}>
+		return this.props.comments.map( c => <li key={c.id} >
 			{c.content}
-		</p>)
+		</li>)
 	}
-	
+
 	render() {
 		return (
 			<div>
-				{this.renderComments()}
+				<ul>
+					{this.renderComments()}
+				</ul>
 			</div>
 		);
 	}
