@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Comment = ({comment}) => {
+const Comment = ({comment:{commenter_name,content}}) => {
 	return (
 		<div>
-			<p>{comment.content}</p>
+			<p><span className="commenter-name">{commenter_name}: </span> <span className="comment-content">{content}</span> </p>
 		</div>
 	);
 }

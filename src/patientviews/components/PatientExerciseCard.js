@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import NewCommentForm from '../../generalviews/NewCommentForm'
 import CommentSection from '../../generalviews/CommentSection'
 import YouTube from 'react-youtube'
 import AppAdapter from '../../adapters/AppAdapter'
 
 class PatientExerciseCard extends Component {
+
+	state = {
+		showComments: false
+	}
 
 	handleFlagToggle = () => {
 		AppAdapter.toggleFlag(this.props.exercise.id)
@@ -25,10 +28,7 @@ class PatientExerciseCard extends Component {
 				<p>{this.props.exercise.desc}</p>
 				<button onClick={this.handleFlagToggle}>{this.props.exercise.flagged ? "Unflag" : "Flag"}</button>
 				<YouTube opts={opts} videoId={this.props.exercise.videoId}/>
-				<div className='comments-section'>
-					<CommentSection exerciseId={this.props.exercise.id} />
-					<NewCommentForm exerciseId={this.props.exercise.id} />
-				</div>
+				<CommentSection exerciseId={this.props.exercise.id} />
 			</div>
 		);
 	}

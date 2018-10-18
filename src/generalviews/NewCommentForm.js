@@ -18,20 +18,21 @@ class NewCommentForm extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault()
-		AppAdapter.addComment(this.state)
+		AppAdapter.addComment(this.state, this.props.commenterId, this.props.commenterType)
 		.then(res => res.json())
 		.then(response => {
 			this.props.fetchComments(this.props.exerciseIds)
 			console.log(response)
 		})
+		this.refs.commentContent.value = ""
 	}
 
 	render() {
 		return (
 			<div >
 				<form id={this.props.exerciseId} onSubmit={this.handleSubmit}>
-					<textarea form={this.props.exerciseId} onChange={this.handleChange} ></textarea> <br />
-					<input type="submit" ref={this.input}/>
+					<textarea form={this.props.exerciseId} onChange={this.handleChange} ref="commentContent"></textarea> <br />
+					<input type="submit" />
 				</form>
 			</div>
 		);
@@ -40,7 +41,9 @@ class NewCommentForm extends Component {
 
 const mapStateToProps = state => {
 	return {
-		exerciseIds: state.exerciseReducer.exercises.map( e => e.id )
+		exerciseIds: state.exerciseReducer.exercises.map( e => e.id ),
+		commenterId: state.sessionReducer.therapist ? state.sessionReducer.therapist.id : state.sessionReducer.patient.id,
+		commenterType: state.sessionReducer.therapist ? "therapist" : "patient"
 	}
 }
 

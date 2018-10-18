@@ -1,22 +1,21 @@
+import React from 'react';
 import { connect } from 'react-redux';
 
-import React from 'react';
+import Comment from './Comment'
+import NewCommentForm from './NewCommentForm'
 
-const CommentSection = ({comments}) => {
+const CommentSection = ({comments,exerciseId}) => {
 	
 	const renderComments = () => {
 		return comments.map( c => {
-			return (
-				<li>
-					{c.content}
-				</li>
-			)
+			return <Comment key={c.id} comment={c} />
 		})
 	}
 	
 	return (
 		<div>
 			{renderComments()}
+			<NewCommentForm exerciseId={exerciseId} />
 		</div>
 	);
 }

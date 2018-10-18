@@ -23,12 +23,12 @@ class AppAdapter {
 		)
 	}
 
-	static fetchPatientExercises = () => {
-		return (
-			fetch(API_ROOT + 'exercises')
-			.then(res => res.json())
-		)
-	}
+	// static fetchPatientExercises = () => {
+	// 	return (
+	// 		fetch(API_ROOT + 'exercises')
+	// 		.then(res => res.json())
+	// 	)
+	// }
 
 	static createNewExercise = exercise => {
 		return (
@@ -40,12 +40,16 @@ class AppAdapter {
 		)
 	}
 
-	static addComment = comment => {
+	static addComment = (comment,commenter_id,commenter_type) => {
 		return (
 			fetch(API_ROOT + 'comments', {
 				method: "POST",
 				headers: HEADERS,
-				body: JSON.stringify({comment})
+				body: JSON.stringify({
+					comment,
+					commenter_id,
+					commenter_type
+				})
 			})
 		)
 	}

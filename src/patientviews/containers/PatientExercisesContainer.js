@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 import { fetchExercises } from '../../redux/actions/fetchExercises'
 import { fetchComments } from '../../redux/actions/fetchComments'
 import PatientExerciseCard from '../components/PatientExerciseCard'
 import '../../stylesheets/style.css'
 
-class PatientExercisesContainer extends Component {
+class PatientExercisesContainer extends PureComponent {
 
 	componentDidMount(){
 		this.props.fetchExercises(this.props.patient.id)
@@ -16,6 +16,10 @@ class PatientExercisesContainer extends Component {
 			this.props.fetchComments(this.props.exercises.map(e => e.id))
 		}
 	}
+	
+	shouldComponentUpdate(nextProps) {
+		return (this.props.exercises !== nextProps.exercises || this.props.comments.length !== nextProps.comments.length)
+	}	
 
 	renderExercises = () => {
 		return this.props.exercises.map( e => {
