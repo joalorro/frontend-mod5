@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import AppAdapter from '../adapters/AppAdapter'
+import { connect } from 'react-redux';
+import { fetchComments } from '../redux/actions/fetchComments'
 
 class NewCommentForm extends Component {
-	
-	constructor(props) {
-		super(props);
-		this.input = React.createRef()
-	}
-	
 
 	state = {
 		content: '',
-		exercise_id: this.props.exercise.id
+		exercise_id: this.props.exerciseId
 	}
 
 	handleChange = (e) => {
@@ -22,18 +18,19 @@ class NewCommentForm extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault()
-		// debugger
 		AppAdapter.addComment(this.state)
-		.then(res=> res.json())
-		.then(response=> console.log(response))
-		this.props.renderNewComment(this.state)
+		.then(res => res.json())
+		.then(response => {
+			this.props.fetchComments(this.props.exerciseIds)
+			console.log(response)
+		})
 	}
 
 	render() {
 		return (
 			<div >
-				<form id={this.props.exercise.id} onSubmit={this.handleSubmit}>
-					<textarea form={this.props.exercise.id} onChange={this.handleChange} ></textarea> <br />
+				<form id={this.props.exerciseId} onSubmit={this.handleSubmit}>
+					<textarea form={this.props.exerciseId} onChange={this.handleChange} ></textarea> <br />
 					<input type="submit" ref={this.input}/>
 				</form>
 			</div>
@@ -41,4 +38,16 @@ class NewCommentForm extends Component {
 	}
 }
 
-export default NewCommentForm;
+const mapStateToProps = state => {
+	return {
+		exerciseIds: state.exerciseReducer.exercises.map( e => e.id )
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		fetchComments: (exerciseIds) => dispatch(fetchComments(exerciseIds))
+	}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(NewCommentForm);

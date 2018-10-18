@@ -1,22 +1,30 @@
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class CommentSection extends Component {
+import React from 'react';
+
+const CommentSection = ({comments}) => {
 	
-	renderComments = () => {
-		return this.props.comments.map( c => <li key={c.id} >
-			{c.content}
-		</li>)
+	const renderComments = () => {
+		return comments.map( c => {
+			return (
+				<li>
+					{c.content}
+				</li>
+			)
+		})
 	}
+	
+	return (
+		<div>
+			{renderComments()}
+		</div>
+	);
+}
 
-	render() {
-		return (
-			<div>
-				<ul>
-					{this.renderComments()}
-				</ul>
-			</div>
-		);
+const mapStateToProps = (state,ownProps) => {
+	return {
+		comments: state.commentReducer.comments.filter( c => c.exercise_id === ownProps.exerciseId)
 	}
 }
 
-export default CommentSection;
+export default connect(mapStateToProps)(CommentSection)

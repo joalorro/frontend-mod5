@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AppAdapter from '../../adapters/AppAdapter'
 import '../../stylesheets/style.css'
+import { connect } from 'react-redux'
+import { fetchExercises } from '../../redux/actions/fetchExercises'
 
 class NewExerciseForm extends Component {
 	
@@ -31,6 +33,7 @@ class NewExerciseForm extends Component {
 					desc: exerciseResponse.desc,
 					flagged: exerciseResponse.flagged
 				})
+				this.props.fetchExercises(this.props.therapistId)
 			}
 		})
 	}
@@ -59,4 +62,18 @@ class NewExerciseForm extends Component {
 	}
 }
 
-export default NewExerciseForm;
+const mapStateToProps = state => {
+	return {
+		therapistId: state.sessionReducer.therapist.id
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		fetchExercises: (therapistId,model = "therapist") => {
+			return dispatch(fetchExercises(therapistId,model))
+		}
+	}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(NewExerciseForm);

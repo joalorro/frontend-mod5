@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchPatients } from '../../redux/actions/fetchPatients'
-import { fetchExercisesByPT } from '../../redux/actions/fetchExercises'
-// import { fetchComments } from '../../redux/actions/fetchComments'
+import { fetchExercises } from '../../redux/actions/fetchExercises'
+import { fetchComments } from '../../redux/actions/fetchComments'
 import PatientCard from '../components/PatientCard'
 import '../../stylesheets/style.css'
 
@@ -10,8 +10,15 @@ class PatientsContainer extends Component {
 
 	componentDidMount() {
 		if (this.props.therapist){
-			this.props.fetchPatients(this.props.therapist.id)
-			this.props.fetchExercisesByPT(this.props.therapist.id)
+			const therapistId = this.props.therapist.id
+			this.props.fetchPatients(therapistId)
+			this.props.fetchExercises(therapistId)
+		}
+	}
+
+	componentDidUpdate() {
+		if ( this.props.exercises && !this.props.comments.length) {
+			this.props.fetchComments(this.props.exercises.map(e => e.id))
 		}
 	}
 
@@ -38,8 +45,8 @@ const mapStateToProps = (state) => {
 	return {
 		therapist: state.sessionReducer.therapist,
 		patients: state.patientReducer.patients,
-		exercises: state.exerciseReducer.exercises
-		// comments: state.commentsReducer.comments
+		exercises: state.exerciseReducer.exercises,
+		comments: state.commentReducer.comments
 	}
 }
 
@@ -48,13 +55,10 @@ const mapDispatchToProps = (dispatch) => {
 		fetchPatients: (therapistId) => {
 			return dispatch(fetchPatients(therapistId))
 		},
-		fetchExercisesByPT: (therapistId) => {
-			return dispatch(fetchExercisesByPT(therapistId))
-		}
-		// ,
-		// fetchComments: (exerciseIds) => {
-		// 	return dispatch(fetchComments(exerciseIds))
-		// }
+		fetchExercises: (therapistId,model = "therapist") => {
+			return dispatch(fetchExercises(therapistId,model))
+		},
+		fetchComments: (exerciseIds) => dispatch(fetchComments(exerciseIds))
 	}
 }
 

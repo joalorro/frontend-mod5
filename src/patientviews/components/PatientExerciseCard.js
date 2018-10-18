@@ -4,11 +4,7 @@ import CommentSection from '../../generalviews/CommentSection'
 import YouTube from 'react-youtube'
 import AppAdapter from '../../adapters/AppAdapter'
 
-class ExerciseCard extends Component {
-
-	renderNewComment = (comment) => {
-		this.props.exercise.comments.push(comment)
-	}
+class PatientExerciseCard extends Component {
 
 	handleFlagToggle = () => {
 		AppAdapter.toggleFlag(this.props.exercise.id)
@@ -28,14 +24,14 @@ class ExerciseCard extends Component {
 				<h4>{this.props.exercise.name}</h4>
 				<p>{this.props.exercise.desc}</p>
 				<button onClick={this.handleFlagToggle}>{this.props.exercise.flagged ? "Unflag" : "Flag"}</button>
-				<YouTube opts={opts} videoId={this.props.exercise.url}/>
+				<YouTube opts={opts} videoId={this.props.exercise.videoId}/>
 				<div className='comments-section'>
-					<CommentSection comments={this.props.exercise.comments}/>
-					<NewCommentForm exercise={this.props.exercise} renderNewComment={this.renderNewComment}/>
+					<CommentSection exerciseId={this.props.exercise.id} />
+					<NewCommentForm exerciseId={this.props.exercise.id} />
 				</div>
 			</div>
 		);
 	}
 }
 
-export default ExerciseCard;
+export default PatientExerciseCard;

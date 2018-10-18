@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { fetchExercisesByPatient } from '../../redux/actions/fetchExercises'
-import ExerciseCard from '../components/ExerciseCard'
+import { fetchExercises } from '../../redux/actions/fetchExercises'
+import { fetchComments } from '../../redux/actions/fetchComments'
+import PatientExerciseCard from '../components/PatientExerciseCard'
 import '../../stylesheets/style.css'
 
 class PatientExercisesContainer extends Component {
 
 	componentDidMount(){
-		this.props.fetchExercisesByPatient(this.props.patient.id)
+		this.props.fetchExercises(this.props.patient.id)
+	}
+
+	componentDidUpdate() {
+		if (this.props.exercises && !this.props.comments.length) {
+			this.props.fetchComments(this.props.exercises.map(e => e.id))
+		}
 	}
 
 	renderExercises = () => {
 		return this.props.exercises.map( e => {
 			return (
-				<ExerciseCard exercise={e} key={e.id} />
+				<PatientExerciseCard exercise={e} key={e.id} />
 			)
 		})
 	}
@@ -30,18 +37,19 @@ class PatientExercisesContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-	
 	return {
 		patient: state.sessionReducer.patient,
-		exercises: state.exerciseReducer.exercises
+		exercises: state.exerciseReducer.exercises,
+		comments: state.commentReducer.comments
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchExercisesByPatient: (patientId) => {
-			return dispatch(fetchExercisesByPatient(patientId))
-		}
+		fetchExercises: (patientId, model = "patient") => {
+			return dispatch(fetchExercises(patientId,model))
+		},
+		fetchComments: (exerciseIds) => dispatch(fetchComments(exerciseIds))
 	}
 }
 

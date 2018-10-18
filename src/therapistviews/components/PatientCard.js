@@ -2,29 +2,19 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react';
 import '../../stylesheets/style.css'
-import ExerciseCard from './ExerciseCard'
+import TherapistExerciseCard from './TherapistExerciseCard'
 import NewExerciseForm from './NewExerciseForm'
 
 class PatientCard extends Component {
 	
 	state = { 
-		newExercise: false,
-		showComments: false
+		newExercise: false
 	}
 	
 	renderPatientExercises = () => {
 		return this.props.exercises.map( e => {
-			// return (
-			// 	<div key={e.id}>
-			// 		<h4>Name: {e.name}</h4>
-			// 		<p>Desc: {e.desc}</p>
-			// 		<p>Flagged? {e.flagged ? "yes" : "no"}</p>
-			// 		{this.state.showComments ? this.renderComments(e.id) : null}
-			// 		{/* <button onClick={() => this.setState(prevState => ({showComments: !prevState.showComments}))}>Show Comments</button> */}
-			// 	</div>
-			// )
 			return (
-				<ExerciseCard exercise={e} comments={e.comments}/>
+				<TherapistExerciseCard exercise={e} />
 			)
 		})
 	}
@@ -35,14 +25,6 @@ class PatientCard extends Component {
 				newExercise: !prevState.newExercise
 			}
 		})
-	}
-
-	renderComments = (exerciseId) => {
-		return (
-			<div>
-
-			</div>
-		)
 	}
 
 	renderNewExerciseForm = () => {
@@ -67,10 +49,8 @@ class PatientCard extends Component {
 }
 
 const mapStateToProps = state => {
-	// const exerciseIds = state.exercises.map(e => e.id)
 	return {
-		therapist: state.sessionReducer.therapist,
-		comments: state.commentsReducer.comments
+		therapist: state.sessionReducer.therapist
 	}
 }
 

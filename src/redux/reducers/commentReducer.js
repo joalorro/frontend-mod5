@@ -1,7 +1,7 @@
-export const commentsReducer = (state = {comments: []}, action) => {
+export const commentReducer = (state = {comments: []}, action) => {
 	switch(action.type){
 		case "FETCH_COMMENTS":
-			console.log('action from commentsReducer: ', action)
+			console.log('action from commentReducer: ', action)
 			return {
 				comments: action.comments
 			}
