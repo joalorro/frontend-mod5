@@ -48,15 +48,19 @@ class Login extends Component {
 			// }
 		})
 		.then(response => {
+			console.log('login response: ', response)
 			if (!response.error){
-				if (this.state.model === 'patient'){
+				if (response.patient) {
 					this.props.createPatientSession(response)
 				} else {
 					this.props.createTherapistSession(response)
 				}
-				
+				let model = Object.keys(response)[0]
+				localStorage.setItem("token", response[model].token)
 				this.setState({
 					submitted: true
+				}, () => {
+					console.log("after login, state is: ", this.state)
 				})
 			}
 		})

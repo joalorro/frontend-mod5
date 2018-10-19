@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker';
-
-import Routes from './Routes'
+import App from './App'
+// import Routes from './Routes'
 import { store } from './store'
-// import { PersistGate } from 'redux-persist/integration/react'
 
 const Root = (store) => (
 	<Provider store={store} >
-		<Routes />
+		<App />
 	</Provider>
 )
 

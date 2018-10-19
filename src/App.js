@@ -1,22 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import Signup from './generalviews/Signup'
 import './stylesheets/buttons.css'
+import { createPatientSession, createTherapistSession } from './redux/actions/actions'
+import Routes from './Routes'
 
 import AppAdapter from './adapters/AppAdapter'
 
 class App extends Component {
+
+	componentDidMount() {
+		if (localStorage.getItem("token")){
+			AppAdapter.persist(localStorage.getItem("token"))
+			.then( sessionUser => {
+				let model = Object.keys(sessionUser)[0]
+				if (model === 'patient') {
+					this.props.createPatientSession(sessionUser)
+				} else {
+					this.props.createTherapistSession(sessionUser)
+				}
+			})
+		}
+	}
+	
+
 	render() {
 		return (
 		<div className="App">
-			<Link to="/login" exact component={Signup}>  
-				<button className="button signup" > Log-in </button>
-			</Link>
-			<button onClick={() => AppAdapter.sortExercises()} >test</button>
+			<Routes />
 		</div>
 		);
 	}
 }
 
-export default connect(null,null)(App);
+const mapStateToProps = state => {
+	return {
+		sessionUser: state.sessionReducer.therapist ? state.sessionReducer.therapist.therapist : state.sessionReducer.patient
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		createPatientSession: (patient) => dispatch(createPatientSession(patient)),
+		createTherapistSession: (therapist) => dispatch(createTherapistSession(therapist))
+	}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);

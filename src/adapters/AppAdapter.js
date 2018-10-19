@@ -15,7 +15,7 @@ class AppAdapter {
 
 	static login = ({body}) => {
 		return (
-			fetch(API_ROOT + 'sessions/create', {
+			fetch(API_ROOT + 'login', {
 				method: 'POST',
 				headers: HEADERS,
 				body: JSON.stringify(body)
@@ -23,12 +23,16 @@ class AppAdapter {
 		)
 	}
 
-	// static fetchPatientExercises = () => {
-	// 	return (
-	// 		fetch(API_ROOT + 'exercises')
-	// 		.then(res => res.json())
-	// 	)
-	// }
+	static persist = (token) => {
+		return (
+			fetch(API_ROOT + '/persist', {
+				method: "GET",
+				headers: {
+					"Authorization": token
+				}
+			}).then(res => res.json() )
+		)
+	}
 
 	static createNewExercise = exercise => {
 		return (
