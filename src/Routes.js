@@ -8,7 +8,7 @@ import Login from './generalviews/Login'
 import Signup from './generalviews/Signup'
 import PatientSignup from './patientviews/components/PatientSignup'
 import TherapistSignup from './therapistviews/components/TherapistSignup'
-import PatientExercisesContainer from './patientviews/containers/PatientExercisesContainer'
+import ExerciseContainerForPatient from './patientviews/containers/ExerciseContainerForPatient'
 import PatientsContainer from './therapistviews/containers/PatientsContainer'
 
 
@@ -19,13 +19,13 @@ const Routes = () => {
 				<Fragment>
 					<Navbar />
 					<Switch>
-						<Route exact path="/:slug/exercises" component={PatientExercisesContainer} />
-						<Route exact path="/:slug/patients" component={PatientsContainer} />
-						<Route exact path="/login" component={Login}/>
-						<Route exact path="/signup" component={Signup} />
-						<Route path="/signup/patient" component={PatientSignup} />
-						<Route path="/signup/therapist" component={TherapistSignup} />
-						<Route exact path="/" component={Home} />
+						<Route exact path="/:slug/exercises" render={(routeProps) => <ExerciseContainerForPatient {...routeProps} />} />
+						<Route exact path="/:slug/patients" render={(routeProps) => <PatientsContainer {...routeProps} />} />
+						<Route exact path="/login" render={(routeProps) => <Login {...routeProps} />}/>
+						<Route exact path="/signup" render={(routeProps) => <Signup {...routeProps} />} />
+						<Route path="/signup/patient" render={(routeProps) => <PatientSignup {...routeProps} />} />
+						<Route path="/signup/therapist" render={(routeProps) => <TherapistSignup {...routeProps} />} />
+						<Route exact path="/" render={(routeProps) => <Home {...routeProps} />} />
 						{/* <Route component={NotFound} /> */}
 					</Switch>
 				</Fragment>

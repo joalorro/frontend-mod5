@@ -9,6 +9,7 @@ import AppAdapter from './adapters/AppAdapter'
 class App extends Component {
 
 	componentDidMount() {
+		console.log('mounting <App />')
 		if (localStorage.getItem("token")){
 			AppAdapter.persist(localStorage.getItem("token"))
 			.then( sessionUser => {
@@ -21,13 +22,12 @@ class App extends Component {
 			})
 		}
 	}
-	
 
 	render() {
 		return (
-		<div className="App">
-			<Routes />
-		</div>
+			<div className="App">
+				<Routes />
+			</div>
 		);
 	}
 }
