@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
 import AppAdapter from '../../adapters/AppAdapter';
 
 class PatientSignup extends Component {
@@ -31,17 +30,15 @@ class PatientSignup extends Component {
 		}
 		
 		AppAdapter.signUp({body, model: 'patients'}).then(response => console.log(response))
-		this.setState({
-			signedUp: true
-		})
+	}
+	
+	completeSignup = () => {
+		
+		let slug = `/${this.state.lastName}-${this.state.firstName}`
+		this.props.history.push(slug)
 	}
 	
 	render() {
-		if (this.state.signedUp){
-			let slug = `/${this.state.lastName}-${this.state.firstName}`
-			return <Redirect to={slug + '/exercises'} />
-		}
-
 		return (
 			<div>
 				<div className="form-container">

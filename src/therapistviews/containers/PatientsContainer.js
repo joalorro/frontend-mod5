@@ -9,18 +9,38 @@ import '../../stylesheets/style.css'
 class PatientsContainer extends Component {
 
 	componentDidMount() {
-		if (this.props.therapist){
+		if (this.props.therapist) {
 			const therapistId = this.props.therapist.id
 			this.props.fetchPatients(therapistId)
 			this.props.fetchExercises(therapistId)
 		}
 	}
-
+	
 	componentDidUpdate() {
-		if ( this.props.exercises && !this.props.comments.length) {
+		if (this.props.therapist){
+			const therapistId = this.props.therapist.id
+			this.props.fetchPatients(therapistId)
+			this.props.fetchExercises(therapistId)
+		}
+		if ( this.props.exercises.length && !this.props.comments.length) {
 			this.props.fetchComments(this.props.exercises.map(e => e.id))
 		}
 	}
+
+	shouldComponentUpdate(nextProps){
+		// debugger
+		if (this.props.therapist !== nextProps.therapist){
+			return true 
+		} else if ( this.props.patients.length !== nextProps.patients.length){
+			return true
+		} else if ( this.props.exercises.length !== nextProps.exercises.length) {
+			return true
+		} else if (this.props.comments.length !== nextProps.comments.length){
+			return true
+		} else {
+			return false
+		}
+	} 
 
 	renderPatients = () => {
 		return this.props.patients.map( p => {
@@ -33,11 +53,18 @@ class PatientsContainer extends Component {
 	}
 
 	render() {
-		return (
-			<div className="patient-container">
-				{this.props.exercises ? this.renderPatients() : null}
-			</div>
-		);
+		if (this.props.therapist){
+			return (
+				<div className="patient-index-outer">
+					<h1>{this.props.therapist.last_name}, {this.props.therapist.first_name} </h1>
+					<div className="patient-container">
+						{this.props.exercises ? this.renderPatients() : null}
+					</div>
+				</div>
+			);
+		} else {
+			return <div></div>
+		}
 	}
 }
 

@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
 
 class Signup extends Component {
 
 	state = {
-		redirectSignup: false,
 		slug: '/signup/patient'
+	}
+
+	handleClickBack = () => {
+		this.props.history.push('/login')
 	}
 
 	handleSubmit = event => {
 		event.preventDefault()
-		this.setState({
-			redirectSignup: true
-		})
+		this.props.history.push(this.state.slug)
 	}
 
 	handleChange = event => {
@@ -22,9 +22,6 @@ class Signup extends Component {
 	}
 
 	render() {
-		if (this.state.redirectSignup){
-			return <Redirect to={this.state.slug} />
-		}
 		return (
 			<div>
 				Sign up as a: 
@@ -33,6 +30,7 @@ class Signup extends Component {
 						<option value="patient" >Patient</option>
 						<option value="therapist" >Physical Therapist</option>
 					</select>
+					<button onClick={this.handleClickBack}>Back</button>
 					<input type='submit' value="Next"/>
 				</form>
 			</div>

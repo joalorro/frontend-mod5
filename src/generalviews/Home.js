@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import Signup from './generalviews/Signup'
+import Signup from './Signup'
 import { connect } from 'react-redux'
 
 const Home = ({ sessionUser, history }) => {

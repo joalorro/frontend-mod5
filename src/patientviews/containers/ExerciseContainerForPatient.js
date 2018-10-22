@@ -1,24 +1,44 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchExercises } from '../../redux/actions/fetchExercises'
 import { fetchComments } from '../../redux/actions/fetchComments'
 import PatientExerciseCard from '../components/PatientExerciseCard'
 import '../../stylesheets/style.css'
 
-class PatientExercisesContainer extends PureComponent {
+class ExerciseContainerForPatient extends Component {
 
 	componentDidMount(){
-		this.props.fetchExercises(this.props.patient.id)
+		console.log('exercise container mounted')
+		if (this.props.patient) {
+			console.log('fetching exercises from CDM')
+			this.props.fetchExercises(this.props.patient.id)
+		}
 	}
-
+	
 	componentDidUpdate() {
+		console.log('updating')
+		if (this.props.patient) {
+			console.log('fetching ex.')
+			this.props.fetchExercises(this.props.patient.id)
+		}
 		if (this.props.exercises && !this.props.comments.length) {
 			this.props.fetchComments(this.props.exercises.map(e => e.id))
 		}
 	}
 	
 	shouldComponentUpdate(nextProps) {
-		return (this.props.exercises !== nextProps.exercises || this.props.comments.length !== nextProps.comments.length)
+		console.log('in shouldComponentUpdate', nextProps)
+		if (this.props.patient !== nextProps.patient) {
+			return true
+		} else if (this.props.exercises.length !== nextProps.exercises.length) {
+			return true
+		} 
+		else if (this.props.comments.length !== nextProps.comments.length){
+			return true
+		} 
+		else {
+			return false
+		}
 	}	
 
 	renderExercises = () => {
@@ -30,17 +50,23 @@ class PatientExercisesContainer extends PureComponent {
 	}
 
 	render() {
-		return (
-			<div className="patient-show">
-				<h1>{this.props.patient.last_name + ", " + this.props.patient.first_name}</h1>
-				<h3>Exercises: </h3>
-				{this.props.exercises ? this.renderExercises() : null}
-			</div>
-		);
+		console.log('render in exercise container')
+		if (this.props.patient){
+			return (
+				<div className="patient-show">
+					<h1>{this.props.patient.last_name + ", " + this.props.patient.first_name}</h1>
+					<h3>Exercises: </h3>
+					{this.props.exercises ? this.renderExercises() : null}
+				</div>
+			)
+		} else {
+			return <div></div>
+		}
 	}
 }
 
 const mapStateToProps = (state) => {
+	console.log("in mapStateToProps", state)
 	return {
 		patient: state.sessionReducer.patient,
 		exercises: state.exerciseReducer.exercises,
@@ -57,4 +83,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(PatientExercisesContainer);
+export default connect(mapStateToProps,mapDispatchToProps)(ExerciseContainerForPatient);

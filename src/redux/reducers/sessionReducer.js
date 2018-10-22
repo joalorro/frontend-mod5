@@ -1,6 +1,6 @@
 let initialState = {}
 
-export const sessionReducer = (state= initialState, action) => {
+export const sessionReducer = (state = initialState, action) => {
 	switch(action.type){
 		case "CREATE_PATIENT_SESSION":
 			return {

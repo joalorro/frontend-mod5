@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import AppAdapter from '../adapters/AppAdapter'
+import '../stylesheets/style.css'
 
 import {createPatientSession,createTherapistSession} from '../redux/actions/actions'
 
@@ -12,13 +12,21 @@ class Login extends Component {
 		password: '',
 		model: "patient",
 		chosen: false,
-		submitted: false
+		error: ''
 	}
 
 	handleChooseLogin = e => {
 		this.setState({
 			model: e.target.value
 		}, () => console.log(this.state))
+	}
+
+	handleClickBackToHome = () => {
+		this.props.history.push('/')
+	}
+
+	handleClickBackToLoginAs = () => {
+		this.setState({chosen: false})
 	}
 
 	handleLoginAs = e => {
@@ -42,10 +50,6 @@ class Login extends Component {
 				password: this.state.password,
 				model: this.state.model
 			}
-		}).then(res => {
-			// if (res.status === 200){
-				return res.json()
-			// }
 		})
 		.then(response => {
 			console.log('login response: ', response)
@@ -59,11 +63,34 @@ class Login extends Component {
 				localStorage.setItem("token", response[model].token)
 				this.setState({
 					submitted: true
-				}, () => {
-					console.log("after login, state is: ", this.state)
-				})
+				}, () => this.renderNextPage())
+			} else {
+				this.setState({error: response.error})
 			}
 		})
+	}
+
+	handleLogout = () => {
+		localStorage.removeItem('token')
+	}
+
+	handleRedirectToSignup = () =>{
+		this.props.history.push('/signup')
+	}
+
+	renderRedirectBtnIfLoggedIn = () => {
+		let session = this.props.session
+		let model = Object.keys(session)[0]
+		return (
+			<div>
+				Logged in as: {session[model].first_name + ' ' + session[model].last_name} <br />
+				<form onSubmit={this.handleLogout}>
+					<button >Log Out</button>
+				</form>
+
+			</div>
+
+		)
 	}
 
 	renderNextPage = () => {
@@ -78,40 +105,52 @@ class Login extends Component {
 			slug = `/${therapist.last_name}-${therapist.first_name}`
 			route = '/patients'
 		}
-		return <Redirect to={slug + route} />
+		this.props.history.push(slug + route)
 	}
 	
+	renderErrorMessage = () => {
+		return <p className="error-msg">{this.state.error}</p>
+	}
+
 	render() {
 		console.log(this.state)
-		if (!this.state.chosen){
+		if (Object.keys(this.props.session).length){
 			return (
-				<form onSubmit={this.handleLoginAs}>
-					<label>Login as a: </label> <br />
-					<select onChange={this.handleChooseLogin}>
-						<option value="patient">Patient</option>
-						<option value="therapist">Therapist</option>
-					</select>
-					<input type="submit" value="Next" />
-				</form>
+				<div>
+					{this.renderRedirectBtnIfLoggedIn()}
+				</div>
 			)
-		} else if (this.state.submitted) {
-			return this.renderNextPage()
+		} else if (!this.state.chosen){
+			return (
+				<div>
+					<form onSubmit={this.handleLoginAs}>
+						<label>Login as a: </label> <br />
+						<select onChange={this.handleChooseLogin}>
+							<option value="patient">Patient</option>
+							<option value="therapist">Therapist</option>
+						</select>
+						<input type="submit" value="Next" />
+					</form>
+						<button onClick={this.handleClickBackToHome}>Back</button>
+					<p>Don't have an account yet? Register <span onClick={this.handleRedirectToSignup} id='signup-link' >here</span>. </p>
+				</div>
+			)
 		} else {
 			return (
 				<div>
 					<div className="form-container">
+						<div className="error-div" >
+							{!!this.state.error ? this.renderErrorMessage() : null}
+						</div>
 						<form onSubmit={this.handleSubmitLogin}>
 							<input type="text" name="email" onChange={this.handleChange} placeholder="email e.g. email@example.com"/> <br />
 							
 							<input type="password" name="password" onChange={this.handleChange} placeholder="password"/> <br />
 							<input type="submit" value="Log In" />
 						</form> 
+							<button onClick={this.handleClickBackToLoginAs}>Back!</button>
 					</div>
 					<br />
-					<p>Not yet registered? <a href="/signup">Sign Up!</a> </p>
-					{/* <Link to="/signup" >
-						<button>dat sign up</button>
-					</Link> */}
 				</div>
 			);
 		}

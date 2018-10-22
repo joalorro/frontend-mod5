@@ -55,3 +55,22 @@
 	width: 400px;
 	border: solid black 2px;
 }
+
+
+/* Text */
+
+#signup-link {
+	color: blue;
+}
+
+/* Errors */
+
+.error-div{
+	height: 20px;
+}
+
+.error-msg {
+	color:red;
+	font-style:italic;
+	font-size: 12px;
+}

@@ -1,4 +1,8 @@
-export const exerciseReducer = (state = {},action) => {
+const initialState = {
+	exercises: []
+}
+
+export const exerciseReducer = (state = initialState, action) => {
 	console.log('action from exercise reducer: ', action)
 	switch (action.type){
 		case "SELECT_EXERCISE":

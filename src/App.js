@@ -9,7 +9,7 @@ import AppAdapter from './adapters/AppAdapter'
 class App extends Component {
 
 	componentDidMount() {
-		console.log('mounting <App />')
+		console.log('app already mounted')
 		if (localStorage.getItem("token")){
 			AppAdapter.persist(localStorage.getItem("token"))
 			.then( sessionUser => {
@@ -24,6 +24,7 @@ class App extends Component {
 	}
 
 	render() {
+		console.log('render function in app')
 		return (
 			<div className="App">
 				<Routes />

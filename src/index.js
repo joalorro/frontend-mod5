@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker';
 import App from './App'
-// import Routes from './Routes'
 import { store } from './store'
 
 const Root = (store) => (

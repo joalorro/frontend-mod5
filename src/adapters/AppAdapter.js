@@ -19,7 +19,7 @@ class AppAdapter {
 				method: 'POST',
 				headers: HEADERS,
 				body: JSON.stringify(body)
-			})
+			}).then( res => res.json() )
 		)
 	}
 
