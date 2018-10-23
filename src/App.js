@@ -26,7 +26,7 @@ class App extends Component {
 	render() {
 		console.log('render function in app')
 		return (
-			<div className="App">
+			<div id="App">
 				<Routes />
 			</div>
 		);

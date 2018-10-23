@@ -1,0 +1,47 @@
+#home {
+	height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 7fr 1fr;
+	box-sizing: border-box;
+}
+
+#left-div {
+	/* background: salmon; */
+	height: 100%;
+}
+
+#background-container {
+	height: 100%;
+	display: table;
+	background: url('https://cdn.pixabay.com/photo/2014/09/18/11/35/old-450742_1280.jpg');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#right-div {
+	/* background: salmon; */
+	height: 100%;
+}
+
+#content-container-home {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#login-button-div {
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+}
+
+.button {
+	border-radius: 25px;
+	height: 25px;
+	width: 100px;
+	background: black;
+	border: 1px solid white;
+	color: white;
+}

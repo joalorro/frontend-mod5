@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import Signup from './Signup'
 import { connect } from 'react-redux'
-
+import '../stylesheets/home.css'
 const Home = ({ sessionUser, history }) => {
 	
 	const renderLinkForPatients = () => {
@@ -34,9 +34,11 @@ const Home = ({ sessionUser, history }) => {
 	const renderLoginButton = () => {
 		console.log('no session detected')
 		return (
-			<Link to="/login" exact component={Signup}>  
-				<button className="button signup" > Log-in </button>
-			</Link>
+			<div id="login-button-div">
+				<Link to="/login" exact component={Signup}>  
+					<button className="button" > Log in/Sign up  </button>
+				</Link>
+			</div>
 		)
 	}
 
@@ -59,8 +61,14 @@ const Home = ({ sessionUser, history }) => {
 	}
 	
 	return (
-		<div>
-			{checkIfLoggedThenRenderLink()}
+		<div id="home">
+			<div id="left-div"></div>
+			<div id="background-container">
+				<div id="content-container-home">
+					{checkIfLoggedThenRenderLink()}
+				</div>
+			</div>
+			<div id='right-div'></div>
 		</div>
 	);
 }
