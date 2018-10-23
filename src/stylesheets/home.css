@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow:500');
+
 #home {
 	height: 100%;
 	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr 7fr 1fr;
+	/* grid-template-columns: 1fr 7fr 1fr; */
 	box-sizing: border-box;
+	margin-top: -10px;;
 }
 
 #left-div {
@@ -12,12 +15,31 @@
 }
 
 #background-container {
-	height: 100%;
-	display: table;
-	background: url('https://cdn.pixabay.com/photo/2014/09/18/11/35/old-450742_1280.jpg');
+	background-image: url('https://cdn.pixabay.com/photo/2014/09/18/11/35/old-450742_1280.jpg');
+	/* background-repeat: no-repeat; */
+	height: 400px;
+	background-attachment: fixed;
+	background-position: 0 -500px;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
+
+
+	transition: all 1s ease;
+	transform: scale(1);
+	transform-origin: 50% 50%;
+	/* display: table; */
 }
+
+#bottom-div {
+	height: 500px;
+	background-color: black;
+}
+
+/* #background-container:hover {
+	transform: scale(2);
+	left: -150px;
+	top: -100px;
+} */
 
 #right-div {
 	/* background: salmon; */
@@ -25,8 +47,19 @@
 }
 
 #content-container-home {
+	display: table;
+}
+
+#home-title-container {
 	display: table-cell;
 	vertical-align: middle;
+	justify-content: middle;
+}
+
+#home-title{
+	font-family: 'Archivo Narrow',
+	sans-serif;
+
 }
 
 #login-button-div {

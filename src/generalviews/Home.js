@@ -62,13 +62,16 @@ const Home = ({ sessionUser, history }) => {
 	
 	return (
 		<div id="home">
-			<div id="left-div"></div>
+			{/* <div id="left-div"></div> */}
 			<div id="background-container">
 				<div id="content-container-home">
-					{checkIfLoggedThenRenderLink()}
+					<h1 id="home-title">Continue your journey towards rehabilitation with "App" </h1>
 				</div>
 			</div>
-			<div id='right-div'></div>
+			{/* <div id='right-div'></div> */}
+			<div id="bottom-div">
+				{checkIfLoggedThenRenderLink()}
+			</div>
 		</div>
 	);
 }
