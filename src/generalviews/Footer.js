@@ -14,9 +14,9 @@ const Footer = () => {
 					<button className='ui linkedin circular icon button'>
 						<i aria-hidden='true' className='linkedin icon' />
 					</button>
-					<button className='ui google plus circular icon button'>
+					{/* <button className='ui google plus circular icon button'>
 						<i aria-hidden='true' className='google plus icon' />
-					</button>
+					</button> */}
 				</div>
 
 				<div id="divider" className='ui horizontal inverted divider'>Bruh </div>

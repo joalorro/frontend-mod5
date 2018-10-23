@@ -27,19 +27,25 @@
 }
 
 .btn-container {
-	margin-bottom: 50px;
+	padding-top: 20px;
+	margin-bottom: 30px;
 }
 
 #divider {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 
 #footer-text-div {
+	background: rgb(254,105,96);
 	margin: 0 auto;
-	width: 100px;
+	width: 100%;
+	height: 30px;
 	text-align: center;
+	display: table;
 }
 
 #footer-text {
-	color: silver;
+	display: table-cell;
+	vertical-align: middle;
+	color: black;
 }
