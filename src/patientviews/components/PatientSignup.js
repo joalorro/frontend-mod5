@@ -24,12 +24,10 @@ class PatientSignup extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault()
-
 		this.completeSignup()
 	}
 	
 	completeSignup = () => {
-		
 		let body = {
 			patient: {
 				first_name: this.state.firstName,
@@ -43,8 +41,7 @@ class PatientSignup extends Component {
 		}
 
 		AppAdapter.signUp({
-				body,
-				model: 'patients'
+				body, model: 'patients'
 			})
 			.then(response => {
 				console.log('response', response)
@@ -67,14 +64,17 @@ class PatientSignup extends Component {
 			})
 	}
 
-	addError = error => {
+	addError = (error) => {
 		this.setState(prevState => ({errors: prevState.errors.concat(error)}))
 	}
 
 	renderErrors = () => {
-		return this.state.errors.map( e => <ErrorMsg key={e} error={e} />)
+		let i = 0
+		return this.state.errors.map(e => {
+			return <ErrorMsg key={++i} error={e} />
+		})
 	}
-	
+
 	render() {
 		return (
 			<div>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AppAdapter from '../../adapters/AppAdapter'
-import { Redirect } from 'react-router-dom'
+import ErrorMsg from '../../generalviews/ErrorMsg'
+import { createTherapistSession } from '../../redux/actions/actions'
+import { connect } from 'react-redux'
 
 class TherapistSignup extends Component {
 
@@ -11,8 +13,10 @@ class TherapistSignup extends Component {
 		degree: '',
 		certifications: '',
 		email: '',
+		email_confirmation: '',
 		password: '',
-		submitted: false
+		password_confirmation: '',
+		errors: []
 	}
 
 	handleChange = e => {
@@ -23,6 +27,10 @@ class TherapistSignup extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault()
+		this.completeSignup()
+	}
+
+	completeSignup = () => {
 		const body = {
 			therapist: {
 				first_name: this.state.firstName,
@@ -31,43 +39,91 @@ class TherapistSignup extends Component {
 				degree: this.state.degree,
 				certifications: this.state.certifications,
 				email: this.state.email,
-				password: this.state.password
+				email_confirmation: this.state.email_confirmation,
+				password: this.state.password,
+				password_confirmation: this.state.password_confirmation
 			}
 		}
-		AppAdapter.signUp({body, model: 'therapists'}).then(response => console.log(response))
-		this.setState({
-			submitted: true
+		AppAdapter.signUp({
+			body, model: 'therapists'
+		})
+		.then(response => {
+			console.log(response)
+			if (!response.errors && !response.error) {
+				let slug 
+				let lastName 
+				let firstName 
+				if (this.state.lastName.split(' ').length > 1 || this.state.firstName.split(' ') > 1 ){
+					lastName = this.state.lastName.split(' ').join('-')
+					firstName = this.state.firstName.split(' ').join('-')
+				} else {
+					lastName = this.state.lastName 
+					firstName = this.state.firstName
+				}
+				slug = `/${lastName}-${firstName}/patients`
+				this.props.createTherapistSession(response)
+				localStorage.setItem('token', response.therapist.token)
+				this.props.history.push(slug)
+			} else {
+				this.setState({erorrs: []})
+				response.errors.forEach(e => this.addError(e))
+			}
+		})
+		
+	}
+
+	addError = (error) => {
+		this.setState(prevState => ({errors: prevState.errors.concat(error)}))
+	}
+
+	renderErrors = () => {
+		let i = 0
+		return this.state.errors.map(e => {
+			return <ErrorMsg key={++i} error={e} />
 		})
 	}
 
 	render() {
-		if (this.state.submitted){
-			return <Redirect to={"/" + this.state.lastName + "-" + this.state.firstName + "/patients"} />
-		}
-
 		return (
 			<div>
-				dat PT signup doe
 				<div className="form-container">
 					<form onSubmit={this.handleSubmit}>
 						<input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name"/> <br />
 						<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name"/> <br />
 
 						<input onChange={this.handleChange} type="text" name="license" placeholder="License #" /> <br />
-						<input onChange={this.handleChange} type="text" name="degree" placeholder="degree" /> <br />
-						<input onChange={this.handleChange} type="text" name="certifications" placeholder="certifications" /> <br />
-
-						<input type="text" name="email" onChange={this.handleChange} placeholder="email e.g. email@example.com"/> <br />
-						<input type="text" name="email" placeholder="confirm email"/> <br /> <br/>
 						
-						<input type="password" name="password" onChange={this.handleChange} placeholder="create password"/> <br />
-						<input type="password" name="password" placeholder="confirm password"/> <br />
+						{/* <input onChange={this.handleChange} type="text" name="degree" placeholder="degree" /> <br /> */}
+						<select onChange={this.handleChange} name="degree">
+							<option selected="selected">Degree</option>
+							<option value="Bachelor's">Bachelor's</option>
+							<option value="MSPT">MSPT</option>
+							<option value="DPT">DPT</option>
+						</select> <br />
+
+
+						<input onChange={this.handleChange} type="text" name="certifications" placeholder="Certifications" /> <br />
+
+						<input onChange={this.handleChange} type="text" name="email" placeholder="Email e.g. email@example.com"/> <br />
+						<input onChange={this.handleChange} type="text" name="email_confirmation" placeholder="Confirm Email"/> <br /> <br/>
+						
+						<input onChange={this.handleChange} type="password" name="password" placeholder="Create Password"/> <br />
+						<input onChange={this.handleChange} type="password" name="password_confirmation" placeholder="Confirm Password"/> <br />
 						<input type="submit" value="Sign Up" />
 					</form> 
+					<div className='error-div'>
+						{this.state.errors ? this.renderErrors() : null}
+					</div>
 				</div>
 			</div>
 		);
 	}
 }
 
-export default TherapistSignup;
+const mapDispatchToProps = dispatch => {
+	return {
+		createTherapistSession: (therapist) => dispatch(createTherapistSession(therapist))
+	}
+}
+
+export default connect(null,mapDispatchToProps)(TherapistSignup);
