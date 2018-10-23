@@ -19,7 +19,7 @@ const Footer = () => {
 					</button>
 				</div>
 
-				<div id="line" className='ui horizontal inverted divider'>Bruh </div>
+				<div id="divider" className='ui horizontal inverted divider'>Bruh </div>
 				
 				<div id="footer-text-div">
 					<p id="footer-text">Come at me.</p>

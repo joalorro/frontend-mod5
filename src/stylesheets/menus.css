@@ -17,15 +17,23 @@
 
 #footer {
 	position: relative;
-	bottom: -650px;
+	bottom: -450px;
 	display: block;
 	height: 200px;
 	background-color: black;
 }
 #footer-content-container {
-	/* position: absolute; */
-	bottom: 40px;
+
 }
+
+.btn-container {
+	margin-bottom: 50px;
+}
+
+#divider {
+	margin-bottom: 50px;
+}
+
 #footer-text-div {
 	margin: 0 auto;
 	width: 100px;

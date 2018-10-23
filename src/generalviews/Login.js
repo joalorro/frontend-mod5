@@ -83,7 +83,7 @@ class Login extends Component {
 		let session = this.props.session
 		let model = Object.keys(session)[0]
 		return (
-			<div>
+			<div className="login-component">
 				Logged in as: {session[model].first_name + ' ' + session[model].last_name} <br />
 				<form onSubmit={this.handleLogout}>
 					<button >Log Out</button>
