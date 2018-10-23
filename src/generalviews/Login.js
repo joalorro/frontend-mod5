@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import AppAdapter from '../adapters/AppAdapter'
+import ErrorMsg from './ErrorMsg'
 import '../stylesheets/style.css'
 
 import {createPatientSession,createTherapistSession} from '../redux/actions/actions'
@@ -107,10 +108,6 @@ class Login extends Component {
 		}
 		this.props.history.push(slug + route)
 	}
-	
-	renderErrorMessage = () => {
-		return <p className="error-msg">{this.state.error}</p>
-	}
 
 	render() {
 		console.log(this.state)
@@ -140,7 +137,7 @@ class Login extends Component {
 				<div>
 					<div className="form-container">
 						<div className="error-div" >
-							{!!this.state.error ? this.renderErrorMessage() : null}
+							{!!this.state.error ? <ErrorMsg error={this.state.error} /> : null}
 						</div>
 						<form onSubmit={this.handleSubmitLogin}>
 							<input type="text" name="email" onChange={this.handleChange} placeholder="email e.g. email@example.com"/> <br />
