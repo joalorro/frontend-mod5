@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import './stylesheets/buttons.css'
 import { createPatientSession, createTherapistSession } from './redux/actions/actions'
+import Navbar from './generalviews/Navbar'
+import Footer from './generalviews/Footer'
 import Routes from './Routes'
 
 import AppAdapter from './adapters/AppAdapter'
@@ -27,7 +28,9 @@ class App extends Component {
 		console.log('render function in app')
 		return (
 			<div id="App">
+				<Navbar />
 				<Routes />
+				<Footer />
 			</div>
 		);
 	}

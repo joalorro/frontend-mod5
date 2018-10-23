@@ -3,21 +3,18 @@
 #home {
 	height: 100%;
 	width: 100%;
-	display: grid;
-	/* grid-template-columns: 1fr 7fr 1fr; */
+	display: block;
 	box-sizing: border-box;
-	margin-top: -10px;;
+	/* overflow:hidden; */
 }
 
 #left-div {
-	/* background: salmon; */
 	height: 100%;
 }
 
 #background-container {
 	background-image: url('https://cdn.pixabay.com/photo/2014/09/18/11/35/old-450742_1280.jpg');
-	/* background-repeat: no-repeat; */
-	height: 400px;
+	height: 500px;
 	background-attachment: fixed;
 	background-position: 0 -500px;
 	background-repeat: no-repeat;
@@ -30,36 +27,44 @@
 	/* display: table; */
 }
 
+/* #bottom-div {
+	height: 300px;
+} */
+
 #bottom-div {
-	height: 500px;
+	position: relative;
+	display: block;
+	height: 800px;
 	background-color: black;
 }
 
-/* #background-container:hover {
-	transform: scale(2);
-	left: -150px;
-	top: -100px;
-} */
-
-#right-div {
-	/* background: salmon; */
-	height: 100%;
+#bottom-div-content-container {
+	width: 100%;
+	margin: 0 auto;
+	display: table-cell;
+	position: relative;
 }
 
 #content-container-home {
-	display: table;
+	position: relative;
+
 }
 
 #home-title-container {
-	display: table-cell;
-	vertical-align: middle;
-	justify-content: middle;
+	position: absolute;
+	top: 400px;
+	left: 20px;
+	display: flex;
+	flex-flow: row wrap;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	background: rgba(0,0,0, .3)
 }
 
 #home-title{
 	font-family: 'Archivo Narrow',
 	sans-serif;
-
+	color: rgb(204,222,203);
 }
 
 #login-button-div {
@@ -70,11 +75,25 @@
 	vertical-align: middle;
 }
 
-.button {
-	border-radius: 25px;
-	height: 25px;
-	width: 100px;
-	background: black;
-	border: 1px solid white;
-	color: white;
+.login-btn {
+	width: 130px;
+	height: 30px;
+}
+
+.welcome-div {
+	display: inline-block;
+	position: absolute;
+	margin: 0 auto;
+	height: 100px;
+	width: 100%;
+}
+
+.welcome-content-container {
+	margin: 0 auto;
+	width: 300px;
+	text-align: center;
+}
+
+.welcome-msg {
+	color: silver;
 }

@@ -14,7 +14,6 @@ const Routes = () => {
 	return (
 		<Router>
 			<Fragment>
-				<Navbar />
 				<Switch>
 					<Route exact path="/:slug/exercises" render={(routeProps) => <ExerciseContainerForPatient {...routeProps} />} />
 					<Route exact path="/:slug/patients" render={(routeProps) => <PatientsContainer {...routeProps} />} />

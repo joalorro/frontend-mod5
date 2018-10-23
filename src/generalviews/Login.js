@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import AppAdapter from '../adapters/AppAdapter'
 import ErrorMsg from './ErrorMsg'
-import '../stylesheets/style.css'
+import '../stylesheets/login.css'
 
 import {createPatientSession,createTherapistSession} from '../redux/actions/actions'
 
@@ -119,7 +119,7 @@ class Login extends Component {
 			)
 		} else if (!this.state.chosen){
 			return (
-				<div>
+				<div className="login-component">
 					<form onSubmit={this.handleLoginAs}>
 						<label>Login as a: </label> <br />
 						<select onChange={this.handleChooseLogin}>
@@ -134,7 +134,7 @@ class Login extends Component {
 			)
 		} else {
 			return (
-				<div>
+				<div className='login-component'>
 					<div className="form-container">
 						<div className="error-div" >
 							{!!this.state.error ? <ErrorMsg error={this.state.error} /> : null}

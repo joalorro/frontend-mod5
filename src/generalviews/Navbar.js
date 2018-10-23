@@ -1,21 +1,20 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
-import '../stylesheets/navbar.css'
+// import { NavLink } from 'react-router-dom'
+import '../stylesheets/menus.css'
 
 const Navbar = () => {
 
 	return (
-		<div className="navbar">
-			<NavLink
-			to='/'
-			>
-			Home
-			</NavLink>
-			<NavLink
-			to="/login"
-			>
-			{localStorage.getItem('token') ? "Logout" : "Login"}
-			</NavLink>
+		<div id="navbar">
+			<ul className='ui pointing secondary menu'>
+				<li>
+					<a className='item' href="/">Home</a>
+				</li>
+				<li className="right menu">
+					<a className='item' href='/login'>Logout</a>
+				</li>
+
+			</ul>
 		</div>
 	);
 }

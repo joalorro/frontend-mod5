@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'
 import Signup from './Signup'
 import { connect } from 'react-redux'
@@ -8,26 +8,28 @@ const Home = ({ sessionUser, history }) => {
 	const renderLinkForPatients = () => {
 		console.log('patient in session: ', sessionUser)
 		return (
-			<div>
-				Welcome, {sessionUser.patient.first_name}
+			<Fragment>
+				<p className="welcome-msg">
+					Welcome, {sessionUser.patient.first_name}
+				</p>
 				<br />
 				<button onClick={renderNextPageForUser}>
 					Go to your exercise index!
 				</button>
-			</div>
+			</Fragment>
 		)
 	}
 
 	const renderLinkForTherapists = () => {
 		console.log('therapist in session: ', sessionUser)
 		return (
-			<div>
-				Welcome, {sessionUser.therapist.first_name}
+			<Fragment>
+				<p>Welcome, {sessionUser.therapist.first_name}</p>
 				<br />
 				<button onClick={renderNextPageForUser} >
 					Go to your patients index!
 				</button>
-			</div>
+			</Fragment>
 		)
 	}
 
@@ -36,7 +38,7 @@ const Home = ({ sessionUser, history }) => {
 		return (
 			<div id="login-button-div">
 				<Link to="/login" exact component={Signup}>  
-					<button className="button" > Log in/Sign up  </button>
+					<button className="ui button login-btn"> Log in/Sign up  </button>
 				</Link>
 			</div>
 		)
@@ -51,7 +53,13 @@ const Home = ({ sessionUser, history }) => {
 		} else {
 			link = renderLoginButton()
 		}
-		return link
+		return (
+			<div className="welcome-div">
+				<div className="welcome-content-container">
+					{link}
+				</div>
+			</div>
+		)
 	}
 
 	const renderNextPageForUser = () => {
@@ -65,12 +73,16 @@ const Home = ({ sessionUser, history }) => {
 			{/* <div id="left-div"></div> */}
 			<div id="background-container">
 				<div id="content-container-home">
-					<h1 id="home-title">Continue your journey towards rehabilitation with "App" </h1>
+					<div id="home-title-container">
+						<h1 id="home-title">Continue your journey towards rehabilitation with "App" </h1>
+					</div>
 				</div>
 			</div>
 			{/* <div id='right-div'></div> */}
 			<div id="bottom-div">
-				{checkIfLoggedThenRenderLink()}
+				<div id='bottom-div-content-container'>
+					{checkIfLoggedThenRenderLink()}
+				</div>
 			</div>
 		</div>
 	);
