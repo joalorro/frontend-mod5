@@ -4,10 +4,17 @@ import '../../stylesheets/style.css'
 import '../../stylesheets/effects.css'
 import TherapistExerciseCard from './TherapistExerciseCard'
 import NewExerciseForm from './NewExerciseForm'
-import { selectPatient } from '../../redux/actions/actions'
+import { selectPatient, openModal, closeModal } from '../../redux/actions/actions'
+import PatientCardModal from './PatientCardModal'
 
 class PatientCard extends Component {
 	
+	constructor(props) {
+		super(props);
+		this.newExerciseRef = React.createRef()
+		this.patientCardRef = React.createRef()
+	}
+
 	renderPatientExercises = () => {
 		return this.props.exercises.map( e => {
 			return (
@@ -16,28 +23,32 @@ class PatientCard extends Component {
 		})
 	}
 
-	renderNewExerciseForm = () => {
-		return <NewExerciseForm toggleNewExerciseState={this.toggleNewExerciseState} patient={this.props.patient} therapistId={this.props.therapist.id} addExercise={this.addExercise}/>
-	}
-	
 	handleSelect = () => {
-		console.log("showing props on click ", this.props)
 		this.props.selectPatient(this.props.patient)
+		console.log('patientCardRef before ', this.patientCardRef.current)
+		this.patientCardRef.current.setState({open: true})
 	}
 
 	render() {
 		console.log(this.props)
 		return (
-			<div className="patient-card hvr-border-fade" onClick={this.handleSelect}>
-				<div className="patient-name-container">
-					<h3 className="patient-name">{this.props.patient.last_name}, {this.props.patient.first_name}</h3>
-				</div>
-				<div className="patient-card-contents">
-						{this.renderPatientExercises()}
-					<div className="btn-container">
-						<NewExerciseForm patient={this.props.patient} therapistId={this.props.therapist.id} />
+			<div className="patient-card hvr-border-fade">
+				{/* Modals */}
+				
+				<PatientCardModal ref={this.patientCardRef}  {...this.props}/>
+
+				<div onClick={this.handleSelect}>
+					<div className="patient-name-container">
+						<h3 className="patient-name">{this.props.patient.last_name}, {this.props.patient.first_name}</h3>
 					</div>
-				</div>	
+					<div className="patient-card-exercises">
+							{this.renderPatientExercises()}
+					</div>	
+				</div>
+
+				<div className="btn-container">
+					<NewExerciseForm patient={this.props.patient} />
+				</div>
 			</div>
 		);
 	}
@@ -52,7 +63,9 @@ const mapStateToProps = (state,ownProps) => {
 
 const mapDispatchToProps = dispatch => (
 	{
-		selectPatient: (patient) => dispatch(selectPatient(patient))
+		selectPatient: (patient) => dispatch(selectPatient(patient)),
+		openModal: (modalProps) => dispatch(openModal(modalProps)),
+		closeModal: (modalProps) => dispatch(closeModal(modalProps))
 	}
 )
 

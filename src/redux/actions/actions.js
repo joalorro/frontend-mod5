@@ -18,3 +18,17 @@ export const selectPatient = (patient) =>{
 		selectedPatient: patient
 	}
 }
+
+export const openModal = (modalProps) => {
+	return {
+		type: 'MODAL_OPEN',
+		modalProps
+	}
+}
+
+export const closeModal = (modalProps) => {
+	return {
+		type: 'MODAL_CLOSE',
+		modalProps
+	}
+}

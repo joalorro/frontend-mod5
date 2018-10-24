@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { createPatientSession, createTherapistSession } from './redux/actions/actions'
+import { createPatientSession, createTherapistSession, openModal } from './redux/actions/actions'
 import Navbar from './generalviews/Navbar'
 import Footer from './generalviews/Footer'
 import Routes from './Routes'
@@ -45,7 +45,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		createPatientSession: (patient) => dispatch(createPatientSession(patient)),
-		createTherapistSession: (therapist) => dispatch(createTherapistSession(therapist))
+		createTherapistSession: (therapist) => dispatch(createTherapistSession(therapist)),
+		openModal: (modalProps) => dispatch(openModal(modalProps))
 	}
 }
 

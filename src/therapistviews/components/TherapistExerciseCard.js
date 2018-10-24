@@ -31,9 +31,6 @@ class ExerciseCard extends Component {
 				{/* <YouTube videoId={this.props.exercise.videoId} opts={opts} /> */}
 
 				{this.state.showComments ? this.renderComments() : null}
-				<div className="btn-container">
-					<button className='ui inverted button' onClick={this.handleClick}>{this.state.showComments ? "Hide Comments" : "Show Comments"}</button>
-				</div>
 			</div>
 		);
 	}
