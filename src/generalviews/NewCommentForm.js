@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AppAdapter from '../adapters/AppAdapter'
 import { connect } from 'react-redux';
 import { fetchComments } from '../redux/actions/fetchComments'
+import { Form, Button } from 'semantic-ui-react'
 
 class NewCommentForm extends Component {
 
@@ -31,8 +32,8 @@ class NewCommentForm extends Component {
 		return (
 			<div >
 				<form id={this.props.exerciseId} onSubmit={this.handleSubmit}>
-					<textarea form={this.props.exerciseId} onChange={this.handleChange} ref="commentContent"></textarea> <br />
-					<input type="submit" />
+					<textarea className="comment-body" form={this.props.exerciseId} onChange={this.handleChange} ref="commentContent"></textarea> <br />
+					<Button type="submit">Submit</Button>
 				</form>
 			</div>
 		);

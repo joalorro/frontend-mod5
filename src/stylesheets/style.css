@@ -5,11 +5,16 @@ html, body, #root, #App {
 	/* background: black; */
 }
 
-/* html {
-	background: black;
+::-webkit-scrollbar {
+	display: none;
 }
 
-#App {
+
+/* html {
+	background: black;
+} */
+
+/* #App {
 	background: black;
 } */
 
@@ -68,7 +73,14 @@ html, body, #root, #App {
 	margin: 0 auto;
 }
 
-/* Exercise Car */
+/* PatientCard Modal */
+
+.exercise-list {
+	margin-top: 10px;
+	margin-left: 22px;
+}
+
+/* Exercise Card */
 
 .exercise-card {
 	margin: 10px 0;
@@ -114,4 +126,27 @@ html, body, #root, #App {
 	color:red;
 	font-style:italic;
 	font-size: 12px;
+}
+
+/* Comment Section */
+
+.comment-section {
+	margin-left: 20px;
+	height: 350px;
+	/* border: 1px solid rgba(0,0,0,.3); */
+	box-sizing: border-box;
+}
+
+.show-comments-area {
+	overflow: scroll;	
+	height:272px;
+}
+
+.new-comment-form {
+	bottom: 0;
+}
+
+.comment-body {
+	width: 100%;
+	border-radius: 10px
 }

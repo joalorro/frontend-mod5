@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import React, { Component } from 'react';
 import '../../stylesheets/style.css'
 import '../../stylesheets/effects.css'
-import TherapistExerciseCard from './TherapistExerciseCard'
+import SimpleExerciseCard from './SimpleExerciseCard'
 import NewExerciseForm from './NewExerciseForm'
 import { selectPatient, openModal, closeModal } from '../../redux/actions/actions'
 import PatientCardModal from './PatientCardModal'
@@ -17,9 +17,7 @@ class PatientCard extends Component {
 
 	renderPatientExercises = () => {
 		return this.props.exercises.map( e => {
-			return (
-				<TherapistExerciseCard exercise={e} />
-			)
+			return <SimpleExerciseCard exercise={e} />
 		})
 	}
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import '../stylesheets/style.css'
 import Comment from './Comment'
 import NewCommentForm from './NewCommentForm'
 
@@ -13,10 +13,14 @@ const CommentSection = ({comments,exerciseId}) => {
 	}
 	
 	return (
-		<div>
-			{renderComments()}
-			<NewCommentForm exerciseId={exerciseId} />
-		</div>
+		<div className="comment-section">
+			<div className="show-comments-area">
+				{renderComments()}
+			</div>
+			<div className="new-comment-form">
+				<NewCommentForm exerciseId={exerciseId} />
+			</div>
+		</div>	
 	);
 }
 
