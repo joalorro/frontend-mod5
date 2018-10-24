@@ -24,14 +24,16 @@ class ExerciseCard extends Component {
 		}
 		return (
 			
-			<div>
-				<h4>{this.props.exercise.name}</h4>
-				<p>Desc: {this.props.exercise.desc}</p>
-				<p>Flagged? {this.props.exercise.flagged ? "Yes" : "No"}</p>
+			<div className="exercise-card hvr-fade">
+				<h4 className="category">{this.props.exercise.name}</h4>
+				<p><span className="category">Desc: </span>{this.props.exercise.desc}</p>
+				<p><span className="category">Flagged? </span> {this.props.exercise.flagged ? "Yes" : "No"}</p>
 				{/* <YouTube videoId={this.props.exercise.videoId} opts={opts} /> */}
 
 				{this.state.showComments ? this.renderComments() : null}
-				<button onClick={this.handleClick}>{this.state.showComments ? "Hide Comments" : "Show Comments"}</button>
+				<div className="btn-container">
+					<button className='ui inverted button' onClick={this.handleClick}>{this.state.showComments ? "Hide Comments" : "Show Comments"}</button>
+				</div>
 			</div>
 		);
 	}

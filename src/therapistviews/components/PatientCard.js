@@ -16,19 +16,9 @@ class PatientCard extends Component {
 		})
 	}
 
-	toggleNewExerciseState = () => {
-		this.setState(prevState => {
-			return {
-				newExercise: !prevState.newExercise
-			}
-		})
-	}
-
 	renderNewExerciseForm = () => {
 		return <NewExerciseForm toggleNewExerciseState={this.toggleNewExerciseState} patient={this.props.patient} therapistId={this.props.therapist.id} addExercise={this.addExercise}/>
 	}
-
-	addExercise = (exercise) => this.props.exercises.push(exercise)
 	
 	handleSelect = () => {
 		console.log("showing props on click ", this.props)
@@ -45,7 +35,7 @@ class PatientCard extends Component {
 				<div className="patient-card-contents">
 						{this.renderPatientExercises()}
 					<div className="btn-container">
-						<NewExerciseForm toggleNewExerciseState={this.toggleNewExerciseState} patient={this.props.patient} therapistId={this.props.therapist.id} addExercise={this.addExercise}/>
+						<NewExerciseForm patient={this.props.patient} therapistId={this.props.therapist.id} />
 					</div>
 				</div>	
 			</div>

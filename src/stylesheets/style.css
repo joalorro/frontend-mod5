@@ -2,7 +2,16 @@
 html, body, #root, #App {
 	height: 100%;
 	width: 100%;
+	/* background: black; */
 }
+
+/* html {
+	background: black;
+}
+
+#App {
+	background: black;
+} */
 
 /* Patient index component for therapists */
 
@@ -35,10 +44,16 @@ html, body, #root, #App {
 }
 
 .patient-name-container {
+	margin: 0 auto;
+	width: 95%;
+	/* background-color: rgb(254,105,96); */
+	border-radius: 10px;
+	text-align: center;
 }
 
 .patient-name {
 	justify-content: center;
+	font-size: 18pt;
 }
 
 .btn-container {
@@ -53,32 +68,22 @@ html, body, #root, #App {
 	margin: 0 auto;
 }
 
-.x-btn-container {
-	display:flex;
-	justify-content: right;
+/* Exercise Car */
+
+.exercise-card {
+	margin: 10px 0;
+	padding: 5px;
+	border-radius: 10px;
+	/* background-color: black; */
+	width: 100%;
 }
 
-.x-btn {
-	border-radius: 100%;
-	border: hidden;
-	color: gray;
-	margin: 0;
-	font-size: 16px;
-	background: none;
+.category {
+	/* Teal */
+	color: rgb(15,102,112);
+	/* Sea Green */
+	/* color: rgb(204,222,203); */
 }
-
-.exercise-form-background {
-	background: rgba(0,0,0,.3)
-}
-
-.exercise-form-div{
-	display: absolute;
-	margin: 0 auto;
-	height: 300px;
-	width: 400px;
-	border: solid black 2px;
-}
-
 
 /* Text */
 

@@ -27,7 +27,6 @@ class NewExerciseForm extends Component {
 		.then(exerciseResponse =>{
 			console.log('response from submission', exerciseResponse)
 			if (!exerciseResponse.status){
-				this.props.toggleNewExerciseState()
 				this.props.addExercise({
 					id: exerciseResponse.id,
 					name: exerciseResponse.name,
@@ -37,6 +36,7 @@ class NewExerciseForm extends Component {
 				this.props.fetchExercises(this.props.therapistId)
 			}
 		})
+		this.props.fetchExercises(this.props.therapistId)
 	}
 	
 	render() {
@@ -68,23 +68,6 @@ class NewExerciseForm extends Component {
 
 
 				</Modal.Content>
-
-				{/* <div className="exercise-form-div">
-					<div className="x-btn-container">
-						<button className="x-btn" onClick={this.props.toggleNewExerciseState}>X</button>
-					</div>
-					<form onSubmit={this.handleSubmit} >
-						<label>Name: </label> <br />
-						<input type="text" name="name" onChange={this.handleChange} /> <br />
-
-						<label>Description: </label> 
-						<input type="text" name="desc" onChange={this.handleChange} /><br />
-
-						<label>Video Url: </label> <br />
-						<input type="text" name="url" onChange={this.handleChange} /> <br />
-						<input type="submit" />
-					</form>
-				</div> */}
 			</Modal>
 		);
 	}
@@ -98,7 +81,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		fetchExercises: (therapistId,model = "therapist") => {
+		fetchExercises: (therapistId, model = "therapist") => {
 			return dispatch(fetchExercises(therapistId,model))
 		}
 	}
