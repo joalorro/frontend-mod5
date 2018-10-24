@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchPatients } from '../../redux/actions/fetchPatients'
 import { fetchExercises } from '../../redux/actions/fetchExercises'
 import { fetchComments } from '../../redux/actions/fetchComments'
+import { selectPatient } from '../../redux/actions/actions'
 import PatientCard from '../components/PatientCard'
 import '../../stylesheets/style.css'
 
@@ -55,7 +56,7 @@ class PatientsContainer extends Component {
 	render() {
 		if (this.props.therapist){
 			return (
-				<div className="patient-index-outer">
+				<div id="patient-index-outer">
 					<h1>{this.props.therapist.last_name}, {this.props.therapist.first_name} </h1>
 					<div className="patient-container">
 						{this.props.exercises ? this.renderPatients() : null}
@@ -73,7 +74,8 @@ const mapStateToProps = (state) => {
 		therapist: state.sessionReducer.therapist,
 		patients: state.patientReducer.patients,
 		exercises: state.exerciseReducer.exercises,
-		comments: state.commentReducer.comments
+		comments: state.commentReducer.comments,
+		selectedPatient: state.patientReducer.selectedPatient 
 	}
 }
 
@@ -85,7 +87,8 @@ const mapDispatchToProps = (dispatch) => {
 		fetchExercises: (therapistId,model = "therapist") => {
 			return dispatch(fetchExercises(therapistId,model))
 		},
-		fetchComments: (exerciseIds) => dispatch(fetchComments(exerciseIds))
+		fetchComments: (exerciseIds) => dispatch(fetchComments(exerciseIds)),
+		selectPatient: (patient) => dispatch(selectPatient(patient))
 	}
 }
 

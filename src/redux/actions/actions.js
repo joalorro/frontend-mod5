@@ -11,3 +11,10 @@ export const createTherapistSession = (therapist) => {
 		therapist: therapist.therapist
 	}
 }
+
+export const selectPatient = (patient) =>{
+	return {
+		type: "SELECT_PATIENT",
+		selectedPatient: patient
+	}
+}

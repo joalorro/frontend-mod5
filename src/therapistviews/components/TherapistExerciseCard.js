@@ -28,7 +28,7 @@ class ExerciseCard extends Component {
 				<h4>{this.props.exercise.name}</h4>
 				<p>Desc: {this.props.exercise.desc}</p>
 				<p>Flagged? {this.props.exercise.flagged ? "Yes" : "No"}</p>
-				<YouTube videoId={this.props.exercise.videoId} opts={opts} />
+				{/* <YouTube videoId={this.props.exercise.videoId} opts={opts} /> */}
 
 				{this.state.showComments ? this.renderComments() : null}
 				<button onClick={this.handleClick}>{this.state.showComments ? "Hide Comments" : "Show Comments"}</button>

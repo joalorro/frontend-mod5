@@ -3,6 +3,17 @@ html, body, #root, #App {
 	height: 100%;
 	width: 100%;
 }
+
+/* Patient index component for therapists */
+
+*, *:before, *:after {
+	box-sizing: border-box
+}
+
+#patient-index-outer {
+	margin: 50px;
+}
+
 .patient-container {
 	display:grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -11,12 +22,19 @@ html, body, #root, #App {
 }
 
 .patient-card {
-	display: inline-block;
 	width: 300px;
 	height: 500px;
 	margin: 0 auto;
-	border: 1px solid black;
-	overflow:scroll;
+	overflow-y:scroll;
+	border-radius: 25px;
+	padding: 20px;
+}
+
+.patient-card.add-exercise-btn {
+	justify-content: center;
+}
+
+.patient-name-container {
 }
 
 .patient-name {

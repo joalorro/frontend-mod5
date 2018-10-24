@@ -1,7 +1,11 @@
 export const patientReducer = (state = {patients: []}, action) => {
 	switch (action.type){
 		case "SELECT_PATIENT":
-			return state
+			console.log('selecting patient', action.selectedPatient)
+			return {
+				...state,
+				selectedPatient: action.selectedPatient
+			}
 		case "FETCH_PATIENTS":
 			return {
 				...state,

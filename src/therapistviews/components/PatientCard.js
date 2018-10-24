@@ -1,15 +1,12 @@
-// import { fetchExercises } from '../../redux/actions/fetchExercises'
 import { connect } from 'react-redux'
 import React, { Component } from 'react';
 import '../../stylesheets/style.css'
+import '../../stylesheets/effects.css'
 import TherapistExerciseCard from './TherapistExerciseCard'
 import NewExerciseForm from './NewExerciseForm'
+import { selectPatient } from '../../redux/actions/actions'
 
 class PatientCard extends Component {
-	
-	state = { 
-		newExercise: false
-	}
 	
 	renderPatientExercises = () => {
 		return this.props.exercises.map( e => {
@@ -28,30 +25,45 @@ class PatientCard extends Component {
 	}
 
 	renderNewExerciseForm = () => {
-		return <NewExerciseForm toggleNewExerciseState={this.toggleNewExerciseState} patientId={this.props.patient.id} therapistId={this.props.therapist.id} addExercise={this.addExercise}/>
+		return <NewExerciseForm toggleNewExerciseState={this.toggleNewExerciseState} patient={this.props.patient} therapistId={this.props.therapist.id} addExercise={this.addExercise}/>
 	}
 
 	addExercise = (exercise) => this.props.exercises.push(exercise)
 	
+	handleSelect = () => {
+		console.log("showing props on click ", this.props)
+		this.props.selectPatient(this.props.patient)
+	}
+
 	render() {
 		console.log(this.props)
 		return (
-			<div className="patient-card">
-				<h3 className="patient-name">{this.props.patient.last_name}, {this.props.patient.first_name}</h3>
-					{this.renderPatientExercises()}
-				<div className="btn-container">
-					<button className="add-exercise-btn" onClick={this.toggleNewExerciseState}>+</button>
+			<div className="patient-card hvr-border-fade" onClick={this.handleSelect}>
+				<div className="patient-name-container">
+					<h3 className="patient-name">{this.props.patient.last_name}, {this.props.patient.first_name}</h3>
 				</div>
-				{this.state.newExercise ? this.renderNewExerciseForm() : null}
+				<div className="patient-card-contents">
+						{this.renderPatientExercises()}
+					<div className="btn-container">
+						<NewExerciseForm toggleNewExerciseState={this.toggleNewExerciseState} patient={this.props.patient} therapistId={this.props.therapist.id} addExercise={this.addExercise}/>
+					</div>
+				</div>	
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state,ownProps) => {
 	return {
-		therapist: state.sessionReducer.therapist
+		therapist: state.sessionReducer.therapist,
+		selected: ownProps.patient === state.patientReducer.selectedPatient
 	}
 }
 
-export default connect(mapStateToProps)(PatientCard)
+const mapDispatchToProps = dispatch => (
+	{
+		selectPatient: (patient) => dispatch(selectPatient(patient))
+	}
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(PatientCard)
