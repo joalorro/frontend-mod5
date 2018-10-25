@@ -3,6 +3,7 @@ import AppAdapter from '../../adapters/AppAdapter'
 import ErrorMsg from '../../generalviews/ErrorMsg'
 import { createTherapistSession } from '../../redux/actions/actions'
 import { connect } from 'react-redux'
+import '../../stylesheets/signup.css'
 
 class TherapistSignup extends Component {
 
@@ -92,8 +93,6 @@ class TherapistSignup extends Component {
 						<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name"/> <br />
 
 						<input onChange={this.handleChange} type="text" name="license" placeholder="License #" /> <br />
-						
-						{/* <input onChange={this.handleChange} type="text" name="degree" placeholder="degree" /> <br /> */}
 						<select onChange={this.handleChange} name="degree">
 							<option selected="selected">Degree</option>
 							<option value="Bachelor's">Bachelor's</option>

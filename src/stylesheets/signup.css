@@ -1,0 +1,39 @@
+.signup-content-container {
+	width: 100%;
+	display: table;
+	position: relative;
+	top: 30%;
+}
+
+.signup-msg-container {
+	margin: 0 auto;
+	height: 200px;
+	width: 300px;
+	border-radius: 10px;
+	background: rgb(15, 102,112);
+	padding-top: 50px;
+	color: white;
+}
+
+.signup-as-div {
+	display: flex;
+	justify-content: center;
+}
+
+.select-container {
+	margin-top: 10px;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.btn-container {
+	display: flex;
+	justify-content: center;
+}
+
+#with-form {
+	height: 400px;
+}
+

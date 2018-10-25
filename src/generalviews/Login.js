@@ -135,7 +135,6 @@ class Login extends Component {
 								<option value="patient">Patient</option>
 								<option value="therapist">Therapist</option>
 							</select>
-							{/* <input type="submit" value="Next" /> */}
 							<button className="ui icon left labeled button login-as-btn"
 								onClick={() => this.props.history.push('/')}
 							>
@@ -167,8 +166,6 @@ class Login extends Component {
 						<Form onSubmit={this.handleSubmitLogin}>
 							<input type="text" name="email" onChange={this.handleChange} placeholder="email e.g. email@example.com"/> <br />
 
-							
-							
 							<input type="password" name="password" onChange={this.handleChange} placeholder="password"/> <br />
 							
 							<div className="btn-container" > 
@@ -188,9 +185,7 @@ class Login extends Component {
 									<span className="btn-text-back">Back</span>
 								</button >
 							</div>
-							{/* <input type="submit" value="Log In" /> */}
 						</Form> 
-							{/* <button onClick={this.handleClickBackToLoginAs}>Back!</button> */}
 					</div>
 					<br />
 				</div>

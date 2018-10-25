@@ -3,6 +3,8 @@ import AppAdapter from '../../adapters/AppAdapter';
 import ErrorMsg from '../../generalviews/ErrorMsg'
 import { createPatientSession } from '../../redux/actions/actions'
 import { connect } from 'react-redux'
+import '../../stylesheets/signup.css'
+import { Form, Button } from 'semantic-ui-react'
 
 class PatientSignup extends Component {
 	state = {
@@ -77,22 +79,27 @@ class PatientSignup extends Component {
 
 	render() {
 		return (
-			<div>
-				<div className="form-container">
-					<form onSubmit={this.handleSubmit}>
-						<input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name" /> <br />
-						<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name" /> <br />
-						<input onChange={this.handleChange} type="text" name="email" placeholder="Enter Email e.g. email@example.com"/> <br />
-						<input onChange={this.handleChange} type="text" name="confirmEmail" placeholder="Confirm Email"/> <br />
+			<div className="signup-content-container">
+				<div id="with-form" className="signup-msg-container" >
+					<div className="signup-as-div">
+						<Form onSubmit={this.handleSubmit} className="form">
 
-						<input onChange={this.handleChange} type="text" name="identifier" placeholder="PT Identifier" /> <br />
+							<input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name" /> <br />
+							<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name" /> <br />
+							<input onChange={this.handleChange} type="text" name="email" placeholder="Enter Email e.g. email@example.com"/> <br />
+							<input onChange={this.handleChange} type="text" name="confirmEmail" placeholder="Confirm Email"/> <br />
 
-						<input onChange={this.handleChange} type="password" name="password" placeholder="Enter Password"/> <br />
-						<input onChange={this.handleChange} type="password" name="confirmPassword"  placeholder="Confirm Password"/> <br />
-						<input type="submit" value="Sign Up" />
-					</form> 
-					<div className='error-div'>
-						{this.state.errors ? this.renderErrors() : null}
+							<input onChange={this.handleChange} type="text" name="identifier" placeholder="PT Identifier" /> <br />
+
+							<input onChange={this.handleChange} type="password" name="password" placeholder="Enter Password"/> <br />
+							<input onChange={this.handleChange} type="password" name="confirmPassword"  placeholder="Confirm Password"/> <br />
+							<div className='btn-container'>
+								<Button>Sign Up</Button>
+							</div>
+						</Form> 
+						<div className='error-div'>
+							{this.state.errors ? this.renderErrors() : null}
+						</div>
 					</div>
 				</div>
 			</div>

@@ -2,7 +2,7 @@
 	width: 100%;
 	display: table;
 	position: relative;
-	top: 40%;
+	top: 30%;
 }
 
 .login-msg-container {
@@ -17,10 +17,6 @@
 	background: rgb(254, 105, 96);
 	padding-top: 50px;;
 	color: white;
-}
-
-.logged-in-name {
-
 }
 
 .logged-in-content-container {
