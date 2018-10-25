@@ -3,10 +3,9 @@ import AppAdapter from '../../adapters/AppAdapter'
 import '../../stylesheets/style.css'
 import { connect } from 'react-redux'
 import { fetchExercises } from '../../redux/actions/fetchExercises'
-import { openModal, closeModal } from '../../redux/actions/actions'
 import { Button, Form, Modal } from 'semantic-ui-react'
 
-class NewExerciseForm extends Component {
+class TherapistNewExerciseForm extends Component {
 	
 	constructor(props) {
 		super(props);
@@ -105,4 +104,4 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(NewExerciseForm);
+export default connect(mapStateToProps,mapDispatchToProps)(TherapistNewExerciseForm);

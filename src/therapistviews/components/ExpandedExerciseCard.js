@@ -1,6 +1,6 @@
 import React from 'react';
 import YouTube from 'react-youtube'
-import CommentSection from '../../generalviews/CommentSection'
+import TherapistCommentSection from './TherapistCommentSection'
 
 const ExpandedExerciseCard = ({exercise}) => {
 
@@ -23,7 +23,7 @@ const ExpandedExerciseCard = ({exercise}) => {
 			
 			<div className="btn-container">
 				<YouTube videoId={exercise.videoId} opts={opts} className="centered" />
-				<CommentSection exerciseId={exercise.id} />
+				<TherapistCommentSection exerciseId={exercise.id} />
 			</div>
 
 		</div>

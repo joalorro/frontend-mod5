@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../stylesheets/style.css'
+import '../../stylesheets/style.css'
 import Comment from './Comment'
-import NewCommentForm from './NewCommentForm'
+import PatientNewCommentForm from './PatientNewCommentForm'
 
-const CommentSection = ({comments,exerciseId}) => {
+const PatientCommentSection = ({comments,exerciseId}) => {
 	
 	const renderComments = () => {
 		return comments.map( c => {
@@ -18,7 +18,7 @@ const CommentSection = ({comments,exerciseId}) => {
 				{renderComments()}
 			</div>
 			<div className="new-comment-form">
-				<NewCommentForm exerciseId={exerciseId} />
+				<PatientNewCommentForm exerciseId={exerciseId} />
 			</div>
 		</div>	
 	);
@@ -30,4 +30,4 @@ const mapStateToProps = (state,ownProps) => {
 	}
 }
 
-export default connect(mapStateToProps)(CommentSection)
+export default connect(mapStateToProps)(PatientCommentSection)

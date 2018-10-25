@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Comment = ({comment:{commenter_name,content}}) => {
+const TherapistComment = ({comment:{commenter_name,content}}) => {
 	return (
 		<div>
 			<p><span className="commenter-name">{commenter_name}: </span> <span className="comment-content">{content}</span> </p>
@@ -8,4 +8,4 @@ const Comment = ({comment:{commenter_name,content}}) => {
 	);
 }
 
-export default Comment;
+export default TherapistComment;

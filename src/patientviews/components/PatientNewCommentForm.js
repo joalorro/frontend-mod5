@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AppAdapter from '../adapters/AppAdapter'
+import AppAdapter from '../../adapters/AppAdapter'
 import { connect } from 'react-redux';
-import { fetchComments } from '../redux/actions/fetchComments'
-import { Form, Button } from 'semantic-ui-react'
+import { fetchComments } from '../../redux/actions/fetchComments'
+import { Button } from 'semantic-ui-react'
 
 class NewCommentForm extends Component {
 

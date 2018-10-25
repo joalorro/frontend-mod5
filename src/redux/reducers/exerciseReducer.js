@@ -12,6 +12,11 @@ export const exerciseReducer = (state = initialState, action) => {
 				...state,
 				exercises: action.exercises
 			}
+		case "UPDATE_EXERCISE":
+			return {
+				...state,
+				exercise: action.exercise
+			}
 		default:
 			return state 
 	}

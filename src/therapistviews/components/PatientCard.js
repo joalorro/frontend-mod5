@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import '../../stylesheets/style.css'
 import '../../stylesheets/effects.css'
 import SimpleExerciseCard from './SimpleExerciseCard'
-import NewExerciseForm from './NewExerciseForm'
+import TherapistNewExerciseForm from './TherapistNewExerciseForm'
 import { selectPatient, openModal, closeModal } from '../../redux/actions/actions'
 import PatientCardModal from './PatientCardModal'
 
@@ -45,7 +45,7 @@ class PatientCard extends Component {
 				</div>
 
 				<div className="btn-container">
-					<NewExerciseForm patient={this.props.patient} />
+					<TherapistNewExerciseForm patient={this.props.patient} />
 				</div>
 			</div>
 		);

@@ -12,6 +12,13 @@ export const createTherapistSession = (therapist) => {
 	}
 }
 
+export const updateExercise = (exercise) => {
+	return {
+		type: "UPDATE_EXERCISE",
+		exercise
+	}
+}
+
 export const selectPatient = (patient) =>{
 	return {
 		type: "SELECT_PATIENT",

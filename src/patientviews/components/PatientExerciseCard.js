@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import CommentSection from '../../generalviews/CommentSection'
+import PatientCommentSection from './PatientCommentSection'
 import YouTube from 'react-youtube'
 import AppAdapter from '../../adapters/AppAdapter'
 
 class PatientExerciseCard extends Component {
 
 	state = {
-		showComments: false
+		showComments: false,
+		flagged: this.props.exercise.flagged
 	}
 
 	handleFlagToggle = () => {
 		AppAdapter.toggleFlag(this.props.exercise.id)
-		.then(response => console.log(response))
+		.then(response => {
+			this.setState({flagged: response})
+		})
 	}
 
 	render() {
@@ -23,12 +26,12 @@ class PatientExerciseCard extends Component {
 			}
 		}
 		return (
-			<div>
+			<div className="patient-exercise-card">
 				<h4>{this.props.exercise.name}</h4>
 				<p>{this.props.exercise.desc}</p>
-				<button onClick={this.handleFlagToggle}>{this.props.exercise.flagged ? "Unflag" : "Flag"}</button>
+				<button onClick={this.handleFlagToggle}>{this.state.flagged ? "Unflag" : "Flag"}</button>
 				<YouTube opts={opts} videoId={this.props.exercise.videoId}/>
-				<CommentSection exerciseId={this.props.exercise.id} />
+				<PatientCommentSection exerciseId={this.props.exercise.id} />
 			</div>
 		);
 	}
