@@ -4,6 +4,7 @@ import ErrorMsg from '../../generalviews/ErrorMsg'
 import { createTherapistSession } from '../../redux/actions/actions'
 import { connect } from 'react-redux'
 import '../../stylesheets/signup.css'
+import { Form, Button } from 'semantic-ui-react'
 
 class TherapistSignup extends Component {
 
@@ -86,32 +87,41 @@ class TherapistSignup extends Component {
 
 	render() {
 		return (
-			<div>
-				<div className="form-container">
-					<form onSubmit={this.handleSubmit}>
-						<input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name"/> <br />
-						<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name"/> <br />
+			<div className="signup-content-container">
+				<div id="therapist-form" className="signup-msg-container">
+					<div className="signup-as-div">
+						<Form onSubmit={this.handleSubmit}>
+							<input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name"/> <br />
+							<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name"/> 
+							<br />
+							<br />
+							<input onChange={this.handleChange} type="text" name="email" placeholder="Email e.g. email@example.com"/> <br />
+							<input onChange={this.handleChange} type="text" name="email_confirmation" placeholder="Confirm Email"/> 
+							<br />
+							<br />
+							
+							<input onChange={this.handleChange} type="password" name="password" placeholder="Create Password"/> <br />
+							<input onChange={this.handleChange} type="password" name="password_confirmation" placeholder="Confirm Password"/> 
+							<br />
+							<br />
 
-						<input onChange={this.handleChange} type="text" name="license" placeholder="License #" /> <br />
-						<select onChange={this.handleChange} name="degree">
-							<option selected="selected">Degree</option>
-							<option value="Bachelor's">Bachelor's</option>
-							<option value="MSPT">MSPT</option>
-							<option value="DPT">DPT</option>
-						</select> <br />
+							<input onChange={this.handleChange} type="text" name="license" placeholder="License #" /> <br />
+							<input onChange={this.handleChange} type="text" name="certifications" placeholder="Certifications" /> <br />
 
+							<select onChange={this.handleChange} name="degree">
+								<option selected="selected">Degree</option>
+								<option value="Bachelor's">Bachelor's</option>
+								<option value="MSPT">MSPT</option>
+								<option value="DPT">DPT</option>
+							</select>
 
-						<input onChange={this.handleChange} type="text" name="certifications" placeholder="Certifications" /> <br />
-
-						<input onChange={this.handleChange} type="text" name="email" placeholder="Email e.g. email@example.com"/> <br />
-						<input onChange={this.handleChange} type="text" name="email_confirmation" placeholder="Confirm Email"/> <br /> <br/>
-						
-						<input onChange={this.handleChange} type="password" name="password" placeholder="Create Password"/> <br />
-						<input onChange={this.handleChange} type="password" name="password_confirmation" placeholder="Confirm Password"/> <br />
-						<input type="submit" value="Sign Up" />
-					</form> 
-					<div className='error-div'>
-						{this.state.errors ? this.renderErrors() : null}
+							<div className="btn-container">
+								<Button>Sign Up</Button>
+							</div>
+						</Form> 	
+						<div className='error-div'>
+							{this.state.errors ? this.renderErrors() : null}
+						</div>
 					</div>
 				</div>
 			</div>
