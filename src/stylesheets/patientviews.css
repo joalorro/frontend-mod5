@@ -1,0 +1,71 @@
+.patient-show {
+	margin: 70px auto 0 auto;
+	min-height: 600px;
+	max-height: 1200px;
+	overflow: scroll;
+}
+
+.exercise-container {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 2em;
+	grid-row-gap: 3em;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.patient-exercise-card {
+	/* width: 700px; */
+	width: 300px;
+	height: 500px;
+	margin: 0 auto;
+	overflow-y:scroll;
+	border-radius: 25px;
+	padding: 20px;
+	box-sizing: content-box;
+}
+
+.video-container {
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+.flag-btn {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	height: 40px;
+	border-radius: 5px;
+	width: 80px;
+}
+
+.not-flagged {
+	border: 1px solid rgba(0, 0, 0, .3);
+	transition-duration: .5s;
+	content: "Not Flagged";
+}
+
+.flagged {
+	color: white;
+	border-color: white;
+	background: red;
+	transition-duration: .5s;
+	content: "Flagged";
+}
+
+.show-comments-area {
+	margin: 0 auto;
+	margin-bottom: 10px;
+	width: 90%;
+	min-height: 10px;
+	max-height: 100px;
+	overflow: scroll;
+}
+
+.patient-name {
+	text-align: center;
+}
+.exercises-title {
+	text-align: center;
+}

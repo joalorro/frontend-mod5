@@ -1,4 +1,72 @@
-.login-component {
+.login-content-container {
+	width: 100%;
+	display: table;
+	position: relative;
+	top: 40%;
+}
+
+.login-msg-container {
+	margin: 0 auto;
+	/* display: flex;
+	justify-content: center; */
+	height: 200px;
+	width: 300px;
+	border-radius: 10px;
+	/* background: rgb(204,222,203); */
+	/* background: black; */
+	background: rgb(254, 105, 96);
+	padding-top: 50px;;
+	color: white;
+}
+
+.logged-in-name {
+
+}
+
+.logged-in-content-container {
+	justify-content: center;
+}
+
+.btn-container {
+	display: flex;
+	justify-content: center;
+}
+
+.login-msg-div {
+	display: flex;
+	justify-content: center;
+}
+
+.login-as-div {
+	display: flex;
+	justify-content: center;
+}
+
+.select-bar {
+	height: 40px;
+	font-size: 14px;
+}
+
+.login-as-btn {
+	height:20px;
+
+}
+
+div span.btn-text-back {
+	bottom: 5px;
+	font-size: 10px;
 	position: absolute;
-	top: 50px;
+	right: 10px;
+}
+div span.btn-text-next {
+	bottom: 5px;
+	font-size: 10px;
+	position: absolute;
+	left: 10px;
+}
+
+.register-msg {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
 }

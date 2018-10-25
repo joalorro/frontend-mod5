@@ -1,8 +1,9 @@
 import React from 'react';
 // import { NavLink } from 'react-router-dom'
 import '../stylesheets/menus.css'
+import { connect } from 'react-redux'
 
-const Navbar = () => {
+const Navbar = ({sessionPresent}) => {
 
 	return (
 		<div id="navbar">
@@ -11,7 +12,7 @@ const Navbar = () => {
 					<a className='item' href="/">Home</a>
 				</li>
 				<li className="right menu">
-					<a className='item' href='/login'>Logout</a>
+					<a className='item' href='/login'> {sessionPresent ? "Logout" : "Login"}</a>
 				</li>
 
 			</ul>
@@ -19,4 +20,10 @@ const Navbar = () => {
 	);
 }
 
-export default Navbar;
+const mapStateToProps = state => {
+	return {
+		sessionPresent: !!(state.sessionReducer.therapist || state.sessionReducer.patient)
+	}
+}
+
+export default connect(mapStateToProps)(Navbar);

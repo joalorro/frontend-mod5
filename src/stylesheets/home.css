@@ -80,10 +80,6 @@
 	bottom: 0;
 }
 
-.hidden- {
-	visibility: hidden;
-}
-
 .welcome-div {
 	display:table-cell;
 	position: relative;

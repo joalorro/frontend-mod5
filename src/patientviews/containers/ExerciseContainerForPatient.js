@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { fetchExercises } from '../../redux/actions/fetchExercises'
 import { fetchComments } from '../../redux/actions/fetchComments'
 import PatientExerciseCard from '../components/PatientExerciseCard'
-import '../../stylesheets/style.css'
+import '../../stylesheets/patientviews.css'
+import '../../stylesheets/effects.css'
 
 class ExerciseContainerForPatient extends Component {
 
@@ -54,9 +55,11 @@ class ExerciseContainerForPatient extends Component {
 		if (this.props.patient){
 			return (
 				<div className="patient-show">
-					<h1>{this.props.patient.last_name + ", " + this.props.patient.first_name}</h1>
-					<h3>Exercises: </h3>
-					{this.props.exercises ? this.renderExercises() : null}
+					<h1 className="patient-name">{this.props.patient.last_name + ", " + this.props.patient.first_name}</h1>
+						<h3 className="exercises-title">Exercises: </h3>
+					<div className="exercise-container">
+						{this.props.exercises ? this.renderExercises() : null}
+					</div>
 				</div>
 			)
 		} else {

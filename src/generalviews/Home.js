@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'
-import Signup from './Signup'
 import { connect } from 'react-redux'
 import '../stylesheets/home.css'
 const Home = ({ sessionUser, history }) => {
@@ -14,7 +13,7 @@ const Home = ({ sessionUser, history }) => {
 				</p>
 				<br />
 				<button className='ui inverted button hvr-sweep-to-right login-btn' onClick={renderNextPageForUser} >
-					Go to your exercise index!
+					Go to your Exercise Index
 				</button>
 			</Fragment>
 		)
@@ -85,7 +84,7 @@ const Home = ({ sessionUser, history }) => {
 			<div id="background-container">
 				<div id="content-container-home">
 					<div id="home-title-container">
-						<h1 id="home-title">Continue your journey towards rehabilitation with "App" </h1>
+						<h1 id="home-title">Continue your journey towards rehabilitation with Home Exercise Helper </h1>
 					</div>
 				</div>
 			</div>

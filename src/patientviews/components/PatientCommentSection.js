@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../../stylesheets/style.css'
+import '../../stylesheets/patientviews.css'
 import Comment from './Comment'
 import PatientNewCommentForm from './PatientNewCommentForm'
 
@@ -13,7 +13,7 @@ const PatientCommentSection = ({comments,exerciseId}) => {
 	}
 	
 	return (
-		<div className="comment-section">
+		<div className="patient-comment-section">
 			<div className="show-comments-area">
 				{renderComments()}
 			</div>

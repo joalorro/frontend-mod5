@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
 import AppAdapter from '../adapters/AppAdapter'
 import ErrorMsg from './ErrorMsg'
 import '../stylesheets/login.css'
+import { Form, Button } from 'semantic-ui-react'
 
 import {createPatientSession,createTherapistSession} from '../redux/actions/actions'
 
@@ -27,7 +28,7 @@ class Login extends Component {
 	}
 
 	handleClickBackToLoginAs = () => {
-		this.setState({chosen: false})
+		this.setState({chosen: false, error: ''})
 	}
 
 	handleLoginAs = e => {
@@ -83,12 +84,16 @@ class Login extends Component {
 		let session = this.props.session
 		let model = Object.keys(session)[0]
 		return (
-			<div className="login-component">
-				Logged in as: {session[model].first_name + ' ' + session[model].last_name} <br />
-				<form onSubmit={this.handleLogout}>
-					<button >Log Out</button>
-				</form>
-
+			<div className="logged-in-content-container">
+				<div className="login-msg-div">
+					Logged in as: <br />
+					<p className="logged-in-name">{session[model].first_name + ' ' + session[model].last_name} </p>
+				</div>
+				<div className="btn-container">
+					<form onSubmit={this.handleLogout} >
+						<button className="ui inverted button" >Log Out</button>
+					</form>
+				</div>
 			</div>
 
 		)
@@ -111,46 +116,93 @@ class Login extends Component {
 
 	render() {
 		console.log(this.state)
+		let innerContent
 		if (Object.keys(this.props.session).length){
-			return (
-				<div>
+			//Render content if user is logged in
+			innerContent = (
+				<div className="login-msg-container">
 					{this.renderRedirectBtnIfLoggedIn()}
 				</div>
 			)
 		} else if (!this.state.chosen){
-			return (
-				<div className="login-component">
-					<form onSubmit={this.handleLoginAs}>
-						<label>Login as a: </label> <br />
-						<select onChange={this.handleChooseLogin}>
-							<option value="patient">Patient</option>
-							<option value="therapist">Therapist</option>
-						</select>
-						<input type="submit" value="Next" />
-					</form>
-						<button onClick={this.handleClickBackToHome}>Back</button>
-					<p>Don't have an account yet? Register <span onClick={this.handleRedirectToSignup} id='signup-link' >here</span>. </p>
+			// 'login as' menu if user is not logged in
+			innerContent = (
+				<div className="login-msg-container">
+					<div className="login-as-div">
+						<Form onSubmit={this.handleLoginAs}>
+							<label>Login as a: </label> <br />
+							<select onChange={this.handleChooseLogin} className="select-bar">
+								<option value="patient">Patient</option>
+								<option value="therapist">Therapist</option>
+							</select>
+							{/* <input type="submit" value="Next" /> */}
+							<button className="ui icon left labeled button login-as-btn"
+								onClick={() => this.props.history.push('/')}
+							>
+								<i aria-hidden='true' class='left chevron icon' />
+								<span className="btn-text-back">Back</span>
+							</button >
+							<button className='ui icon right labeled button login-as-btn'>
+								<i aria-hidden='true' class='right chevron icon' />
+								<span className="btn-text-next">
+									Next
+								</span>
+							</button>
+						</Form>
+					</div>
+					<div className="register-msg">
+						<p>Don't have an account yet? Register <span onClick={this.handleRedirectToSignup} id='signup-link' >here</span>. </p>
+					</div>
 				</div>
 			)
 		} else {
-			return (
-				<div className='login-component'>
-					<div className="form-container">
+			//content if user has chosen which role to log in as
+			
+			innerContent = (
+				<div className='login-msg-container'>
+					<div className="login-as-div">
 						<div className="error-div" >
 							{!!this.state.error ? <ErrorMsg error={this.state.error} /> : null}
 						</div>
-						<form onSubmit={this.handleSubmitLogin}>
+						<Form onSubmit={this.handleSubmitLogin}>
 							<input type="text" name="email" onChange={this.handleChange} placeholder="email e.g. email@example.com"/> <br />
+
+							
 							
 							<input type="password" name="password" onChange={this.handleChange} placeholder="password"/> <br />
-							<input type="submit" value="Log In" />
-						</form> 
-							<button onClick={this.handleClickBackToLoginAs}>Back!</button>
+							
+							<div className="btn-container" > 
+								<button 
+									className='ui icon right labeled button login-as-btn right'
+								>
+									<i aria-hidden='true' class='right chevron icon' />
+									<span className="btn-text-next">
+										Next
+									</span>
+								</button>
+								<button 
+									className="ui icon left labeled button login-as-btn left"
+									onClick={this.handleClickBackToLoginAs}
+								>
+									<i aria-hidden='true' class='left chevron icon' />
+									<span className="btn-text-back">Back</span>
+								</button >
+							</div>
+							{/* <input type="submit" value="Log In" /> */}
+						</Form> 
+							{/* <button onClick={this.handleClickBackToLoginAs}>Back!</button> */}
 					</div>
 					<br />
 				</div>
 			);
 		}
+
+		return (
+			<div className="login-content-container">
+				{innerContent}
+			</div>
+		)
+
 	}
 }
 

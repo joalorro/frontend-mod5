@@ -19,10 +19,10 @@ const Footer = () => {
 					</button> */}
 				</div>
 
-				<div id="divider" className='ui horizontal inverted divider'>Bruh </div>
+				<div id="divider" className='ui horizontal inverted divider'>Home Exercise Helper </div>
 				
 				<div id="footer-text-div">
-					<p id="footer-text">Come at me.</p>
+					<p id="footer-text">Bringing therapists and patients together over the web since 2018</p>
 				</div>
 			</div>
 		</div>
