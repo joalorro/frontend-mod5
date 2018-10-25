@@ -13,7 +13,7 @@ const Home = ({ sessionUser, history }) => {
 					Welcome, {sessionUser.patient.first_name}
 				</p>
 				<br />
-				<button onClick={renderNextPageForUser}>
+				<button className='ui inverted button hvr-sweep-to-right login-btn' onClick={renderNextPageForUser} >
 					Go to your exercise index!
 				</button>
 			</Fragment>
@@ -24,23 +24,32 @@ const Home = ({ sessionUser, history }) => {
 		console.log('therapist in session: ', sessionUser)
 		return (
 			<Fragment>
-				<p>Welcome, {sessionUser.therapist.first_name}</p>
+				<h5 className="welcome-msg">Welcome, {sessionUser.therapist.first_name}</h5>
 				<br />
-				<button onClick={renderNextPageForUser} >
-					Go to your patients index!
-				</button>
-			</Fragment>
+					<div className="login-btn-container">
+						<button className='ui inverted button hvr-sweep-to-right login-btn' onClick={renderNextPageForUser} >
+							Go to your Patients Index
+						</button>
+					</div>
+			</Fragment>	
 		)
 	}
 
 	const renderLoginButton = () => {
 		console.log('no session detected')
 		return (
-			<div id="login-button-div">
-				<Link to="/login" exact component={Signup}>  
-					<button className="ui button login-btn"> Log in/Sign up  </button>
-				</Link>
-			</div>
+			<Fragment>
+				<br />
+				<h5 className="welcome-msg"> </h5>
+				<br />
+					<div className="login-btn-container">
+						<Link to='/login'>
+							<button className='ui inverted button hvr-sweep-to-right login-btn'>
+								Log in/Sign up
+							</button>
+						</Link>
+					</div>
+			</Fragment>	
 		)
 	}
 
@@ -55,8 +64,10 @@ const Home = ({ sessionUser, history }) => {
 		}
 		return (
 			<div className="welcome-div">
-				<div className="welcome-content-container">
-					{link}
+				<div className="welcome-content-container-outer">
+					<div className="welcome-content-container">
+						{link}
+					</div>
 				</div>
 			</div>
 		)

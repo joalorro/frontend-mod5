@@ -71,9 +71,17 @@
 	vertical-align: middle;
 }
 
-.login-btn {
-	width: 130px;
-	height: 30px;
+.login-btn{
+	bottom: 0;
+}
+
+.login-btn-container {
+	
+	bottom: 0;
+}
+
+.hidden- {
+	visibility: hidden;
 }
 
 .welcome-div {
@@ -86,12 +94,26 @@
 	padding: 0px;
 }
 
+.welcome-content-container-outer {
+	margin: 0 auto;
+	width: 310px;
+	height: 160px;
+	background: rgb(15,102,112);
+	border-radius: 5px;
+}
+
 .welcome-content-container {
 	margin: 0 auto;
+	margin-top: 10px;
 	width: 300px;
 	text-align: center;
+	height: 150px;
+	background: rgb(254,105,96);
+	border-radius: 5px;
+	bottom: 5px;
 }
 
 .welcome-msg {
-	color: silver;
+	margin-top: 20px;
+	font-size: 14px;
 }
