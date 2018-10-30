@@ -40,9 +40,10 @@ class PatientExerciseCard extends Component {
 		return (
 			<div className="patient-exercise-card hvr-fade">
 				{this.displayFlagButton()}
-				<h4>{this.props.exercise.name}</h4>
-				<p>{this.props.exercise.desc}</p>
-				
+				<div className="written-content">
+					<h4>{this.props.exercise.name}</h4>
+					<p>{this.props.exercise.desc}</p>
+				</div>
 				<div className="video-container">
 					<YouTube opts={opts} videoId={this.props.exercise.videoId}/>
 				</div>

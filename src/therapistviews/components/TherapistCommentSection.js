@@ -13,7 +13,7 @@ const CommentSection = ({comments,exerciseId}) => {
 	}
 	
 	return (
-		<div className="comment-section">
+		<div className="therapist-comment-section">
 			<div className="show-comments-area">
 				{renderComments()}
 			</div>

@@ -69,3 +69,9 @@
 .exercises-title {
 	text-align: center;
 }
+
+.written-content {
+	max-height: 180px;
+	min-height: 120px;
+	margin-bottom: 20px;
+}

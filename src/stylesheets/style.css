@@ -136,16 +136,20 @@ html, #App {
 
 /* Comment Section */
 
-.comment-section {
+.therapist-comment-section {
 	margin-left: 20px;
 	height: 350px;
 	/* border: 1px solid rgba(0,0,0,.3); */
 	box-sizing: border-box;
 }
 
-.show-comments-area {
+.patient-comment-section {
+	height: 50px;
+}
+
+.show-comments-area-for-patient {
 	overflow: scroll;	
-	height:272px;
+	height:75px;
 }
 
 .new-comment-form {
@@ -155,4 +159,8 @@ html, #App {
 .comment-body {
 	width: 100%;
 	border-radius: 10px
+}
+
+.commenter-name {
+	color: rgba(15,15,200, .4)
 }

@@ -84,7 +84,7 @@ const Home = ({ sessionUser, history }) => {
 			<div id="background-container">
 				<div id="content-container-home">
 					<div id="home-title-container">
-						<h1 id="home-title">Continue your journey towards rehabilitation with Home Exercise Helper </h1>
+						<h1 id="home-title">Continue your journey towards rehabilitation with HomeEx Helper </h1>
 					</div>
 				</div>
 			</div>
