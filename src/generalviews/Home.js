@@ -43,7 +43,7 @@ const Home = ({ sessionUser, history }) => {
 				<br />
 					<div className="login-btn-container">
 						<Link to='/login'>
-							<button className='ui inverted button hvr-sweep-to-right login-btn'>
+						<button className='ui inverted button hvr-sweep-to-right login-btn' onClick={() => document.body.scrollTop = document.documentElement.scrollTop = 0}>
 								Log in/Sign up
 							</button>
 						</Link>
@@ -75,12 +75,12 @@ const Home = ({ sessionUser, history }) => {
 	const renderNextPageForUser = () => {
 		let model = Object.keys(sessionUser)[0]
 		let slug =  '/' + sessionUser[model].last_name + '-' + sessionUser[model].first_name + (model === 'therapist' ? '/patients' : '/exercises')
+		document.body.scrollTop = document.documentElement.scrollTop = 0
 		history.push(slug)
 	}
 	
 	return (
 		<div id="home">
-			{/* <div id="left-div"></div> */}
 			<div id="background-container">
 				<div id="content-container-home">
 					<div id="home-title-container">
@@ -88,7 +88,6 @@ const Home = ({ sessionUser, history }) => {
 					</div>
 				</div>
 			</div>
-			{/* <div id='right-div'></div> */}
 			<div id="bottom-div">
 				<div id='bottom-div-content-container'>
 					{checkIfLoggedThenRenderLink()}

@@ -7,16 +7,11 @@
 
 .login-msg-container {
 	margin: 0 auto;
-	/* display: flex;
-	justify-content: center; */
 	height: 200px;
 	width: 300px;
 	border-radius: 10px;
-	/* background: rgb(204,222,203); */
-	/* background: black; */
-	/* background: rgb(254, 105, 96); */
 	background: rgb(15, 102, 112);
-	padding-top: 50px;;
+	padding-top: 50px;
 	color: white;
 }
 
@@ -35,8 +30,13 @@
 }
 
 .login-as-div {
+	position: relative;
 	display: flex;
 	justify-content: center;
+}
+
+.login-centered-div {
+
 }
 
 .select-bar {
@@ -46,7 +46,6 @@
 
 .login-as-btn {
 	height:20px;
-
 }
 
 div span.btn-text-back {
@@ -66,4 +65,16 @@ div span.btn-text-next {
 	margin-top: 10px;
 	display: flex;
 	justify-content: center;
+}
+
+.form-container {
+	display: block;
+}
+
+.error-div {
+	position: absolute;
+	top: -20px;
+	display: block;
+	font-size: 8pt;
+	color: red;
 }

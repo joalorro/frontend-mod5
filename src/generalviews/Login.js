@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import AppAdapter from '../adapters/AppAdapter'
 import ErrorMsg from './ErrorMsg'
 import '../stylesheets/login.css'
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Icon } from 'semantic-ui-react'
 
 import {createPatientSession,createTherapistSession} from '../redux/actions/actions'
 
@@ -160,32 +160,31 @@ class Login extends Component {
 			innerContent = (
 				<div className='login-msg-container'>
 					<div className="login-as-div">
-						<div className="error-div" >
-							{!!this.state.error ? <ErrorMsg error={this.state.error} /> : null}
-						</div>
-						<Form onSubmit={this.handleSubmitLogin}>
-							<input type="text" name="email" onChange={this.handleChange} placeholder="email e.g. email@example.com"/> <br />
-
-							<input type="password" name="password" onChange={this.handleChange} placeholder="password"/> <br />
-							
-							<div className="btn-container" > 
-								<button 
-									className='ui icon right labeled button login-as-btn right'
-								>
-									<i aria-hidden='true' class='right chevron icon' />
-									<span className="btn-text-next">
-										Next
-									</span>
-								</button>
-								<button 
-									className="ui icon left labeled button login-as-btn left"
-									onClick={this.handleClickBackToLoginAs}
-								>
-									<i aria-hidden='true' class='left chevron icon' />
-									<span className="btn-text-back">Back</span>
-								</button >
+						<div className='login-centered-div'>
+							<div className="icon-holder">
+								<Icon enabled name="chevron left large" className="back-icon" onClick={() => this.setState({chosen: false})}/>
 							</div>
-						</Form> 
+							<div className="error-div">
+								{!!this.state.error ? <ErrorMsg error={this.state.error} /> : null}
+							</div>
+							<div className="form-container">
+								<Form onSubmit={this.handleSubmitLogin} >
+									<input type="text" name="email" onChange={this.handleChange} placeholder="Enter your email"/> <br />
+									<input type="password" name="password" onChange={this.handleChange} placeholder="Enter your password"/> <br />
+									
+									<div className="btn-container" > 
+										<button 
+											className='ui icon right labeled button login-as-btn right'
+										>
+											<i aria-hidden='true' class='right chevron icon' />
+											<span className="btn-text-next">
+												Next
+											</span>
+										</button>
+									</div>
+								</Form> 
+							</div>
+						</div>
 					</div>
 					<br />
 				</div>

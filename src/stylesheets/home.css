@@ -13,7 +13,7 @@
 }
 
 #background-container {
-	background-image: url('https://cdn.pixabay.com/photo/2014/09/18/11/35/old-450742_1280.jpg');
+	background-image: url('../walk-in-park.jpg');
 	height: 500px;
 	background-attachment: fixed;
 	background-position: 0 -500px;

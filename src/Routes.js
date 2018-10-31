@@ -1,14 +1,12 @@
 import Home from './generalviews/Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import React, { Fragment } from 'react'
-import Navbar from './generalviews/Navbar'
 import Login from './generalviews/Login'
 import Signup from './generalviews/Signup'
 import PatientSignup from './patientviews/components/PatientSignup'
 import TherapistSignup from './therapistviews/components/TherapistSignup'
 import ExerciseContainerForPatient from './patientviews/containers/ExerciseContainerForPatient'
 import PatientsContainer from './therapistviews/containers/PatientsContainer'
-
 
 const Routes = () => {
 	return (

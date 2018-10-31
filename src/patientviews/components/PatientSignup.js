@@ -4,7 +4,7 @@ import ErrorMsg from '../../generalviews/ErrorMsg'
 import { createPatientSession } from '../../redux/actions/actions'
 import { connect } from 'react-redux'
 import '../../stylesheets/signup.css'
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Button, Icon } from 'semantic-ui-react'
 
 class PatientSignup extends Component {
 	state = {
@@ -29,6 +29,14 @@ class PatientSignup extends Component {
 		this.completeSignup()
 	}
 	
+	renderErrorMsg = () => {
+		let errorString = ''
+		this.state.errors.forEach(e => {
+			errorString += e + '. \n'
+		})
+		return errorString
+	}
+
 	completeSignup = () => {
 		let body = {
 			patient: {
@@ -60,14 +68,9 @@ class PatientSignup extends Component {
 					localStorage.setItem('token', response.patient.token)
 					this.props.history.push(slug)
 				} else {
-					this.setState({errors: []})
-					response.errors.forEach(e => this.addError(e))
+					this.setState({errors: response.errors}, () => this.setState({errors: []}))
 				}
 			})
-	}
-
-	addError = (error) => {
-		this.setState(prevState => ({errors: prevState.errors.concat(error)}))
 	}
 
 	renderErrors = () => {
@@ -82,11 +85,14 @@ class PatientSignup extends Component {
 			<div className="signup-content-container">
 				<div id="with-form" className="signup-msg-container" >
 					<div className="signup-as-div">
+						<div className="icon-holder">
+							<Icon enabled name="chevron left large" className="back-icon" onClick={() => this.props.history.push('/signup')}/>
+						</div>
 						<Form onSubmit={this.handleSubmit} className="form">
 
 							<input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name" /> <br />
 							<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name" /> <br />
-							<input onChange={this.handleChange} type="text" name="email" placeholder="Enter Email e.g. email@example.com"/> <br />
+							<input onChange={this.handleChange} type="text" name="email" placeholder="Enter Email"/> <br />
 							<input onChange={this.handleChange} type="text" name="confirmEmail" placeholder="Confirm Email"/> <br />
 
 							<input onChange={this.handleChange} type="text" name="identifier" placeholder="PT Identifier" /> <br />
@@ -97,9 +103,10 @@ class PatientSignup extends Component {
 								<Button>Sign Up</Button>
 							</div>
 						</Form> 
-						<div className='error-div'>
+						{/* <div className='signup-error-div'>
 							{this.state.errors ? this.renderErrors() : null}
-						</div>
+						</div> */}
+						{this.state.errors.length ? alert(this.renderErrorMsg()) : null}
 					</div>
 				</div>
 			</div>

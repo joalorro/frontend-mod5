@@ -99,3 +99,22 @@
 	-webkit-transform: scaleX(1);
 	transform: scaleX(1);
 }
+
+.back-icon:hover,
+.back-icon:focus,
+.back-icon:active {
+	color: rgba(0,0,0,.2);
+	transition: all .3s ease-in;
+}
+
+.back-icon:hover:before,
+.back-icon:focus:before,
+.back-icon:active:before {
+	transform: scale(2.0);
+	transition: all .3s ease-out;
+}
+
+.back-icon:active:before {
+	color: black;
+	transition: all .05s ease-in-out;
+}

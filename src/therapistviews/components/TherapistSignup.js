@@ -4,7 +4,7 @@ import ErrorMsg from '../../generalviews/ErrorMsg'
 import { createTherapistSession } from '../../redux/actions/actions'
 import { connect } from 'react-redux'
 import '../../stylesheets/signup.css'
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Button, Icon } from 'semantic-ui-react'
 
 class TherapistSignup extends Component {
 
@@ -90,6 +90,9 @@ class TherapistSignup extends Component {
 			<div className="signup-content-container">
 				<div id="therapist-form" className="signup-msg-container">
 					<div className="signup-as-div">
+						<div className="icon-holder">
+							<Icon enabled name="chevron left large" className="back-icon" onClick={() => this.props.history.push('/signup')}/>
+						</div>
 						<Form onSubmit={this.handleSubmit}>
 							<input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name"/> <br />
 							<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name"/> 
@@ -119,7 +122,7 @@ class TherapistSignup extends Component {
 								<Button>Sign Up</Button>
 							</div>
 						</Form> 	
-						<div className='error-div'>
+						<div className='signup-error-div'>
 							{this.state.errors ? this.renderErrors() : null}
 						</div>
 					</div>
