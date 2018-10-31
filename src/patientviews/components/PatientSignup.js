@@ -34,7 +34,7 @@ class PatientSignup extends Component {
 		this.state.errors.forEach(e => {
 			errorString += e + '. \n'
 		})
-		return errorString
+		alert(errorString)
 	}
 
 	completeSignup = () => {
@@ -67,8 +67,11 @@ class PatientSignup extends Component {
 					this.props.createPatientSession(response)
 					localStorage.setItem('token', response.patient.token)
 					this.props.history.push(slug)
+					document.body.scrollTop = document.documentElement.scrollTop = 0
 				} else {
-					this.setState({errors: response.errors}, () => this.setState({errors: []}))
+					this.setState({ errors: response.errors }, () => {
+						this.setState({ errors: [] })
+					})
 				}
 			})
 	}
@@ -103,10 +106,7 @@ class PatientSignup extends Component {
 								<Button>Sign Up</Button>
 							</div>
 						</Form> 
-						{/* <div className='signup-error-div'>
-							{this.state.errors ? this.renderErrors() : null}
-						</div> */}
-						{this.state.errors.length ? alert(this.renderErrorMsg()) : null}
+						{this.state.errors.length ? this.renderErrorMsg() : null}
 					</div>
 				</div>
 			</div>

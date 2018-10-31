@@ -10,7 +10,7 @@ class TherapistSignup extends Component {
 
 	state = {
 		firstName: '',
-		lasatName: '',
+		lastName: '',
 		license: '',
 		degree: '',
 		certifications: '',
@@ -30,6 +30,14 @@ class TherapistSignup extends Component {
 	handleSubmit = e => {
 		e.preventDefault()
 		this.completeSignup()
+	}
+
+	renderErrorMsg = () => {
+		let errorString = ''
+		this.state.errors.forEach(e => {
+			errorString += e + '. \n'
+		})
+		alert(errorString)
 	}
 
 	completeSignup = () => {
@@ -66,16 +74,13 @@ class TherapistSignup extends Component {
 				this.props.createTherapistSession(response)
 				localStorage.setItem('token', response.therapist.token)
 				this.props.history.push(slug)
+				document.body.scrollTop = document.documentElement.scrollTop = 0
 			} else {
-				this.setState({erorrs: []})
-				response.errors.forEach(e => this.addError(e))
+				this.setState({ errors: response.errors }, () => {
+					this.setState({ erorrs: [] })
+				})
 			}
 		})
-		
-	}
-
-	addError = (error) => {
-		this.setState(prevState => ({errors: prevState.errors.concat(error)}))
 	}
 
 	renderErrors = () => {
@@ -122,9 +127,7 @@ class TherapistSignup extends Component {
 								<Button>Sign Up</Button>
 							</div>
 						</Form> 	
-						<div className='signup-error-div'>
-							{this.state.errors ? this.renderErrors() : null}
-						</div>
+						{this.state.errors.length ? this.renderErrorMsg() : null}
 					</div>
 				</div>
 			</div>
