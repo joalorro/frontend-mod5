@@ -40,8 +40,8 @@ class PatientExerciseCard extends Component {
 		return (
 			<div className="patient-exercise-card hvr-fade">
 				{this.displayFlagButton()}
+				<h4>{this.props.exercise.name}</h4>
 				<div className="written-content">
-					<h4>{this.props.exercise.name}</h4>
 					<p>{this.props.exercise.desc}</p>
 				</div>
 				<div className="video-container">

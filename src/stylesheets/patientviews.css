@@ -17,7 +17,7 @@
 .patient-exercise-card {
 	/* width: 700px; */
 	width: 300px;
-	height: 500px;
+	height: 550px;
 	margin: 0 auto;
 	overflow-y:scroll;
 	border-radius: 25px;
@@ -71,7 +71,10 @@
 }
 
 .written-content {
-	max-height: 180px;
-	min-height: 120px;
+	height: 150px;
 	margin-bottom: 20px;
+	border-radius: 20px;
+	padding: 5px;
+	overflow:scroll;
+	font-size: 12px;
 }
