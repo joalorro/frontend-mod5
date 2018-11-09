@@ -5,8 +5,6 @@ import ErrorMsg from './ErrorMsg'
 import '../stylesheets/login.css'
 import { Form, Icon } from 'semantic-ui-react'
 
-import {createPatientSession,createTherapistSession} from '../redux/actions/actions'
-
 class Login extends Component {
 	
 	state = {
@@ -206,15 +204,4 @@ const mapStateToProps = state => {
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		createPatientSession: (patient) => {
-			return dispatch(createPatientSession(patient))
-		},
-		createTherapistSession: (therapist) => {
-			return dispatch(createTherapistSession(therapist))
-		}
-	}
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+export default connect(mapStateToProps)(Login);
