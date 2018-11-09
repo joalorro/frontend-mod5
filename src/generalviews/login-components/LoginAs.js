@@ -1,18 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { chooseRole } from '../../redux/actions/actions'
+import { chooseModel } from '../../redux/actions/actions'
 
 import { Form } from 'semantic-ui-react'
 
 import '../../stylesheets/login.css'
 
 
-const LoginAs = ({ history, chooseRole }) => {
+const LoginAs = ({ history, chooseModel }) => {
 	
-	let role = React.createRef()
+	let model = React.createRef()
 
 	const handleLoginAs = () => {
-		chooseRole(role.current.value)
+		chooseModel(model.current.value)
 	}
 	
 	return (
@@ -21,7 +21,7 @@ const LoginAs = ({ history, chooseRole }) => {
 				<Form onSubmit={handleLoginAs}>
 					<label>Login as a: </label> <br />
 					
-					<select ref={role} className="select-bar">
+					<select ref={model} className="select-bar">
 						<option value="patient">Patient</option>
 						<option value="therapist">Therapist</option>
 					</select>
@@ -49,7 +49,7 @@ const LoginAs = ({ history, chooseRole }) => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		chooseRole: (role) => dispatch(chooseRole(role))
+		chooseModel: (model) => dispatch(chooseModel(model))
 	}
 }
 

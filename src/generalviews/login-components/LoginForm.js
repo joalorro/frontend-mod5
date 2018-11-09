@@ -1,22 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Icon, Form } from 'semantic-ui-react'
+import AppAdapter from '../../adapters/AppAdapter'
 
 import { createPatientSession, createTherapistSession } from '../../redux/actions/actions'
 
 import ErrorMsg from '../ErrorMsg'
 
-const LoginForm = ({ history,errors,role }) => {
+const LoginForm = ({model,errors,history,createPatientSession,createTherapistSession}) => {
 	
 	let email = React.createRef()
 	let password = React.createRef()
 	
 	const handleLogin = () => {
-		if (role === 'therapist') {
-			createTherapistSession({ email,password })
-		} else if (role === 'patient') {
-			createPatientSession({ email, password})
-		}
+		let body = {
+			email: email.current.value,
+			password: password.current.value,
+			model: model
+		} 
+		AppAdapter.login({ body })
+			.then(user => {
+				let createUserSession = model === 'patient' ? createPatientSession : createTherapistSession
+				createUserSession(user)
+				history.push('/')
+			})
 	}
 
 	return (
@@ -53,22 +60,17 @@ const LoginForm = ({ history,errors,role }) => {
 	);
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
 	return {
-		role: state.sessionReducer.role,
+		model: state.sessionReducer.model,
 		errors: state.sessionReducer.errors
 	}
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-	if (ownProps.role === 'therapist') {
-		return { 
-			createTherapistSession: ({ email, password }) => dispatch(createTherapistSession({ email, password }))
-		}
-	} else if (ownProps.role === 'patient') {
-		return {
-			createPatientSession: ({ email, password }) => dispatch(createPatientSession({ email, password }))
-		}
+const mapDispatchToProps = (dispatch) => {
+	return {
+		createPatientSession: (patient) => dispatch(createPatientSession(patient)),
+		createTherapistSession: (therapist) => dispatch(createTherapistSession(therapist))
 	}
 }
 

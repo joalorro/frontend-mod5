@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import LogoutMsg from './components/LogoutMsg'
-import LoginAs from './components/LoginAs'
-import LoginForm from './components/LoginForm'
+import LogoutMsg from './login-components/LogoutMsg'
+import LoginAs from './login-components/LoginAs'
+import LoginForm from './login-components/LoginForm'
 
-const Login = ({ user, history, role }) => {
+const Login = ({ user, history, model }) => {
 
 	const renderLogout = () => {
 		return ( 
@@ -17,7 +17,7 @@ const Login = ({ user, history, role }) => {
 		return <LoginAs history={history} />
 	}
 
-	if (!role) {
+	if (!model) {
 		return (
 			<div>
 				{user ? renderLogout() : renderLoginAs()}
@@ -32,7 +32,7 @@ const mapStateToProps = state => {
 	const user = state.sessionReducer && state.sessionReducer.therapist ? state.sessionReducer.therapist : state.sessionReducer.patient 
 	if (user) return user
 	return {
-		role: state.sessionReducer.role
+		model: state.sessionReducer.model
 	}
 }
 
