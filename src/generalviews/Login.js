@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
-import AppAdapter from '../adapters/AppAdapter'
 
-import ErrorMsg from './ErrorMsg'
 import LogoutMsg from './components/LogoutMsg'
+import LoginAs from './components/LoginAs'
+import LoginForm from './components/LoginForm'
 
-import '../stylesheets/login.css'
-import { Form, Icon } from 'semantic-ui-react'
-
-const Login = ({ user }) => {
+const Login = ({ user, history, role }) => {
 
 	const renderLogout = () => {
 		return ( 
@@ -17,24 +14,25 @@ const Login = ({ user }) => {
 	}
 
 	const renderLoginAs = () => {
-		return (
-			<div>
-				
-			</div>
-		)
+		return <LoginAs history={history} />
 	}
 
-	return (
-		<div>
-			{ user ? renderLogout() : renderLoginAs()}
-		</div>
-	);
+	if (!role) {
+		return (
+			<div>
+				{user ? renderLogout() : renderLoginAs()}
+			</div>
+		);
+	} else {
+		return <LoginForm />
+	}
 }
 
 const mapStateToProps = state => {
 	const user = state.sessionReducer && state.sessionReducer.therapist ? state.sessionReducer.therapist : state.sessionReducer.patient 
+	if (user) return user
 	return {
-		user
+		role: state.sessionReducer.role
 	}
 }
 
