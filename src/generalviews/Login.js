@@ -24,7 +24,7 @@ const Login = ({ user, history, role }) => {
 			</div>
 		);
 	} else {
-		return <LoginForm />
+		return <LoginForm history={history} />
 	}
 }
 
