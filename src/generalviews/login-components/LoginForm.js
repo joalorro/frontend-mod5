@@ -22,8 +22,20 @@ const LoginForm = ({model,errors,history,createPatientSession,createTherapistSes
 			.then(user => {
 				let createUserSession = model === 'patient' ? createPatientSession : createTherapistSession
 				createUserSession(user)
-				history.push('/')
+				redirectToNextPage(user[model])
 			})
+	}
+
+	const redirectToNextPage = ({last_name, first_name, token}) => {
+		debugger
+		let slug = '/' + last_name.split(' ').join('-') + '-' + first_name.split(' ').join('-')
+		if (model === 'patient') {
+			slug += '/exercises'
+		} else if (model === 'therapist') {
+			slug += '/patients'
+		}
+		localStorage.setItem("token", token)
+		history.push(slug)
 	}
 
 	return (

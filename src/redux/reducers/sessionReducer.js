@@ -30,6 +30,11 @@ export const sessionReducer = (state = initialState, action) => {
 					patients: action.patients
 				}
 			}
+		case "CHOOSE_MODEL":
+			return {
+				...state,
+				model: action.model
+			}
 		default: 
 			return state 
 	}

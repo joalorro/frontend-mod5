@@ -26,16 +26,9 @@ export const selectPatient = (patient) =>{
 	}
 }
 
-export const openModal = (modalProps) => {
+export const chooseModel = (model) => {
 	return {
-		type: 'MODAL_OPEN',
-		modalProps
-	}
-}
-
-export const closeModal = (modalProps) => {
-	return {
-		type: 'MODAL_CLOSE',
-		modalProps
+		type: "CHOOSE_MODEL",
+		model
 	}
 }

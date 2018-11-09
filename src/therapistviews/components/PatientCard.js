@@ -4,7 +4,7 @@ import '../../stylesheets/style.css'
 import '../../stylesheets/effects.css'
 import SimpleExerciseCard from './SimpleExerciseCard'
 import TherapistNewExerciseForm from './TherapistNewExerciseForm'
-import { selectPatient, openModal, closeModal } from '../../redux/actions/actions'
+import { selectPatient } from '../../redux/actions/actions'
 import PatientCardModal from './PatientCardModal'
 
 class PatientCard extends Component {
@@ -61,9 +61,7 @@ const mapStateToProps = (state,ownProps) => {
 
 const mapDispatchToProps = dispatch => (
 	{
-		selectPatient: (patient) => dispatch(selectPatient(patient)),
-		openModal: (modalProps) => dispatch(openModal(modalProps)),
-		closeModal: (modalProps) => dispatch(closeModal(modalProps))
+		selectPatient: (patient) => dispatch(selectPatient(patient))
 	}
 )
 

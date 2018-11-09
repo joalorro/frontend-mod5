@@ -28,12 +28,10 @@ const Login = ({ user, history, model }) => {
 	}
 }
 
-const mapStateToProps = state => {
-	const user = state.sessionReducer && state.sessionReducer.therapist ? state.sessionReducer.therapist : state.sessionReducer.patient 
-	if (user) return user
-	return {
-		model: state.sessionReducer.model
-	}
+const mapStateToProps = ({ sessionReducer }) => {
+	const user = sessionReducer && sessionReducer.therapist ? sessionReducer.therapist : sessionReducer.patient 
+	if (user) return { user }
+	return { model: sessionReducer.model }
 }
 
 export default connect(mapStateToProps)(Login);

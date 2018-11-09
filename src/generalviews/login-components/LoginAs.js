@@ -12,6 +12,7 @@ const LoginAs = ({ history, chooseModel }) => {
 	let model = React.createRef()
 
 	const handleLoginAs = () => {
+		history.location.pathname = '/login/model.current.value'
 		chooseModel(model.current.value)
 	}
 	

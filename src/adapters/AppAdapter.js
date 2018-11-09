@@ -3,7 +3,6 @@ import { API_ROOT, HEADERS } from '../constants'
 class AppAdapter {
 
 	static signUp = ({body, model}) => {
-		// debugger
 		return (
 			fetch(API_ROOT + model, {
 				method: 'POST',
@@ -13,7 +12,7 @@ class AppAdapter {
 		)
 	}
 
-	static login = ({body}) => {
+	static login = ({ body }) => {
 		return (
 			fetch(API_ROOT + 'login', {
 				method: 'POST',

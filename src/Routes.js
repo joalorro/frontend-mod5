@@ -17,7 +17,7 @@ const Routes = () => {
 				<Switch>
 					<Route exact path="/:slug/exercises" render={(routeProps) => <ExerciseContainerForPatient {...routeProps} />} />
 					<Route exact path="/:slug/patients" render={(routeProps) => <PatientsContainer {...routeProps} />} />
-					<Route exact path="/login" render={(routeProps) => <Login {...routeProps} />}/>
+					<Route path="/login" render={(routeProps) => <Login {...routeProps} />}/>
 					<Route exact path="/login/therapist" render={(routeProps) => <TherapistLogin {...routeProps} />}/>
 					<Route exact path="/login/patient" render={(routeProps) => <PatientLogin {...routeProps} />}/>
 					<Route exact path="/signup" render={(routeProps) => <Signup {...routeProps} />} />
