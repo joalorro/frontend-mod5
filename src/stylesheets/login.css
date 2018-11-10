@@ -35,10 +35,6 @@
 	justify-content: center;
 }
 
-.login-centered-div {
-
-}
-
 .select-bar {
 	height: 40px;
 	font-size: 14px;
@@ -77,4 +73,8 @@ div span.btn-text-next {
 	display: block;
 	font-size: 8pt;
 	color: red;
+}
+
+button.smaller {
+	height: 20px;
 }

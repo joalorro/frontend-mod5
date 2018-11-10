@@ -164,3 +164,7 @@ html, #App {
 .commenter-name {
 	color: rgba(15,15,200, .4)
 }
+
+button.smaller {
+	height: 20px;
+}

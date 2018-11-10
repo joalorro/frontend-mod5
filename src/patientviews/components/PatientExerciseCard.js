@@ -24,7 +24,7 @@ class PatientExerciseCard extends Component {
 		
 		return (
 			<button onClick={this.handleFlagToggle}
-					className={"flag-btn " + flagged}
+					className={"flag-btn " + flagged + " smaller"}
 				>{flaggedText}</button> 
 		)
 	}

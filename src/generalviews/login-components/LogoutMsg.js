@@ -9,14 +9,16 @@ const LogoutMsg = ({history, user: {first_name, last_name}}) => {
 	}	
 	return (
 		<div className="logged-in-content-container">
-			<div className="login-msg-div">
-				Logged in as: <br />
-				<p className="logged-in-name">{first_name + ' ' + last_name} </p>
-			</div>
-			<div className="btn-container">
-				<form onSubmit={handleLogout} >
-					<button className="ui inverted button" >Log Out</button>
-				</form>
+			<div className="login-msg-container">
+				<div className="login-msg-div">
+					Logged in as: <br />
+					<p className="logged-in-name">{first_name + ' ' + last_name} </p>
+				</div>
+				<div className="btn-container">
+					<form onSubmit={handleLogout} >
+						<button className="ui inverted button" >Log Out</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	);
