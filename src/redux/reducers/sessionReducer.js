@@ -40,6 +40,11 @@ export const sessionReducer = (state = initialState, action) => {
 				...state,
 				error: action.error
 			}
+		case "SET_MODEL":
+			return {
+				...state,
+				model: action.model
+			}
 		default: 
 			return state 
 	}

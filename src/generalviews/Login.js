@@ -5,6 +5,8 @@ import LogoutMsg from './login-components/LogoutMsg'
 import LoginAs from './login-components/LoginAs'
 import LoginForm from './login-components/LoginForm'
 
+import '../stylesheets/login.css'
+
 const Login = ({ user, history, model }) => {
 
 	const renderLogout = () => {
@@ -19,12 +21,16 @@ const Login = ({ user, history, model }) => {
 
 	if (!model) {
 		return (
-			<div>
+			<div className="login-content-container">
 				{user ? renderLogout() : renderLoginAs()}
 			</div>
 		);
 	} else {
-		return <LoginForm history={history} />
+		return (
+			<div className="login-content-container" >
+				<LoginForm history={history} />
+			</div>
+		)
 	}
 }
 

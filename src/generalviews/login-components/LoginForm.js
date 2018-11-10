@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { Icon, Form } from 'semantic-ui-react'
 import AppAdapter from '../../adapters/AppAdapter'
 
-import { createPatientSession, createTherapistSession, createError } from '../../redux/actions/actions'
+import { createPatientSession, createTherapistSession, createError, setModel } from '../../redux/actions/actions'
 
 import ErrorMsg from '../ErrorMsg'
 
-const LoginForm = ({model,error = '',history,createPatientSession,createTherapistSession, createError}) => {
+const LoginForm = ({model,error = '',history,createPatientSession,createTherapistSession, createError, setModel}) => {
 		
 	let email = React.createRef()
 	let password = React.createRef()
@@ -43,12 +43,17 @@ const LoginForm = ({model,error = '',history,createPatientSession,createTherapis
 		history.push(slug)
 	}
 
+	const handleClickBack = () => {
+		setModel('')
+		createError('')
+	}
+
 	return (
 		<div className='login-msg-container'>
 			<div className="login-as-div">
 				<div className='login-centered-div'>
 					<div className="icon-holder">
-						<Icon enabled name="chevron left large" className="back-icon" onClick={() => history.push('/login')} />
+						<Icon enabled name="chevron left large" className="back-icon" onClick={ handleClickBack } />
 					</div>
 					<div className="error-div">
 						{!!error ? <ErrorMsg error={error} /> : null}
@@ -88,7 +93,8 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		createPatientSession: (patient) => dispatch(createPatientSession(patient)),
 		createTherapistSession: (therapist) => dispatch(createTherapistSession(therapist)),
-		createError: (error) => dispatch(createError(error))
+		createError: (error) => dispatch(createError(error)),
+		setModel: (model) => dispatch(setModel(''))
 	}
 }
 
