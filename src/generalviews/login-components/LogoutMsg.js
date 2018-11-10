@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 const LogoutMsg = ({history, user: {first_name, last_name}}) => {
 	
-	const handleLogout = () => {
+	const handleLogout = (e) => {
+		window.location.reload()
 		localStorage.removeItem('token')
 		history.push('/')
 	}	
