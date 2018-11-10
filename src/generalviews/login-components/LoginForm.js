@@ -3,14 +3,15 @@ import { connect } from 'react-redux'
 import { Icon, Form } from 'semantic-ui-react'
 import AppAdapter from '../../adapters/AppAdapter'
 
-import { createPatientSession, createTherapistSession } from '../../redux/actions/actions'
+import { createPatientSession, createTherapistSession, createError } from '../../redux/actions/actions'
 
 import ErrorMsg from '../ErrorMsg'
 
-const LoginForm = ({model,errors,history,createPatientSession,createTherapistSession}) => {
-	
+const LoginForm = ({model,error = '',history,createPatientSession,createTherapistSession, createError}) => {
+		
 	let email = React.createRef()
 	let password = React.createRef()
+
 	
 	const handleLogin = () => {
 		let body = {
@@ -23,6 +24,10 @@ const LoginForm = ({model,errors,history,createPatientSession,createTherapistSes
 				let createUserSession = model === 'patient' ? createPatientSession : createTherapistSession
 				createUserSession(user)
 				redirectToNextPage(user[model])
+			})
+			.catch( (err) => {
+				console.log(err)
+				createError('Invalid password or username')
 			})
 	}
 
@@ -46,7 +51,7 @@ const LoginForm = ({model,errors,history,createPatientSession,createTherapistSes
 						<Icon enabled name="chevron left large" className="back-icon" onClick={() => history.push('/login')} />
 					</div>
 					<div className="error-div">
-						{!!errors ? <ErrorMsg errors={errors} /> : null}
+						{!!error ? <ErrorMsg error={error} /> : null}
 					</div>
 					<div className="form-container">
 						<Form onSubmit={handleLogin} >
@@ -75,14 +80,15 @@ const LoginForm = ({model,errors,history,createPatientSession,createTherapistSes
 const mapStateToProps = (state, ownProps) => {
 	return {
 		model: state.sessionReducer.model,
-		errors: state.sessionReducer.errors
+		error: state.sessionReducer.error
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		createPatientSession: (patient) => dispatch(createPatientSession(patient)),
-		createTherapistSession: (therapist) => dispatch(createTherapistSession(therapist))
+		createTherapistSession: (therapist) => dispatch(createTherapistSession(therapist)),
+		createError: (error) => dispatch(createError(error))
 	}
 }
 

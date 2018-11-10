@@ -35,6 +35,11 @@ export const sessionReducer = (state = initialState, action) => {
 				...state,
 				model: action.model
 			}
+		case "CREATE_ERROR":
+			return {
+				...state,
+				error: action.error
+			}
 		default: 
 			return state 
 	}

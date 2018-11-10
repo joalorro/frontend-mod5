@@ -9,7 +9,7 @@ const Login = ({ user, history, model }) => {
 
 	const renderLogout = () => {
 		return ( 
-			<LogoutMsg user={user} /> 
+			<LogoutMsg history={history} /> 
 		)
 	}
 

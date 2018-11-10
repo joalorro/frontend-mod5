@@ -32,3 +32,10 @@ export const chooseModel = (model) => {
 		model
 	}
 }
+
+export const createError = (error) => {
+	return {
+		type: "CREATE_ERROR",
+		error
+	}
+}
