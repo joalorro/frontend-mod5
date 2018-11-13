@@ -4,7 +4,6 @@ import { Icon, Form } from 'semantic-ui-react'
 import AppAdapter from '../../adapters/AppAdapter'
 
 import { createPatientSession, createTherapistSession, createError, setModel } from '../../redux/actions/actions'
-
 import ErrorMsg from '../ErrorMsg'
 
 const LoginForm = ({model,error = '',history,createPatientSession,createTherapistSession, createError, setModel}) => {
@@ -32,7 +31,6 @@ const LoginForm = ({model,error = '',history,createPatientSession,createTherapis
 	}
 
 	const redirectToNextPage = ({last_name, first_name, token}) => {
-		debugger
 		let slug = '/' + last_name.split(' ').join('-') + '-' + first_name.split(' ').join('-')
 		if (model === 'patient') {
 			slug += '/exercises'

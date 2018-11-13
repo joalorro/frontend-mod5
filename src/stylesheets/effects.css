@@ -103,7 +103,7 @@
 .back-icon:hover,
 .back-icon:focus,
 .back-icon:active {
-	color: rgba(0,0,0,.2);
+	color: rgba(0,0,0,.75);
 	transition: all .3s ease-in;
 }
 
