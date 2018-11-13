@@ -42,27 +42,33 @@
 	justify-content: center;
 }
 
-.flag-btn {
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	height: 40px;
-	border-radius: 5px;
-	width: 80px;
-}
-
-.not-flagged {
-	border: 1px solid rgba(0, 0, 0, .3);
-	transition-duration: .5s;
-	content: "Not Flagged";
+.flag-div {
+	position: relative;
 }
 
 .flagged {
-	color: white;
-	border-color: white;
-	background: red;
+	color: red;
 	transition-duration: .5s;
-	content: "Flagged";
+}
+
+.concern-msg {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	box-shadow: 3px 3px rgba(0,0,0,.2);
+	border: none;
+	height: 20px;
+	width: 100px;
+	border-radius: 5px;
+
+	font-size: 12px;
+	/* color: black; */
+	background: rgba(255,255,255,.5);
+	/* color: rgb(15,102,112); */
+	color: red;
+	top: -10px;
+	left: 20px;
+	z-index: 1;
 }
 
 .patient-name {
