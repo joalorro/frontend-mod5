@@ -14,10 +14,10 @@ const PatientCommentSection = ({comments,exerciseId}) => {
 	
 	return (
 		<div className="patient-comment-section">
-			<div className="show-comments-area-for-patient">
+			<div className="patient-show-comments-area">
 				{renderComments()}
 			</div>
-			<div className="new-comment-form">
+			<div className="patient-new-comment-form-div">
 				<PatientNewCommentForm exerciseId={exerciseId} />
 			</div>
 		</div>	

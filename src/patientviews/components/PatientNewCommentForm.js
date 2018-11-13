@@ -31,9 +31,9 @@ class NewCommentForm extends Component {
 	render() {
 		return (
 			<div >
-				<form id={this.props.exerciseId} onSubmit={this.handleSubmit}>
-					<textarea className="comment-body" form={this.props.exerciseId} onChange={this.handleChange} ref="commentContent"></textarea> <br />
-					<Button type="submit">Submit</Button>
+				<form className="patient-new-comment-form" id={this.props.exerciseId} onSubmit={this.handleSubmit}>
+					<textarea className="patient-comment-body" form={this.props.exerciseId} onChange={this.handleChange} ref="commentContent"></textarea> <br />
+					<Button type="submit" className="patient-comment-submit">Submit</Button>
 				</form>
 			</div>
 		);
