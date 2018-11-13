@@ -15,6 +15,11 @@
 	color: rgb(192, 192, 192);
 }
 
+#navbar ul {
+	padding-inline-start: 40px;
+	padding-inline-end: 40px;
+}
+
 #footer {
 	position: relative;
 	bottom: -450px;
