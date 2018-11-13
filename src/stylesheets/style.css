@@ -5,11 +5,6 @@ html, body, #root, #App {
 	/* background: black; */
 }
 
-::-webkit-scrollbar {
-	display: none;
-}
-
-
 html, #App {
 	background: rgba(0,0,0,.05);
 }
@@ -21,8 +16,10 @@ html, #App {
 /* Patient index component for therapists */
 
 *, *:before, *:after {
-	box-sizing: border-box
+	box-sizing: border-box;
 }
+
+/* Scroll Bars */
 
 #patient-index-outer {
 	margin: 50px;
