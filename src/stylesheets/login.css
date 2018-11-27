@@ -10,9 +10,12 @@
 	height: 200px;
 	width: 300px;
 	border-radius: 10px;
-	background: rgb(15, 102, 112);
-	padding-top: 50px;
+	/* background: rgb(15, 102, 112); */
+	background: #4eC3c4;
+	padding-top: 30px;
 	color: white;
+	border: solid black 1px;
+	box-shadow: rgba(0,0,0,.1) 3px 3px;
 }
 
 .logged-in-content-container {
@@ -35,13 +38,45 @@
 	justify-content: center;
 }
 
+#select-model {
+	width: 100%;
+	margin: 10px auto;
+}
+
+button.model-btn {
+	background-color: white;
+	border-radius: 10px;
+	height: 40px;
+	width: 80px;
+	text-align: center;
+	align-content: center;
+	border: none;
+	margin: 5px;
+}
+
+button.active {
+	transition: .25s;
+	/* background: rgb(254,105,96); */
+	background: #3B0CE8;
+	color: white;
+}
+
+div.login-as-btn-div {
+	margin: 5px auto 5px auto;
+	width: 100%;
+	display: flex;
+	padding-left: 4px;
+	justify-content: center;
+}
+
 .select-bar {
 	height: 40px;
 	font-size: 14px;
 }
 
-.login-as-btn {
+div button.login-as-btn {
 	height:20px;
+	margin: 0;
 }
 
 div span.btn-text-back {

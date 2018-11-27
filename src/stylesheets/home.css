@@ -41,7 +41,8 @@
 #home-title {
 	font-family: 'Archivo Narrow',
 		sans-serif;
-	color: rgb(204, 222, 203);
+	/* color: rgb(204, 222, 203); */
+	color: #4ECEC4;
 }
 
 #bottom-div {
@@ -94,7 +95,9 @@
 	margin: 0 auto;
 	width: 310px;
 	height: 160px;
-	background: rgb(15,102,112);
+	/* background: rgb(15,102,112); */
+	/* background: #4ECEC4; */
+	background: #3B0CE8;
 	border-radius: 5px;
 }
 
@@ -104,7 +107,9 @@
 	width: 300px;
 	text-align: center;
 	height: 150px;
-	background: rgb(254,105,96);
+	/* background: rgb(254,105,96); */
+	/* background: #3B0CE8; */
+	background: #4ECEC4;
 	border-radius: 5px;
 	bottom: 5px;
 }

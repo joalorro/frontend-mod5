@@ -9,6 +9,10 @@ html, #App {
 	background: rgba(0,0,0,.05);
 }
 
+html::-webkit-scrollbar {
+	display:none;
+}
+
 /* #App {
 	background: rgba(0,0,0,.3);
 } */
@@ -89,7 +93,8 @@ html, #App {
 
 .category {
 	/* Teal */
-	color: rgb(15,102,112);
+	/* color: rgb(15,102,112); */
+	color: #4ECEC4;
 	/* Sea Green */
 	/* color: rgb(204,222,203); */
 }

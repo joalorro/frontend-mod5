@@ -11,7 +11,8 @@
 	width: 300px;
 	border-radius: 10px;
 	/* background: rgb(15, 102,112); */
-	background: rgb(254, 105, 96);
+	/* background: rgb(254,105,96); */
+	background: #3B0CE8;
 	padding-top: 50px;
 	color: white;
 }
