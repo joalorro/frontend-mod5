@@ -37,6 +37,9 @@
 	display: flex;
 	justify-content: center;
 }
+form button.login-as-next-btn {
+	background: blue;
+}
 
 #select-model {
 	width: 100%;

@@ -57,7 +57,12 @@ class PatientsContainer extends Component {
 		if (this.props.therapist){
 			return (
 				<div id="patient-index-outer">
-					<h1>{this.props.therapist.last_name}, {this.props.therapist.first_name} </h1>
+					<div className='patient-name-div header'>
+						<div className='patient-name-div-in-div'>
+							<h1 className='therapist-name'>{this.props.therapist.last_name}, {this.props.therapist.first_name} </h1>
+						</div>
+					</div>
+
 					<div className="patient-container">
 						{this.props.exercises ? this.renderPatients() : null}
 					</div>

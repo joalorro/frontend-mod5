@@ -55,8 +55,12 @@ class ExerciseContainerForPatient extends Component {
 		if (this.props.patient){
 			return (
 				<div className="patient-show">
-					<h1 className="patient-name">{this.props.patient.last_name + ", " + this.props.patient.first_name}</h1>
-						<h3 className="exercises-title">Exercises: </h3>
+					<div className='patient-name-div'>
+						<div className='patient-name-div-in-div' >
+							<h1 className="patient-name">{this.props.patient.last_name + ", " + this.props.patient.first_name}</h1>
+						</div>
+					</div>
+					<h3 className="exercises-title">Exercises: </h3>
 					<div className="exercise-container">
 						{this.props.exercises ? this.renderExercises() : null}
 					</div>

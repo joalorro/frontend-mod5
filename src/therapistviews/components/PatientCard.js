@@ -30,7 +30,7 @@ class PatientCard extends Component {
 	render() {
 		console.log(this.props)
 		return (
-			<div className="patient-card hvr-border-fade">
+			<div className="patient-card hvr-fade3">
 				{/* Modals */}
 				
 				<PatientCardModal ref={this.patientCardRef}  {...this.props}/>

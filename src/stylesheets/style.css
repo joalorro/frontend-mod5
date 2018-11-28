@@ -26,11 +26,20 @@ html::-webkit-scrollbar {
 /* Scroll Bars */
 
 #patient-index-outer {
-	margin: 50px;
+	margin-top: 70px;
+	width: 100%;
 }
 
-.patient-container {
-	display:grid;
+h1.therapist-name {
+	text-align: center;
+}
+
+div.header {
+	margin-bottom: 30px;
+}
+
+div.patient-container {
+	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	width: 1000px;
 	margin: 0 auto;
@@ -43,6 +52,7 @@ html::-webkit-scrollbar {
 	overflow-y:scroll;
 	border-radius: 25px;
 	padding: 20px;
+	border: solid white 1px;
 }
 
 .patient-card.add-exercise-btn {
