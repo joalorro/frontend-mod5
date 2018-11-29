@@ -1,46 +1,73 @@
 import React, { Component } from 'react';
+import { Form } from 'semantic-ui-react'
 import '../stylesheets/signup.css'
 
 class Signup extends Component {
 
 	state = {
-		slug: '/signup/patient'
+		model: '',
+		error: '',
+		slug: '/signup/'
 	}
 
-	handleClickBack = () => {
-		this.props.history.push('/login')
-	}
-
-	handleSubmit = event => {
+	handleSubmit = (event) => {
 		event.preventDefault()
-		this.props.history.push(this.state.slug)
+		this.props.history.push(this.state.slug + this.state.model)
 	}
 
-	handleChange = event => {
+	handleChooseModel = (e) => {
+		console.log(e.target.name)
 		this.setState({
-			slug: '/signup/' + event.target.value
-		}, () => console.log(this.state))
+			model: e.target.name,
+			error: ''
+		})
+	}
+
+	renderErrorMsg = () => {
+		return (
+			<p className='err'>{this.state.error}</p>
+		)
+	}
+
+	renderClassName = (buttonModel) => {
+		return "model-btn hvr-fade-signup " + (this.state.model === buttonModel ? 'active' : '')
 	}
 
 	render() {
+		let { error } = this.state.error
 		return (
 			<div className="signup-content-container">
 				<div className="signup-msg-container" >
-					<div className="signup-as-div">
-						Sign up as a: 
-					</div>
 					<div className="signup-as-div select-container" >
-						<form onSubmit={this.handleSubmit}>
-							<select onChange={this.handleChange}
-								className="full-width"
-							>
-								<option value="patient" >Patient</option>
-								<option value="therapist" >Physical Therapist</option>
-							</select>
-							<div className="btn-container" > 
+						<Form onSubmit={this.handleSubmit}>
+						<label>Sign up as a:</label> 
+							<div id="select-model" className="login-as-btn-div">
+								<button
+									type="button"
+									name="patient"
+									className={this.renderClassName("patient")}
+									onClick={this.handleChooseModel}
+								>
+									Patient
+								</button>
+									<button
+										type="button"
+										name="therapist"
+										className={this.renderClassName("therapist")}
+										onClick={this.handleChooseModel}
+									>
+										PT
+								</button>
+							</div>
+
+							<div className="login-error-div">
+								{error === '' ? null : this.renderErrorMsg()}
+							</div>
+
+							<div className="login-as-btn-div" > 
 								<button 
 									className="ui icon left labeled button login-as-btn left"
-									onClick={this.handleClickBack}
+									onClick={() => this.props.history.push('/login')}
 								>
 									<i aria-hidden='true' class='left chevron icon' />
 									<span className="btn-text-back">Back</span>
@@ -54,7 +81,7 @@ class Signup extends Component {
 									</span>
 								</button>
 							</div>
-						</form>
+						</Form>
 					</div>
 				</div>
 			</div>

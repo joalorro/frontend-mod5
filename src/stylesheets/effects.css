@@ -45,7 +45,6 @@
 	-webkit-transform: perspective(1px) translateZ(0);
 	transform: perspective(1px) translateZ(0);
 	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-	/* overflow: hidden; */
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
 	-webkit-transition-property: color, background-color;
@@ -53,19 +52,44 @@
 }
 
 .hvr-fade2:before {
-	/* background-color: rgb(254,105,96); */
 	background-color: #3B0CE8;
 }
 
 .hvr-fade2:hover,
 .hvr-fade2:focus,
 .hvr-fade2:active {
-	/* background-color: rgb(254,105,96); */
 	background-color: #3B0CE8;
 	color: white;
 }
 
 /* end  */
+
+/* hover fade for signup as  */
+
+.hvr-fade-signup {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: color, background-color;
+	transition-property: color, background-color;
+}
+
+.hvr-fade-signup:before {
+	background-color: #4ecec4;
+}
+
+.hvr-fade-signup:hover,
+.hvr-fade-signup:focus,
+.hvr-fade-signup:active {
+	background-color: #4ecec4;
+	color: white;
+}
+
+/* end */
 
 /* hover fade for therapist view of patient card */
 
@@ -96,7 +120,7 @@
 .back-icon:hover,
 .back-icon:focus,
 .back-icon:active {
-	color: rgba(0,0,0,.75);
+	color: #0197F6;
 	transition: all .3s ease-in;
 }
 
@@ -108,7 +132,7 @@
 }
 
 .back-icon:active:before {
-	color: black;
+	color: rgb(1, 209, 246);
 	transition: all .05s ease-in-out;
 }
 

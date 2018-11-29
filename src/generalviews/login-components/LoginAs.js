@@ -44,7 +44,7 @@ class LoginAs extends Component {
 		return (
 			<div className="login-msg-container">
 				<div className="login-as-div">
-					<Form onSubmit={this.handleLoginAs}>
+					<Form id="login-as-form" onSubmit={this.handleLoginAs}>
 						<label>Login as a: </label> <br />
 	
 						<div id="select-model" className="login-as-btn-div">
@@ -62,11 +62,11 @@ class LoginAs extends Component {
 								className={this.renderClassName("therapist")}
 								onClick={this.handleChooseModel}
 							>
-								Therapist
+								PT
 							</button>
 						</div>
 
-						<div className="error-div">
+						<div className="login-error-div">
 							{ error === '' ? null : this.renderErrorMsg() }
 						</div>
 						

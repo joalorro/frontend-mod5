@@ -10,10 +10,8 @@
 	height: 200px;
 	width: 300px;
 	border-radius: 10px;
-	/* background: rgb(15, 102,112); */
-	/* background: rgb(254,105,96); */
 	background: #3B0CE8;
-	padding-top: 50px;
+	border: 1px solid black;
 	color: white;
 }
 
@@ -24,7 +22,7 @@
 }
 
 .select-container {
-	margin-top: 10px;
+	margin-top: 30px;
 }
 
 .full-width {
@@ -44,12 +42,25 @@
 	height: 530px;
 }
 
-.icon-holder {
+div.icon-holder {
+	background: #3B0CE8;
+	border-radius: 50px;
+	/* border: 1px black solid; */
+	box-shadow: 2px 2px rgba(0,0,0,.2);
+	width: 30px;
+	height: 30px;
 	position: absolute;
-	top: -30px;
+	top: -20px;
 	left: 15px;
+	display: flex;
+	justify-content: center;
 }
 
-.signup-error-div {
+div.icon-holder i {
+	position: relative;
+	top: calc(50% - 11px)
+}
+
+button.signup-as-btn {
 	
 }
