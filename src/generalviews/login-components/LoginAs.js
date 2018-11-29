@@ -1,78 +1,96 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { chooseModel } from '../../redux/actions/actions'
 
 import { Form } from 'semantic-ui-react'
+import { chooseModel } from '../../redux/actions/actions'
 
-import '../../stylesheets/login.css'
-
-
-const LoginAs = ({ history, chooseModel, model }) => {
+class LoginAs extends Component {
 	
-	// let model = React.createRef()
-
-	const handleLoginAs = () => {
-		history.location.pathname = '/login/' + model
-	}
-	
-	const handleChooseModel = (e) => {
-		e.preventDefault()
-		console.log(e.target.name);
-		chooseModel(e.target.name)		
+	state = {
+		model: '',
+		error: ''
 	}
 
-	return (
-		<div className="login-msg-container">
-			<div className="login-as-div">
-				<Form onSubmit={handleLoginAs}>
-					<label>Login as a: </label> <br />
+	handleLoginAs = () => {
+		if ( this.state.model ){
+			this.props.history.location.pathname = '/login/' + this.state.model
+			this.props.chooseModel(this.state.model)
+		} else {
+			this.setState({ error: 'You must choose a role before logging in.'})
+		}
+	}
+	
+	handleChooseModel = (e) => {
+		console.log(e.target.name)
+		this.setState({ 
+			model: e.target.name,
+			error: ''
+		})
+	}
 
-					<div id="select-model" className="login-as-btn-div">
-						<button 
-							type="button"
-							name="patient" 
-							className={'model-btn hvr-fade2'.concat(model === 'patient' ? ' active' : '')}
-							onClick={handleChooseModel}
-						>
-							Patient
-						</button>
+	renderErrorMsg = () => {
+		return (
+			<p className='err'>{this.state.error}</p>
+		)
+	}
 
-						<button 
-							type="button" 
-							name="therapist" 
-							className={'model-btn hvr-fade2'.concat(model === 'patient' ? ' active' : '')}
-							onClick={handleChooseModel}
-						>
-							Therapist
-						</button>
-					</div>
-					
-					<div className="login-as-btn-div">
-						<button className="ui icon left labeled button login-as-btn"
-							onClick={() => history.push('/')}
-						>
-							<i aria-hidden='true' class='left chevron icon' />
-							<span className="btn-text-back">Back</span>
-						</button >
-						<button className='ui icon right labeled button login-as-btn'>
-							<i aria-hidden='true' class='right chevron icon' />
-							<span className="btn-text-next">
-								Next
-							</span>
-						</button>
-					</div>
-				</Form>
-			</div>
-			<div className="register-msg">
-				<p>Don't have an account yet? Register <span onClick={() => history.push('/signup')} id='signup-link' >here</span>. </p>
-			</div>
-		</div> 
-	)
-}
+	renderClassName = (buttonModel) => {
+		return "model-btn hvr-fade2 " + (this.state.model === buttonModel ? 'active' : '')
+	}
 
-const mapStateToProps = ({sessionReducer}) => {
-	return {
-		model: sessionReducer.model
+	render(){
+		const { history } = this.props
+		let { error } = this.state.model
+		return (
+			<div className="login-msg-container">
+				<div className="login-as-div">
+					<Form onSubmit={this.handleLoginAs}>
+						<label>Login as a: </label> <br />
+	
+						<div id="select-model" className="login-as-btn-div">
+							<button 
+								type="button"
+								name="patient" 
+								className={this.renderClassName("patient")}
+								onClick={this.handleChooseModel}
+							>
+								Patient
+							</button>
+							<button 
+								type="button" 
+								name="therapist" 
+								className={this.renderClassName("therapist")}
+								onClick={this.handleChooseModel}
+							>
+								Therapist
+							</button>
+						</div>
+
+						<div className="error-div">
+							{ error === '' ? null : this.renderErrorMsg() }
+						</div>
+						
+						<div className="login-as-btn-div">
+							<button className="ui icon left labeled button login-as-btn"
+								onClick={() => history.push('/')}
+							>
+								<i aria-hidden='true' class='left chevron icon' />
+								<span className="btn-text-back">Back</span>
+							</button >
+							<button className='ui icon right labeled button login-as-btn'>
+								<i aria-hidden='true' class='right chevron icon' />
+								<span className="btn-text-next">
+									Next
+								</span>
+							</button>
+						</div>
+					</Form>
+				</div>
+				<div className="register-msg">
+					<p>Don't have an account yet? Register <span onClick={() => history.push('/signup')} id='signup-link' >here</span>. </p>
+				</div>
+			</div> 
+		)
 	}
 }
 
@@ -82,4 +100,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginAs);
+export default connect(null, mapDispatchToProps)(LoginAs);
