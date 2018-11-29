@@ -3,6 +3,7 @@
 	display: table;
 	position: relative;
 	top: 30%;
+	max-height: 800px;
 }
 
 .signup-msg-container {
@@ -34,33 +35,48 @@
 	justify-content: center;
 }
 
-#with-form {
-	height: 400px;
+#patient-form-div {
+	height: 460px;
 }
 
-#therapist-form {
-	height: 530px;
+#therapist-form-div {
+	height: 630px;
 }
-
 div.icon-holder {
-	background: #3B0CE8;
+	background: #4ecec4;
 	border-radius: 50px;
 	/* border: 1px black solid; */
 	box-shadow: 2px 2px rgba(0,0,0,.2);
 	width: 30px;
 	height: 30px;
 	position: absolute;
-	top: -20px;
-	left: 15px;
+	top: 7px;
+	left: 7px;
 	display: flex;
 	justify-content: center;
 }
 
+
 div.icon-holder i {
 	position: relative;
-	top: calc(50% - 11px)
+	top: calc(50% - 11px);
 }
 
-button.signup-as-btn {
-	
+form#therapist-signup input, form#patient-signup input{
+	height: 30px;
+	display: block;
+}
+
+form#therapist-signup label {
+
+}
+
+div.signup-as-div section {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+div.signup-btn-container {
+	display: flex;
+	justify-content: center;
 }

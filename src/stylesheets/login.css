@@ -117,7 +117,7 @@ div span.btn-text-next {
 	margin-top: 30px;
 }
 
-label {
+form label {
 	margin-left: -10px;
 }
 
@@ -125,7 +125,6 @@ form#login-form input {
 	height: 30px;
 	display: block;
 	margin-bottom: 10px;
-
 }
 
 div.login-form-div {

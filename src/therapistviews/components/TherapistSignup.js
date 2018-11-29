@@ -93,38 +93,50 @@ class TherapistSignup extends Component {
 	render() {
 		return (
 			<div className="signup-content-container">
-				<div id="therapist-form" className="signup-msg-container">
+				<div id="therapist-form-div" className="signup-msg-container">
 					<div className="signup-as-div">
 						<div className="icon-holder">
 							<Icon enabled name="chevron left large" className="back-icon" onClick={() => this.props.history.push('/signup')}/>
 						</div>
-						<Form onSubmit={this.handleSubmit}>
-							<input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name"/> <br />
-							<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name"/> 
-							<br />
-							<br />
-							<input onChange={this.handleChange} type="text" name="email" placeholder="Email e.g. email@example.com"/> <br />
-							<input onChange={this.handleChange} type="text" name="email_confirmation" placeholder="Confirm Email"/> 
-							<br />
-							<br />
+						<Form id="therapist-signup" onSubmit={this.handleSubmit}>
+							<section>
+								<label>First Name</label>
+								<input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name"/> 
+
+								<label>Last Name</label>
+								<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name"/> 
+							</section>
 							
-							<input onChange={this.handleChange} type="password" name="password" placeholder="Create Password"/> <br />
-							<input onChange={this.handleChange} type="password" name="password_confirmation" placeholder="Confirm Password"/> 
-							<br />
-							<br />
+							<section>
+								<label>Email</label>
+								<input onChange={this.handleChange} type="text" name="email" placeholder="Email e.g. email@example.com"/> 
+								
+								<label>Confirm Email</label>
+								<input onChange={this.handleChange} type="text" name="email_confirmation" placeholder="Confirm Email"/> 
 
-							<input onChange={this.handleChange} type="text" name="license" placeholder="License #" /> <br />
-							<input onChange={this.handleChange} type="text" name="certifications" placeholder="Certifications" /> <br />
+								<label>Password</label>
+								<input onChange={this.handleChange} type="password" name="password" placeholder="Create Password"/> 
+								<label>Confirm Password</label>
+								<input onChange={this.handleChange} type="password" name="password_confirmation" placeholder="Confirm Password"/> 
+							</section>
+							
+							<section>
+								<label>License #</label>
+								<input onChange={this.handleChange} type="text" name="license" placeholder="PT#00000000000" /> 
+								<label>Certifications</label>
+								<input onChange={this.handleChange} type="text" name="certifications" placeholder="i.e. CSCS, OCS, etc" /> 
 
-							<select onChange={this.handleChange} name="degree">
-								<option selected="selected">Degree</option>
-								<option value="Bachelor's">Bachelor's</option>
-								<option value="MSPT">MSPT</option>
-								<option value="DPT">DPT</option>
-							</select>
+								<label>Degree</label>
+								<select onChange={this.handleChange} name="degree">
+									<option selected="selected">Degree</option>
+									<option value="Bachelor's">Bachelor's</option>
+									<option value="MSPT">MSPT</option>
+									<option value="DPT">DPT</option>
+								</select>
+							</section>
 
-							<div className="btn-container">
-								<Button>Sign Up</Button>
+							<div className="signup-btn-container">
+								<Button className="ui primary button">Sign Up</Button>
 							</div>
 						</Form> 	
 						{this.state.errors.length ? this.renderErrorMsg() : null}

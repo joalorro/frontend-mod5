@@ -86,24 +86,33 @@ class PatientSignup extends Component {
 	render() {
 		return (
 			<div className="signup-content-container">
-				<div id="with-form" className="signup-msg-container" >
+				<div id="patient-form-div" className="signup-msg-container" >
 					<div className="signup-as-div">
 						<div className="icon-holder">
 							<Icon enabled name="chevron left large" className="back-icon" onClick={() => this.props.history.push('/signup')}/>
 						</div>
-						<Form onSubmit={this.handleSubmit} className="form">
+						<Form id="patient-signup" onSubmit={this.handleSubmit}>
 
-							<input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name" /> <br />
-							<input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name" /> <br />
-							<input onChange={this.handleChange} type="text" name="email" placeholder="Enter Email"/> <br />
-							<input onChange={this.handleChange} type="text" name="confirmEmail" placeholder="Confirm Email"/> <br />
+							<section>
+								<label>First Name</label>
+								<input onChange={this.handleChange} type="text" name="firstName" placeholder="Jane" /> 
+								<label>Last Name</label>
+								<input onChange={this.handleChange} type="text" name="lastName" placeholder="Doe" /> 
+							</section>
+							
+							<section>
+								<label>Email</label>
+								<input onChange={this.handleChange} type="text" name="email" placeholder="jane@doe.com"/> 
+								<label>Confirm Email</label>
+								<input onChange={this.handleChange} type="text" name="confirmEmail" placeholder="jane@doe.com"/> 
 
-							<input onChange={this.handleChange} type="text" name="identifier" placeholder="PT Identifier" /> <br />
-
-							<input onChange={this.handleChange} type="password" name="password" placeholder="Enter Password"/> <br />
-							<input onChange={this.handleChange} type="password" name="confirmPassword"  placeholder="Confirm Password"/> <br />
-							<div className='btn-container'>
-								<Button>Sign Up</Button>
+								<label>Password</label>
+								<input onChange={this.handleChange} type="password" name="password" placeholder="Enter Password"/> 
+								<label>Confirm Password</label>
+								<input onChange={this.handleChange} type="password" name="confirmPassword"  placeholder="Confirm Password"/> 
+							</section>
+							<div className='signup-btn-container'>
+								<Button className="ui primary button">Sign Up</Button>
 							</div>
 						</Form> 
 						{this.state.errors.length ? this.renderErrorMsg() : null}
