@@ -107,10 +107,11 @@ div.patient-name-div-in-div {
 .written-content {
 	height: 150px;
 	margin-bottom: 20px;
-	border-radius: 20px;
-	padding: 5px;
+	border-radius: 10px;
+	padding: 10px;
 	overflow-y:scroll;
 	font-size: 12px;
+	border: solid rgba(0,0,0,.2) 1px;
 }
 
 /* Comments Section */

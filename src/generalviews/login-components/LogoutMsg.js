@@ -12,8 +12,8 @@ const LogoutMsg = ({history, user: {first_name, last_name}}) => {
 		<div className="logged-in-content-container">
 			<div className="login-msg-container">
 				<div className="login-msg-div">
-					Logged in as: <br />
-					<p className="logged-in-name">{first_name + ' ' + last_name} </p>
+					<p>Logged in as: </p>
+					<h3 className="logged-in-name">{first_name + ' ' + last_name} </h3>
 				</div>
 				<div className="btn-container">
 					<form onSubmit={handleLogout} >

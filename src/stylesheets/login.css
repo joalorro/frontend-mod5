@@ -25,13 +25,22 @@
 }
 
 .btn-container {
-	display: flex;
 	justify-content: center;
 }
 
-.login-msg-div {
-	display: flex;
+div.login-msg-div {
+	margin-top: 40px;
 	justify-content: center;
+}
+
+.login-msg-div h3{
+	margin-top: 10px;
+	color: #3B0CE8;
+}
+
+.login-msg-div h3, .login-msg-div p {
+	text-align: center;
+	margin-bottom: 10px;
 }
 
 div.login-as-div {

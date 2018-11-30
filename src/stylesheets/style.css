@@ -173,9 +173,9 @@ div.patient-container {
 	border-radius: 10px
 }
 
-.commenter-name {
-	color: rgba(15,15,200, .4)
-}
+/* .commenter-name {
+	color: #4ECEC4;
+} */
 
 button.smaller {
 	height: 20px;

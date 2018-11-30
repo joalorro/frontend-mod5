@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import '../stylesheets/home.css'
+import { Icon } from 'semantic-ui-react'
+
 const Home = ({ sessionUser, history }) => {
 	
 	const renderLinkForPatients = () => {
@@ -78,6 +80,12 @@ const Home = ({ sessionUser, history }) => {
 		document.body.scrollTop = document.documentElement.scrollTop = 0
 		history.push(slug)
 	}
+
+	const scrollOnClick = () => {
+		document.querySelector('.btn-container').scrollIntoView({
+			behavior: 'smooth'
+		})
+	}
 	
 	return (
 		<div id="home">
@@ -89,6 +97,9 @@ const Home = ({ sessionUser, history }) => {
 				</div>
 			</div>
 			<div id="bottom-div">
+				<div id="downarrow-div">
+					<Icon className='arrow down large arrow-down' onClick={scrollOnClick}/>
+				</div>
 				<div id='bottom-div-content-container'>
 					{checkIfLoggedThenRenderLink()}
 				</div>
