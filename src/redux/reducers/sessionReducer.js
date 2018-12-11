@@ -45,6 +45,8 @@ export const sessionReducer = (state = initialState, action) => {
 				...state,
 				model: action.model
 			}
+		case "LOGOUT":
+			return initialState
 		default: 
 			return state 
 	}

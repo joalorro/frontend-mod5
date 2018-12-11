@@ -46,3 +46,9 @@ export const setModel = (model) => {
 		model
 	}
 }
+
+export const logout = () => {
+	return {
+		type: "LOGOUT"
+	}
+}
