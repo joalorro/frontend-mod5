@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { logout } from '../../redux/actions/actions'
 
-const LogoutMsg = ({history, user: {first_name, last_name}}) => {
+const LogoutMsg = ({ logout, history, user: { first_name, last_name } }) => {
 	
-	const handleLogout = (e) => {
+	const handleLogout = () => {
 		window.location.reload()
-		localStorage.removeItem('token')
+		logout()
 		history.push('/')
-	}	
+	}
+
 	return (
 		<div className="logged-in-content-container">
 			<div className="login-msg-container">
@@ -26,8 +28,14 @@ const LogoutMsg = ({history, user: {first_name, last_name}}) => {
 }
 
 const mapStateToProps = ({ sessionReducer }) => {
-	const user = sessionReducer && sessionReducer.therapist ? sessionReducer.therapist : sessionReducer.patient 
+	const user = sessionReducer && sessionReducer.therapist ? sessionReducer.therapist : sessionReducer.patient
 	return { user }
 }
 
-export default connect(mapStateToProps)(LogoutMsg);
+function mapDispatchToProps(dispatch){
+	return {
+		logout: () => dispatch(logout())
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogoutMsg);

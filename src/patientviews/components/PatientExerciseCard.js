@@ -34,9 +34,12 @@ class PatientExerciseCard extends Component {
 	handleMouseOut = () => this.setState({ showConcernMsg: false })
 
 	showConcernMsg = () => {
-		let msg = this.state.flagged ? 'Concern Raised' : 'Raise Concern?'
+		let { flagged } = this.state
+		let msg = flagged ? 'Concern Raised' : 'Raise Concern?'
+		let color = flagged ? 'white' : 'red'
+		let backgroundColor = flagged ? 'red' : 'white'
 		return (
-			<div className='concern-msg'>
+			<div className='concern-msg' style={ { color, background: backgroundColor} }>
 				{msg}
 			</div>
 		)

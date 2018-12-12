@@ -78,10 +78,10 @@ const LoginForm = ({model,error = '',history,createPatientSession,createTherapis
 	);
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = ({sessionReducer}) => {
 	return {
-		model: state.sessionReducer.model,
-		error: state.sessionReducer.error
+		model: sessionReducer.model,
+		error: sessionReducer.error
 	}
 }
 
@@ -90,7 +90,7 @@ const mapDispatchToProps = (dispatch) => {
 		createPatientSession: (patient) => dispatch(createPatientSession(patient)),
 		createTherapistSession: (therapist) => dispatch(createTherapistSession(therapist)),
 		createError: (error) => dispatch(createError(error)),
-		setModel: (model) => dispatch(setModel(''))
+		setModel: (model) => dispatch(setModel(model))
 	}
 }
 

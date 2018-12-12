@@ -36,12 +36,6 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		sessionUser: state.sessionReducer.therapist ? state.sessionReducer.therapist.therapist : state.sessionReducer.patient
-	}
-}
-
 const mapDispatchToProps = dispatch => {
 	return {
 		createPatientSession: (patient) => dispatch(createPatientSession(patient)),
@@ -49,4 +43,4 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
