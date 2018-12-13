@@ -141,3 +141,7 @@ i.arrow-down:active {
 
 	padding-top: 20px;
 }
+
+h5.welcome-msg {
+	margin: 0;
+}

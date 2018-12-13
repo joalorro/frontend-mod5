@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import '../stylesheets/home.css'
 import { Icon } from 'semantic-ui-react'
 
-const Home = ({ sessionUser, history }) => {
+export function Home({ sessionUser, history }){
 	
 	const renderLinkForPatients = () => {
 		console.log('patient in session: ', sessionUser)
