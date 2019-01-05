@@ -1,5 +1,5 @@
 import React from 'react';
-import '../stylesheets/menus.css'
+import '../css/menus.css'
 import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
 

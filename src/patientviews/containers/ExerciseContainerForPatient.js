@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { fetchExercises } from '../../redux/actions/fetchExercises'
 import { fetchComments } from '../../redux/actions/fetchComments'
 import PatientExerciseCard from '../components/PatientExerciseCard'
-import '../../stylesheets/patientviews.css'
-import '../../stylesheets/effects.css'
+import '../../css/patientviews.css'
+import '../../css/effects.css'
 
 class ExerciseContainerForPatient extends Component {
 

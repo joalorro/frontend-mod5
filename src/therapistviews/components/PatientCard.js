@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react';
-import '../../stylesheets/style.css'
-import '../../stylesheets/effects.css'
+import '../../css/style.css'
+import '../../css/effects.css'
 import SimpleExerciseCard from './SimpleExerciseCard'
 import TherapistNewExerciseForm from './TherapistNewExerciseForm'
 import { selectPatient } from '../../redux/actions/actions'

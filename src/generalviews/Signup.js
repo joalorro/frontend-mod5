@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react'
-import '../stylesheets/signup.css'
+import '../css/signup.css'
 
 class Signup extends Component {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../../stylesheets/style.css'
+import '../../css/style.css'
 import TherapistComment from './TherapistComment'
 import TherapistNewCommentForm from './TherapistNewCommentForm'
 

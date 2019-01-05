@@ -7,6 +7,7 @@ import PatientSignup from './patientviews/components/PatientSignup'
 import TherapistSignup from './therapistviews/components/TherapistSignup'
 import ExerciseContainerForPatient from './patientviews/containers/ExerciseContainerForPatient'
 import PatientsContainer from './therapistviews/containers/PatientsContainer'
+import PageNotFound from './generalviews/PageNotFound'
 
 const Routes = () => {
 	return (
@@ -20,7 +21,7 @@ const Routes = () => {
 					<Route exact path="/signup/patient" render={(routeProps) => <PatientSignup {...routeProps} />} />
 					<Route exact path="/signup/therapist" render={(routeProps) => <TherapistSignup {...routeProps} />} />
 					<Route exact path="/" render={(routeProps) => <Home {...routeProps} />} />
-					{/* <Route component={NotFound} /> */}
+					<Route component={PageNotFound} />
 				</Switch>
 			</Fragment>
 		</Router>

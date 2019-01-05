@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../../stylesheets/patientviews.css'
+import '../../css/patientviews.css'
 import Comment from './Comment'
 import PatientNewCommentForm from './PatientNewCommentForm'
 

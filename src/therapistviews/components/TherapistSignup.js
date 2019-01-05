@@ -3,7 +3,7 @@ import AppAdapter from '../../adapters/AppAdapter'
 import ErrorMsg from '../../generalviews/ErrorMsg'
 import { createTherapistSession } from '../../redux/actions/actions'
 import { connect } from 'react-redux'
-import '../../stylesheets/signup.css'
+import '../../css/signup.css'
 import { Form, Button, Icon } from 'semantic-ui-react'
 
 class TherapistSignup extends Component {

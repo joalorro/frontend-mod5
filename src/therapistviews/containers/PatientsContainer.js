@@ -5,7 +5,7 @@ import { fetchExercises } from '../../redux/actions/fetchExercises'
 import { fetchComments } from '../../redux/actions/fetchComments'
 import { selectPatient } from '../../redux/actions/actions'
 import PatientCard from '../components/PatientCard'
-import '../../stylesheets/style.css'
+import '../../css/style.css'
 
 class PatientsContainer extends Component {
 

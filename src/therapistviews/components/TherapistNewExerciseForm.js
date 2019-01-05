@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AppAdapter from '../../adapters/AppAdapter'
-import '../../stylesheets/style.css'
+import '../../css/style.css'
 import { connect } from 'react-redux'
 import { fetchExercises } from '../../redux/actions/fetchExercises'
 import { Button, Form, Modal } from 'semantic-ui-react'

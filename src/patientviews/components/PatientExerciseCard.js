@@ -4,7 +4,7 @@ import YouTube from 'react-youtube'
 import AppAdapter from '../../adapters/AppAdapter'
 import { Icon } from 'semantic-ui-react'
 
-import '../../stylesheets/patientviews.css'
+import '../../css/patientviews.css'
 
 class PatientExerciseCard extends Component {
 

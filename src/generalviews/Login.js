@@ -5,7 +5,7 @@ import LogoutMsg from './login-components/LogoutMsg'
 import LoginAs from './login-components/LoginAs'
 import LoginForm from './login-components/LoginForm'
 
-import '../stylesheets/login.css'
+import '../css/login.css'
 
 const Login = ({ user, history, model }) => {
 
