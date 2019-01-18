@@ -85,24 +85,36 @@ export function Home({ sessionUser, history }){
 			behavior: 'smooth'
 		})
 	}
-	
+
 	return (
-		<div id="home">
-			<div id="background-container">
-				<div id="content-container-home">
-					<div id="home-title-container">
-						<h1 id="home-title">Continue your journey towards rehabilitation with HomeEx Helper </h1>
-					</div>
-				</div>
-			</div>
-			<div id="bottom-div">
-				<div id="downarrow-div">
-					<Icon className='arrow down large arrow-down' onClick={scrollOnClick}/>
-				</div>
-				<div id='bottom-div-content-container'>
-					{checkIfLoggedThenRenderLink()}
-				</div>
-			</div>
+		// <div id="home">
+		// 	<div id="background-container">
+		// 		<div id="content-container-home">
+		// 			<div id="home-title-container">
+		// 				<h1 id="home-title">Continue your journey towards rehabilitation with HomeEx Helper </h1>
+		// 			</div>
+		// 		</div>
+		// 	</div>
+		// 	<div id="bottom-div">
+		// 		<div id="downarrow-div">
+					
+		// 		</div>
+		// 		<div id='bottom-div-content-container'>
+		// 			{checkIfLoggedThenRenderLink()}
+		// 		</div>
+		// 	</div>
+		// </div>
+
+		<div id='home'>
+			<section id='upper'>
+				<h1 id='home-caption'>
+					Continue your journey towards rehabilitation with 
+				</h1>
+				<h1 id='title'>HomeEx Helper</h1>
+			</section>
+			<section id='lower'>
+
+			</section>
 		</div>
 	);
 }

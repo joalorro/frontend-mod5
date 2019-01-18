@@ -1,0 +1,15 @@
+@import './modules/sizes';
+
+#navbar {
+	display:block;
+	height: size(app-bar);
+	top: 0;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+
+	li {
+		list-style-type: none;
+	}
+}
+

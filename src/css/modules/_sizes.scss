@@ -1,0 +1,9 @@
+$sizes: (
+	app-bar: 50px,
+	secondary: #3B0CE8,
+	main-background: #f2f2f2
+);
+
+@function size($size-name){
+	@return map-get($sizes, $size-name);
+};

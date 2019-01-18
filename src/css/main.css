@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css?family=Archivo+Narrow:500");
+@import url("https://fonts.googleapis.com/css?family=PT+Serif");
+#navbar {
+  display: block;
+  height: 50px;
+  top: 0;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+#navbar li {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 768px) {
+  .parallax_img {
+    background-attachment: inherit;
+  }
+}
+
+section#upper {
+  overflow: hidden;
+  width: 100%;
+  min-height: 200px;
+  max-height: 500px;
+  height: 50vw;
+  background: url("../images/lookout-full.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+section#upper h1 {
+  text-align: center;
+  top: 11vw;
+  right: 5vw;
+  font-size: 32px;
+  position: fixed;
+  -webkit-transform-origin: 100%;
+          transform-origin: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  section#upper h1 {
+    top: 9vw;
+    right: 3vw;
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  section#upper h1 {
+    font-size: 3vw;
+    top: 11vw;
+    right: 5vw;
+  }
+}
+
+section#upper #home-caption {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 100;
+}
+
+section#upper #title {
+  font-family: 'PT Serif';
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  color: #3B0CE8;
+  text-shadow: 3px 3px #888;
+  top: 13vw;
+}
+
+section#lower {
+  height: 700px;
+  background: #000;
+}
+
+html {
+  color: 'salmon';
+  max-width: 1200px;
+}
+/*# sourceMappingURL=main.css.map */

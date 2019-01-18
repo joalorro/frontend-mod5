@@ -7,8 +7,6 @@ import Routes from './Routes'
 
 import AppAdapter from './adapters/AppAdapter'
 
-import './css/home.css'
-
 class App extends Component {
 
 	componentDidMount() {

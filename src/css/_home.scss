@@ -1,0 +1,58 @@
+@import './modules/colors';
+@import './modules/sizes';
+@import './partials/containers';
+@import './vendors/fonts';
+
+section#upper {
+	overflow: hidden;
+	width: 100%;
+	min-height: 200px;
+	max-height: 500px;
+	height: 50vw;
+	background: url('../images/lookout-full.jpeg');
+	background-size: cover;
+
+	@include parallax-background;
+
+	$topMargin: size(app-bar) + 20px;
+
+	h1 {
+		// margin-left: 5vw;
+		// margin-right: 5vw;
+		text-align: center;
+		top: 11vw;
+		right: 5vw;
+		font-size: 32px;
+		position: fixed;
+		transform-origin: 100%;
+
+		@media screen and (max-width: 600px){
+			top: 9vw;
+			right: 3vw;
+			font-size: 26px;
+		}
+
+		@media screen and (max-width: 1000px){
+			font-size: 3vw;
+			top: 11vw;
+			right: 5vw;
+		}
+	}
+
+	#home-caption {
+		font-family: 'Archivo Narrow', sans-serif;
+		font-weight: 100;
+	}
+	#title {
+		font-family: 'PT Serif';
+		transform: scale(1.1,1.1);
+		color: color(secondary);
+		text-shadow: 3px 3px #888;
+		top: 13vw;
+	}
+}
+
+section#lower {
+	height: 700px ;
+	background: #000;
+}
