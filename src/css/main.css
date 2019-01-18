@@ -7,10 +7,17 @@
   position: absolute;
   z-index: 1;
   width: 100%;
+  max-width: 1200px;
 }
 
 #navbar li {
   list-style-type: none;
+}
+
+#footer {
+  height: 200px;
+  background: #000;
+  color: #fff;
 }
 
 @media screen and (max-width: 768px) {
@@ -32,8 +39,8 @@ section#upper {
   background-size: 100% auto;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  -webkit-transform: translateZ(0) scale(1);
+          transform: translateZ(0) scale(1);
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
 }
@@ -44,15 +51,15 @@ section#upper h1 {
   right: 5vw;
   font-size: 32px;
   position: fixed;
-  -webkit-transform-origin: 100%;
-          transform-origin: 100%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 @media screen and (max-width: 600px) {
   section#upper h1 {
     top: 9vw;
     right: 3vw;
-    font-size: 26px;
+    font-size: 5vw;
   }
 }
 

@@ -107,10 +107,13 @@ export function Home({ sessionUser, history }){
 
 		<div id='home'>
 			<section id='upper'>
-				<h1 id='home-caption'>
-					Continue your journey towards rehabilitation with 
-				</h1>
-				<h1 id='title'>HomeEx Helper</h1>
+				<div id='foreground' >
+					<h1 id='home-caption'>
+						Continue your journey towards rehabilitation with 
+					</h1>
+					<h1 id='title'>HomeEx Helper</h1>
+				</div>
+
 			</section>
 			<section id='lower'>
 

@@ -17,19 +17,17 @@ section#upper {
 	$topMargin: size(app-bar) + 20px;
 
 	h1 {
-		// margin-left: 5vw;
-		// margin-right: 5vw;
 		text-align: center;
 		top: 11vw;
 		right: 5vw;
 		font-size: 32px;
 		position: fixed;
-		transform-origin: 100%;
+		transition: all .5s ease;
 
 		@media screen and (max-width: 600px){
 			top: 9vw;
 			right: 3vw;
-			font-size: 26px;
+			font-size: 5vw;
 		}
 
 		@media screen and (max-width: 1000px){

@@ -7,9 +7,16 @@
 	position: absolute;
 	z-index: 1;
 	width: 100%;
+	max-width: 1200px;
 
 	li {
 		list-style-type: none;
 	}
+}
+
+#footer {
+	height: 200px;
+	background: #000;
+	color: #fff;
 }
 
