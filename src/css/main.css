@@ -95,29 +95,6 @@
 }
 
 /* end */
-.back-icon:hover,
-.back-icon:focus,
-.back-icon:active {
-  color: #0197F6;
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-}
-
-.back-icon:hover:before,
-.back-icon:focus:before,
-.back-icon:active:before {
-  -webkit-transform: scale(2);
-          transform: scale(2);
-  -webkit-transition: all .3s ease-out;
-  transition: all .3s ease-out;
-}
-
-.back-icon:active:before {
-  color: #01d1f6;
-  -webkit-transition: all .05s ease-in-out;
-  transition: all .05s ease-in-out;
-}
-
 .hvr-reveal {
   display: inline-block;
   vertical-align: middle;
@@ -469,6 +446,70 @@ div#login-container #signup-link {
 
 div#login-container #signup-link:hover {
   color: #0000a9;
+}
+
+div#login-container div.login-icon-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  background: #3B0CE8;
+  border-radius: 50px;
+  -webkit-box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+}
+
+div#login-container div.login-icon-holder i#back-icon {
+  position: relative;
+  top: calc(50% - 11px);
+  color: #fff;
+  -webkit-transition-duration: .05s;
+          transition-duration: .05s;
+}
+
+div#login-container div.login-icon-holder i#back-icon:hover,
+div#login-container div.login-icon-holder i#back-icon:focus,
+div#login-container div.login-icon-holder i#back-icon:active {
+  color: #01d1f6;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+div#login-container div.login-icon-holder i#back-icon:active {
+  -webkit-transform: scale(1.2) translateY(2px);
+          transform: scale(1.2) translateY(2px);
+}
+
+div#login-container form#login-form {
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+div#login-container form#login-form label {
+  float: left;
+  margin-left: -10px;
+}
+
+div#login-container form#login-form input {
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+div#login-container form#login-form button {
+  margin: 0 auto;
+}
+
+div#login-container label, div#login-container p#register-msg {
+  color: #fff;
 }
 
 p.err {

@@ -22,14 +22,6 @@ export const sessionReducer = (state = initialState, action) => {
 					email: therapist.email
 				}
 			}
-		case "SET_PATIENTS":
-			return {
-				...state,
-				therapist: {
-					...state.therapist,
-					patients: action.patients
-				}
-			}
 		case "CHOOSE_MODEL":
 			return {
 				...state,
@@ -39,11 +31,6 @@ export const sessionReducer = (state = initialState, action) => {
 			return {
 				...state,
 				error: action.error
-			}
-		case "SET_MODEL":
-			return {
-				...state,
-				model: action.model
 			}
 		case "LOGOUT":
 			localStorage.removeItem('token')

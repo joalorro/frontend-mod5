@@ -89,25 +89,6 @@
 
 /* end */
 
-.back-icon:hover,
-.back-icon:focus,
-.back-icon:active {
-	color: #0197F6;
-	transition: all .3s ease-in;
-}
-
-.back-icon:hover:before,
-.back-icon:focus:before,
-.back-icon:active:before {
-	transform: scale(2.0);
-	transition: all .3s ease-out;
-}
-
-.back-icon:active:before {
-	color: rgb(1, 209, 246);
-	transition: all .05s ease-in-out;
-}
-
 .hvr-reveal {
 	display: inline-block;
 	vertical-align: middle;

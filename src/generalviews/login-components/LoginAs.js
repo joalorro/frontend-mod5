@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
 
-import Error from '../notifications/Error'
-
 import { Form } from 'semantic-ui-react'
 import { chooseModel } from '../../redux/actions/actions'
 
@@ -14,16 +12,17 @@ class LoginAs extends Component {
 	}
 
 	handleLoginAs = () => {
-		if ( this.state.model ){
-			this.props.history.location.pathname = '/login/' + this.state.model
-			this.props.chooseModel(this.state.model)
+		let { model } = this.state
+		let { history, chooseModel } = this.props
+		if ( model ){
+			history.location.pathname = '/login/' + model
+			chooseModel(model)
 		} else {
 			this.setState({ error: 'You must choose a role before logging in.'})
 		}
 	}
 	
 	handleChooseModel = (e) => {
-		console.log(e.target.name)
 		this.setState({ 
 			model: e.target.name,
 			error: ''
@@ -46,7 +45,6 @@ class LoginAs extends Component {
 				{error === '' ? null : this.renderErrorMsg()}
 				<Form id="login-as-form" onSubmit={this.handleLoginAs}>
 					<label>Login as a: </label> <br />
-
 					<section className="login-as-btn-container"
 					>
 						<button 

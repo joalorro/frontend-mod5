@@ -40,13 +40,6 @@ export const createError = (error) => {
 	}
 }
 
-export const setModel = (model) => {
-	return {
-		type: "SET_MODEL",
-		model
-	}
-}
-
 export const logout = () => {
 	return {
 		type: "LOGOUT"

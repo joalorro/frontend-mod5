@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux'
 import { Icon, Form, Button } from 'semantic-ui-react'
 import AppAdapter from '../../adapters/AppAdapter'
 
-import { createPatientSession, createTherapistSession, createError, setModel } from '../../redux/actions/actions'
+import { createPatientSession, createTherapistSession, createError, chooseModel } from '../../redux/actions/actions'
 import ErrorMsg from '../ErrorMsg'
 
-const LoginForm = ({model,error = '',history,createPatientSession,createTherapistSession, createError, setModel}) => {
+const LoginForm = ({ model, error = '', history, createPatientSession, createTherapistSession, createError, chooseModel }) => {
 		
 	let email = React.createRef()
 	let password = React.createRef()
-
 	
 	const handleLogin = () => {
 		let body = {
@@ -42,39 +41,33 @@ const LoginForm = ({model,error = '',history,createPatientSession,createTherapis
 	}
 
 	const handleClickBack = () => {
-		setModel('')
+		chooseModel('')
 		createError('')
 	}
 
 	return (
-		<div className='login-msg-container'>
-			<div className="login-form-div">
-				{/* <div className='login-centered-div'> */}
-					<div className="login-icon-holder">
-						<Icon enabled name="chevron left large" className="back-icon" onClick={ handleClickBack } />
-					</div>
-					<div className="error-div">
-						{!!error ? <ErrorMsg error={error} /> : null}
-					</div>
-					<div className="form-container">
-						<Form onSubmit={handleLogin} id="login-form">
-							<section id='login-info'>
-								<label>Email</label>
-								<input type="text" ref={email} placeholder="person@example.com" />
-								<label>Password</label>
-								<input type="password" ref={password} placeholder="Enter your password" />
-							</section>
-							<div className="login-btn-container" >
-								<Button className="ui primary button" >
-									Login
-								</Button>
-							</div>
-						</Form>
-					</div>
-				{/* </div> */}
+		<Fragment>
+			<div className="login-icon-holder">
+				<Icon enabled name="chevron left large" id="back-icon" onClick={ handleClickBack } />
 			</div>
-			<br />
-		</div>
+
+			<div className="error-div">
+				{!!error ? <ErrorMsg error={error} /> : null}
+			</div>
+			<Form onSubmit={handleLogin} id="login-form">
+
+				<label>Email</label>
+				<input type="text" ref={email} placeholder="person@example.com" />
+
+				<label>Password</label>
+				<input type="password" ref={password} placeholder="Enter your password" />
+				
+				<Button className="ui primary button" >
+					Login
+				</Button>
+			</Form>
+		</Fragment>
+
 	);
 }
 
@@ -90,7 +83,7 @@ const mapDispatchToProps = (dispatch) => {
 		createPatientSession: (patient) => dispatch(createPatientSession(patient)),
 		createTherapistSession: (therapist) => dispatch(createTherapistSession(therapist)),
 		createError: (error) => dispatch(createError(error)),
-		setModel: (model) => dispatch(setModel(model))
+		chooseModel: (model) => dispatch(chooseModel(model))
 	}
 }
 
