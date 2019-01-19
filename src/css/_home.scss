@@ -1,7 +1,7 @@
 section#upper {
 	overflow: hidden;
 	width: 100%;
-	min-height: 200px;
+	min-height: 225px;
 	max-height: 500px;
 	height: 50vw;
 	background: url('../images/lookout-full.jpeg');
@@ -15,20 +15,15 @@ section#upper {
 		text-align: center;
 		top: 11vw;
 		right: 5vw;
-		font-size: 32px;
+		font-size: 33px;
 		position: fixed;
 		transition: all .5s ease;
 
 		@media screen and (max-width: 600px){
-			top: 9vw;
+			top: 12vw;
 			right: 3vw;
 			font-size: 5vw;
-		}
-
-		@media screen and (max-width: 1000px){
-			font-size: 3vw;
-			top: 11vw;
-			right: 5vw;
+			font-wieight: 500;
 		}
 	}
 
@@ -46,8 +41,11 @@ section#upper {
 }
 
 section#lower {
-	height: 700px ;
+	min-height: 300px;
+	height: 75vw;
+	max-height: 600px;
 	background: #000;
+	transition-duration: .25s;
 
 	div#downarrow-div {
 		@include center-content;
@@ -58,6 +56,7 @@ section#lower {
 i.arrow-down {
 	color: #fff;
 	transition-duration: .25s;
+	height: 5vh;
 }
 i.arrow-down:hover,
 i.arrow-down:after {

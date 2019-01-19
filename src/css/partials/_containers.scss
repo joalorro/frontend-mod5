@@ -31,8 +31,11 @@
 
 @mixin half-circle-container($backgroundColor: #fff) {
 	background: color($backgroundColor);
-	height: 35px;
-	width: 70px;
+	min-height: 27px;
+	height: 4vw;
+	max-height: 35px;
+	width: 8vw;
+	max-width: 70px;
 	margin: 0 auto;
 	border-bottom-left-radius: 50px;
 	border-bottom-right-radius: 50px;
