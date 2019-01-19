@@ -365,13 +365,9 @@ i.arrow-down:after {
   color: #4eC3c4;
 }
 
-div#login {
-  min-height: 500px;
-  padding-top: 30vh;
-}
-
 div#login-container {
   position: relative;
+  top: 30vh;
   margin: 0 auto;
   width: 300px;
   height: 200px;
@@ -446,6 +442,11 @@ div#login-container #signup-link {
 
 div#login-container #signup-link:hover {
   color: #0000a9;
+}
+
+div#login-container #login-msg {
+  position: absolute;
+  top: 0;
 }
 
 div#login-container div.login-icon-holder {
@@ -523,5 +524,9 @@ html {
   background: #f2f2f2;
   max-width: 1200px;
   min-height: 100vh;
+}
+
+.full-page {
+  min-height: 500px;
 }
 /*# sourceMappingURL=main.css.map */

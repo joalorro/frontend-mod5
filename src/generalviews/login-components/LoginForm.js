@@ -44,7 +44,7 @@ const LoginForm = ({ model, error = '', history, createPatientSession, createThe
 		chooseModel('')
 		createError('')
 	}
-
+	
 	return (
 		<Fragment>
 			<div className="login-icon-holder">
@@ -61,7 +61,7 @@ const LoginForm = ({ model, error = '', history, createPatientSession, createThe
 
 				<label>Password</label>
 				<input type="password" ref={password} placeholder="Enter your password" />
-				
+
 				<Button className="ui primary button" >
 					Login
 				</Button>

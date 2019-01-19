@@ -48,16 +48,14 @@ class LoginAs extends Component {
 					<section className="login-as-btn-container"
 					>
 						<button 
-							type='button'
-							name="patient" 
+							type='button' name="patient" 
 							className={this.renderClassName("patient")}
 							onClick={this.handleChooseModel}
 						>
 							Patient
 						</button>
 						<button 
-							type='button'
-							name="therapist" 
+							type='button' name="therapist" 
 							className={this.renderClassName("therapist")}
 							onClick={this.handleChooseModel}
 						>

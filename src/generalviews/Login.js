@@ -18,7 +18,7 @@ const Login = ({ user, history, model }) => {
 	}
 
 	return (
-		<div id='login'>
+		<div className='full-page'>
 			<div id='login-container'>
 				{loginDisplay}
 			</div>

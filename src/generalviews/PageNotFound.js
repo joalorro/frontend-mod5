@@ -2,8 +2,8 @@ import React from 'react';
 
 const PageNotFound = () => {
 	return (
-		<div>
-			<span id='404'>Error Code 404: Page Not Found</span>
+		<div className='full-page'>
+			<h1 id='404'>Error Code 404: Page Not Found</h1>
 		</div>
 	);
 };

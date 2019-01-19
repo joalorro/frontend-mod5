@@ -1,15 +1,10 @@
-div#login {
-	min-height: 500px;
-	padding-top: 30vh;
-}
-
 div#login-container {
 
 	position: relative;
+	top: 30vh;
 	margin: 0 auto;
 	width: 300px;
 	height: 200px;
-
 	text-align: center;
 
 	background: color(primary);
@@ -77,6 +72,11 @@ div#login-container {
 	}
 	#signup-link:hover {
 		color: #0000a9
+	}
+
+	#login-msg {
+		position: absolute;
+		top: 0;
 	}
 
 	div.login-icon-holder {
