@@ -22,6 +22,7 @@
 }
 
 #footer {
+  position: relative;
   height: 200px;
   bottom: 0;
   background: #000;
@@ -164,7 +165,6 @@ section#lower div#welcome-outline {
 
 @media screen and (max-width: 800px) {
   section#lower div#welcome-outline {
-    top: 14vw;
     min-height: 160px;
     height: 16vh;
     min-width: 190px;

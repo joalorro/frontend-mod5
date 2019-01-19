@@ -74,7 +74,6 @@ section#lower {
 		height: 210px;
 
 		@media screen and (max-width: 800px){
-			top: 14vw;
 			min-height: $min-height + 10px;
 			height: $container-height + 1vh;
 
