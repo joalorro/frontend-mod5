@@ -3,13 +3,14 @@
 @import './partials/containers';
 @import './partials/content';
 @import './vendors/fonts';
+@import './vendors/effects';
 
 @import 'menus';
 @import 'home';
 @import 'login';
 
 html {
-	color: 'salmon';
+	background: color(main-background) ;
 	max-width: 1200px;
 	min-height: 100vh;
 }

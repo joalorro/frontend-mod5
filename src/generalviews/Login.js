@@ -18,7 +18,7 @@ const Login = ({ user, history, model }) => {
 	}
 
 	return (
-		<div id='login-background'>
+		<div id='login'>
 			<div id='login-container'>
 				{loginDisplay}
 			</div>

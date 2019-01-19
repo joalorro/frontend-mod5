@@ -4,7 +4,6 @@ import { fetchExercises } from '../../redux/actions/fetchExercises'
 import { fetchComments } from '../../redux/actions/fetchComments'
 import PatientExerciseCard from '../components/PatientExerciseCard'
 import '../../css/patientviews.css'
-import '../../css/effects.css'
 
 class ExerciseContainerForPatient extends Component {
 

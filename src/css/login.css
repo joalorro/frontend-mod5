@@ -78,7 +78,6 @@ button.model-btn {
 
 button.active {
 	transition: .25s;
-	/* background: rgb(254,105,96); */
 	background: #3B0CE8;
 	color: white;
 }
