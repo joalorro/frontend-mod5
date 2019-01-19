@@ -406,7 +406,7 @@ div#login-container {
 
 div#login-container form#login-as-form {
   position: relative;
-  top: 20%;
+  top: 15%;
 }
 
 div#login-container p#register-msg {
@@ -416,7 +416,12 @@ div#login-container p#register-msg {
   width: 100%;
 }
 
-div#login-container button.model-btn {
+div#login-container section.login-as-btn-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div#login-container section.login-as-btn-container button.model-btn {
   background-color: #fff;
   border-radius: 10px;
   height: 40px;
@@ -428,15 +433,49 @@ div#login-container button.model-btn {
   margin: 5px;
 }
 
-div#login-container button.model-btn:hover {
+div#login-container section.login-as-btn-container button.model-btn:hover {
   background-color: #3B0CE8;
 }
 
-div#login-container button.active {
+div#login-container section.login-as-btn-container button.active {
   -webkit-transition: .25s;
   transition: .25s;
   background-color: #3B0CE8;
   color: #fff;
+}
+
+div#login-container section.login-as-btn-container button.next-btn, div#login-container section.login-as-btn-container button.back-btn {
+  height: 20px;
+}
+
+div#login-container section.login-as-btn-container button.next-btn span, div#login-container section.login-as-btn-container button.back-btn span {
+  position: absolute;
+  bottom: 5px;
+  font-size: 10px;
+}
+
+div#login-container section.login-as-btn-container button.next-btn span.back, div#login-container section.login-as-btn-container button.back-btn span.back {
+  right: 10px;
+}
+
+div#login-container section.login-as-btn-container button.next-btn span.next, div#login-container section.login-as-btn-container button.back-btn span.next {
+  left: 10px;
+}
+
+div#login-container #signup-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+div#login-container #signup-link:hover {
+  color: #0000a9;
+}
+
+p.err {
+  position: absolute;
+  top: 10px;
+  color: #cc0202;
+  width: 100%;
 }
 
 html {

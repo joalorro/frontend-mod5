@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
 
+import Error from '../notifications/Error'
+
 import { Form } from 'semantic-ui-react'
 import { chooseModel } from '../../redux/actions/actions'
 
@@ -28,11 +30,9 @@ class LoginAs extends Component {
 		})
 	}
 
-	renderErrorMsg = () => {
-		return (
-			<p className='err'>{this.state.error}</p>
-		)
-	}
+	renderErrorMsg = () => (
+		<p className='err'>{this.state.error}</p>
+	)
 
 	renderClassName = (buttonModel) => {
 		return "model-btn hvr-fade " + (this.state.model === buttonModel ? 'active' : '')
@@ -43,12 +43,14 @@ class LoginAs extends Component {
 		let { error } = this.state.model
 		return (
 			<Fragment>
+				{error === '' ? null : this.renderErrorMsg()}
 				<Form id="login-as-form" onSubmit={this.handleLoginAs}>
 					<label>Login as a: </label> <br />
 
-					<div id="select-model" className="login-as-btn-div">
+					<section className="login-as-btn-container"
+					>
 						<button 
-							type="button"
+							type='button'
 							name="patient" 
 							className={this.renderClassName("patient")}
 							onClick={this.handleChooseModel}
@@ -56,35 +58,36 @@ class LoginAs extends Component {
 							Patient
 						</button>
 						<button 
-							type="button" 
+							type='button'
 							name="therapist" 
 							className={this.renderClassName("therapist")}
 							onClick={this.handleChooseModel}
 						>
 							PT
 						</button>
-					</div>
+					</section>
 
-					<div className="login-error-div">
-						{ error === '' ? null : this.renderErrorMsg() }
-					</div>
-					
-					<div className="login-as-btn-div">
-						<button className="ui icon left labeled button login-as-btn"
+					<section className="login-as-btn-container">
+						<button className="ui icon left labeled button next-btn"
 							onClick={() => history.push('/')}
 						>
 							<i aria-hidden='true' class='left chevron icon' />
-							<span className="btn-text-back">Back</span>
+							<span className="back">Back</span>
 						</button >
-						<button className='ui icon right labeled button login-as-btn'>
+						<button className='ui icon right labeled button back-btn'>
 							<i aria-hidden='true' class='right chevron icon' />
-							<span className="btn-text-next">
+							<span className="next">
 								Next
 							</span>
 						</button>
-					</div>
+					</section>
 				</Form>
-				<p id='register-msg'>Don't have an account yet? Register <span onClick={() => history.push('/signup')} id='signup-link' >here</span>. </p>
+				<p id='register-msg'>Don't have an account yet? 	Register <span 
+				onClick={() => history.push('/signup')} 
+				id='signup-link' >
+						here
+					</span>. 
+				</p>
 			</Fragment> 
 		)
 	}
