@@ -95,6 +95,21 @@ section#lower {
 			min-width: $min-width;
 			width: $container-width;
 		}
+
+		.welcome-content {
+			position: absolute;
+			top: 25%;
+			text-align: center;
+
+			.welcome-msg {
+				display: block;
+				margin: 10 auto;
+			}
+
+			.index-btn {
+				
+			}
+		}
 	}
 
 }

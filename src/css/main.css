@@ -151,6 +151,17 @@ section#lower div#welcome-container {
   }
 }
 
+section#lower div#welcome-container .welcome-content {
+  position: absolute;
+  top: 25%;
+  text-align: center;
+}
+
+section#lower div#welcome-container .welcome-content .welcome-msg {
+  display: block;
+  margin: 10 auto;
+}
+
 i.arrow-down {
   color: #fff;
   -webkit-transition-duration: .25s;
