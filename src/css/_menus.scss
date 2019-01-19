@@ -16,7 +16,36 @@
 
 #footer {
 	height: 200px;
+	bottom: 0;
+
 	background: #000;
 	color: #fff;
+	
+	#icon-container {
+		@include center-content;
+		
+		padding-top: 20px;
+		margin-bottom: 30px;
+	}
+
+	#divider {
+		margin-bottom: 30px;
+	}
+
+	#footer-text-div {
+		background: color(primary);
+		margin: 0 auto;
+		width: 100%;
+		height: 30px;
+		text-align: center;
+		display: table;
+	}
+
+	#footer-text {
+		display: table-cell;
+		vertical-align: middle;
+		color: black;
+	}
+
 }
 

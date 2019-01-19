@@ -106,10 +106,15 @@ section#lower {
 			position: absolute;
 			top: 40%;
 			text-align: center;
+		}
 
+		.welcome-btn {
+			margin: 0 auto;
+			font-size: 1.25rem;
 
-			.index-btn {
-				
+			@media screen and (max-width: 800px){
+				transition-duration: .25s;
+				font-size: .75rem;
 			}
 		}
 	}
