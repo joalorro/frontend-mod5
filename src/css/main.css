@@ -101,6 +101,56 @@ section#lower div#downarrow-div {
   padding-top: 3px;
 }
 
+section#lower div#welcome-outline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+  top: 30%;
+  margin: 0 auto;
+  background: #3B0CE8;
+  border-radius: 5px;
+  width: 310px;
+  height: 210px;
+}
+
+@media screen and (max-width: 800px) {
+  section#lower div#welcome-outline {
+    top: 14vw;
+    min-height: 160px;
+    height: 16vh;
+    min-width: 190px;
+    width: 26vw;
+  }
+}
+
+section#lower div#welcome-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 300px;
+  height: 200px;
+  background: #4eC3c4;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 800px) {
+  section#lower div#welcome-container {
+    min-height: 150px;
+    height: 15vh;
+    min-width: 180px;
+    width: 25vw;
+  }
+}
+
 i.arrow-down {
   color: #fff;
   -webkit-transition-duration: .25s;
@@ -118,5 +168,6 @@ i.arrow-down:after {
 html {
   color: 'salmon';
   max-width: 1200px;
+  min-height: 100vh;
 }
 /*# sourceMappingURL=main.css.map */

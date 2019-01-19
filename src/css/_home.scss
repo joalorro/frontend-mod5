@@ -51,6 +51,52 @@ section#lower {
 		@include center-content;
 		@include half-circle-container(secondary);
 	}
+
+	$container-height: 15vh;
+	$container-width: 25vw;
+
+	$min-height: 150px;
+	$min-width: 180px;
+
+	div#welcome-outline {
+		@include center-content;
+		
+		position: relative;
+		transition-duration: .25s;
+		top: 30%;
+		margin: 0 auto;
+		background: color(secondary);
+		border-radius: 5px;
+		width: 310px;
+		height: 210px;
+
+		@media screen and (max-width: 800px){
+			top: 14vw;
+			min-height: $min-height + 10px;
+			height: $container-height + 1vh;
+
+			min-width: $min-width + 10px;
+			width: $container-width + 1vw;
+		}
+	}
+
+	div#welcome-container {
+		@include center-content;
+
+		width: 300px;
+		height: 200px;
+		background: color(primary);
+		border-radius: 5px;
+
+		@media screen and (max-width: 800px){
+			min-height: $min-height;
+			height: $container-height;
+
+			min-width: $min-width;
+			width: $container-width;
+		}
+	}
+
 }
 
 i.arrow-down {

@@ -100,6 +100,12 @@ export function Home({ sessionUser, history }){
 				<div id='downarrow-div'>
 					<Icon className='arrow down large arrow-down' onClick={scrollOnClick}/>
 				</div>
+				<div id='welcome-outline'>
+					<div id='welcome-container'>
+						{checkIfLoggedThenRenderLink()}
+					</div>
+				</div>
+
 			</section>
 		</div>
 	);

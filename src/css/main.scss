@@ -1,6 +1,7 @@
 @import './modules/colors';
 @import './modules/sizes';
 @import './partials/containers';
+@import './partials/content';
 @import './vendors/fonts';
 
 @import 'menus';
@@ -9,4 +10,5 @@
 html {
 	color: 'salmon';
 	max-width: 1200px;
+	min-height: 100vh;
 }
