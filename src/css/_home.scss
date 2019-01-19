@@ -96,15 +96,17 @@ section#lower {
 			width: $container-width;
 		}
 
+		h5.welcome-msg {
+			margin: 10 auto;
+			position: absolute;
+			top: 20%;
+		}
+
 		.welcome-content {
 			position: absolute;
-			top: 25%;
+			top: 40%;
 			text-align: center;
 
-			.welcome-msg {
-				display: block;
-				margin: 10 auto;
-			}
 
 			.index-btn {
 				

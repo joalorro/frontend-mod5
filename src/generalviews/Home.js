@@ -14,17 +14,22 @@ export function Home({ sessionUser, history }){
 				btnMsg = `Go to your ${patient ? `Exercise` : `Patient`} Index`
 			}
 			
-			link = <button className='ui inverted button hvr-sweep-to-right welcome-btn'
-			onClick={renderNextPageForUser}
-			>
-				{btnMsg}
-			</button>
+			link = (
+				<button className='ui inverted button hvr-sweep-to-right welcome-btn'
+				onClick={renderNextPageForUser}
+				>
+					{btnMsg}
+				</button>
+			)
+		} else {
+			link = (
+				<Link to='/login' >
+					<button className='ui inverted button hvr-sweep-to-right login-btn' onClick={() => document.documentElement.scrollTop = 0}>
+						Log in/Sign up
+					</button>
+				</Link>
+			)
 		}
-		link = <Link to='/login' >
-			<button onClick={() => document.documentElement.scrollTop = 0}>
-				Log in/Sign up
-			</button>
-		</Link>
 
 		return <div className='welcome-content'>
 			{link}
@@ -32,7 +37,7 @@ export function Home({ sessionUser, history }){
 	}
 
 	const renderWelcomeMsg = () => {
-		let msg = 'Welcome '
+		let msg = 'Welcome'
 		if (therapist) msg += ', ' + therapist.first_name
 		else if (patient) msg += ', ' + patient.first_name
 
@@ -47,7 +52,7 @@ export function Home({ sessionUser, history }){
 	}
 
 	const scrollOnClick = () => {
-		document.querySelector('#downarrow-div').scrollIntoView({
+		document.querySelector('.welcome-content').scrollIntoView({
 			behavior: 'smooth'
 		})
 	}
@@ -63,9 +68,13 @@ export function Home({ sessionUser, history }){
 				</div>
 			</section>
 			<section id='lower'>
-				<div id='downarrow-div'>
-					<Icon className='arrow down large arrow-down' onClick={scrollOnClick}/>
-				</div>
+				{	window.innerWidth > 600
+					?
+					(<div id='downarrow-div'>
+						<Icon className='arrow down large arrow-down' onClick={scrollOnClick}/>
+					</div>) : 
+					null
+				}
 				<div id='welcome-outline'>
 					<div id='welcome-container'>
 						{!!Object.keys(sessionUser) ? renderWelcomeMsg() : null}

@@ -151,15 +151,16 @@ section#lower div#welcome-container {
   }
 }
 
-section#lower div#welcome-container .welcome-content {
+section#lower div#welcome-container h5.welcome-msg {
+  margin: 10 auto;
   position: absolute;
-  top: 25%;
-  text-align: center;
+  top: 20%;
 }
 
-section#lower div#welcome-container .welcome-content .welcome-msg {
-  display: block;
-  margin: 10 auto;
+section#lower div#welcome-container .welcome-content {
+  position: absolute;
+  top: 40%;
+  text-align: center;
 }
 
 i.arrow-down {
