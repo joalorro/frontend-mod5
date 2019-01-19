@@ -81,30 +81,12 @@ export function Home({ sessionUser, history }){
 	}
 
 	const scrollOnClick = () => {
-		document.querySelector('.btn-container').scrollIntoView({
+		document.querySelector('#downarrow-div').scrollIntoView({
 			behavior: 'smooth'
 		})
 	}
 
 	return (
-		// <div id="home">
-		// 	<div id="background-container">
-		// 		<div id="content-container-home">
-		// 			<div id="home-title-container">
-		// 				<h1 id="home-title">Continue your journey towards rehabilitation with HomeEx Helper </h1>
-		// 			</div>
-		// 		</div>
-		// 	</div>
-		// 	<div id="bottom-div">
-		// 		<div id="downarrow-div">
-					
-		// 		</div>
-		// 		<div id='bottom-div-content-container'>
-		// 			{checkIfLoggedThenRenderLink()}
-		// 		</div>
-		// 	</div>
-		// </div>
-
 		<div id='home'>
 			<section id='upper'>
 				<div id='foreground' >
@@ -113,10 +95,11 @@ export function Home({ sessionUser, history }){
 					</h1>
 					<h1 id='title'>HomeEx Helper</h1>
 				</div>
-
 			</section>
 			<section id='lower'>
-
+				<div id='downarrow-div'>
+					<Icon className='arrow down large arrow-down' onClick={scrollOnClick}/>
+				</div>
 			</section>
 		</div>
 	);
