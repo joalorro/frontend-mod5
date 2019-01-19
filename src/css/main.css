@@ -233,6 +233,10 @@ i.arrow-down:after {
   color: #4eC3c4;
 }
 
+#login-background {
+  min-height: 500px;
+}
+
 html {
   color: 'salmon';
   max-width: 1200px;

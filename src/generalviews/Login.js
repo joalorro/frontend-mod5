@@ -5,33 +5,25 @@ import LogoutMsg from './login-components/LogoutMsg'
 import LoginAs from './login-components/LoginAs'
 import LoginForm from './login-components/LoginForm'
 
-import '../css/login.css'
-
 const Login = ({ user, history, model }) => {
 
-	const renderLogout = () => {
-		return ( 
-			<LogoutMsg history={history} /> 
-		)
-	}
+	let loginDisplay
 
-	const renderLoginAs = () => {
-		return <LoginAs history={history} />
-	}
-
+	// if a model/role has not been chosen, that means they are already logged in
+	// or the user needs to choose their role
 	if (!model) {
-		return (
-			<div className="login-content-container">
-				{user ? renderLogout() : renderLoginAs()}
-			</div>
-		);
+		loginDisplay = user ? <LogoutMsg history={history} /> : <LoginAs history={history} />
 	} else {
-		return (
-			<div className="login-content-container" >
-				<LoginForm history={history} />
-			</div>
-		)
+		loginDisplay = <LoginForm history={history} />
 	}
+
+	return (
+		<div id='login-background'>
+			<div id='login-container'>
+				{loginDisplay}
+			</div>
+		</div>
+	)
 }
 
 const mapStateToProps = ({ sessionReducer }) => {
